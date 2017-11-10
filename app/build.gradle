@@ -1,7 +1,38 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 
+def keystoreFilepath = ''
+def keystorePSW = ''
+def keystoreAlias = ''
+def keystoreAliasPSW = ''
+// default keystore file, PLZ config file path in local.properties
+//def keyfile = file('sdfj.jks')
+def keyfile = ''
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('keystore.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+System.out.println("path:"+keystoreFilepath);
+if (keystoreFilepath) {
+    keystorePSW = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPSW = properties.getProperty("keystore.alias_password")
+    keyfile = file(keystoreFilepath)
+}else {
+    System.out.println("path:"+keystoreFilepath);
+}
+
+//获取当前时间
+def getCurrentTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+
 android {
+
+
     compileSdkVersion 26
     buildToolsVersion "27.0.0"
     defaultConfig {
@@ -12,10 +43,63 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile keyfile
+            storePassword keystorePSW
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+        }
         release {
+            storeFile keyfile
+            storePassword keystorePSW
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+//    dexOptions {
+//        incremental true
+//        javaMaxHeapSize "4g"
+//        //关闭预编译
+//        preDexLibraries = false
+//    }
+
+
+
+    buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
+        release {
+            //是否混淆
             minifyEnabled false
+            //是否移除无用资源
+            zipAlignEnabled true
+            debuggable false
+            //混淆配置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名文件存在，则签名
+            if (keyfile.exists()) {
+                signingConfig signingConfigs.release
+            } else {
+                println("WITH -> buildTypes -> release: using default key")
+            }
+            //apk文件重命名
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def file = output.outputFile
+                        def fileName = file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk")
+                        output.outputFile = new File(file.parent, fileName)
+                    }
+                }
+            }
         }
     }
 }
@@ -41,4 +125,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-scalars:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.orhanobut:logger:2.1.1'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 }
