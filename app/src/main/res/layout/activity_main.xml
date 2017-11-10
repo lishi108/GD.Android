@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/mainFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp0"
+        android:layout_weight="1">
+    </FrameLayout>
+    <RadioGroup
+        android:id="@+id/tablGroupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/homeButton"
+            android:layout_width="@dimen/dp0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/home_table_selector"
+            android:checked="true"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@null"/>
+        <RadioButton
+            android:id="@+id/goodsButton"
+            android:layout_width="@dimen/dp0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/message_table_selector"
+            android:button="@null"
+            android:background="@null"/>
+        <RadioButton
+            android:id="@+id/personButton"
+            android:layout_width="@dimen/dp0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/person_table_selector"
+            android:button="@null"
+            android:background="@null"/>
+
+    </RadioGroup>
+</LinearLayout>

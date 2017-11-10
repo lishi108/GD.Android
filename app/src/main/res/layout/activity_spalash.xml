@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/spalashViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/skipButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp30"
+        android:text="@string/skip"
+        android:textSize="@dimen/fontSize16"
+        android:padding="@dimen/dp10"
+        android:background="@android:color/darker_gray"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="@string/use_now"
+        android:textSize="@dimen/fontSize16"
+        android:padding="@dimen/dp10"
+        android:background="@android:color/darker_gray"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp50"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp30">
+
+        <!-- 线性布局用来显示引导页的圆点，使用代码给布局中添加圆点 -->
+        <LinearLayout
+            android:id="@+id/pointGroupLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <!--&lt;!&ndash; 表示当前显示的引导页，覆盖在待选中的圆点之上，宽高要注意保持一致 &ndash;&gt;-->
+        <!--<View-->
+            <!--android:id="@+id/pointView"-->
+            <!--android:layout_width="@dimen/dp10"-->
+            <!--android:layout_height="@dimen/dp10"-->
+            <!--android:background="@drawable/shape_point_white"/>-->
+
+    </RelativeLayout>
+
+</RelativeLayout>

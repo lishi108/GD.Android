@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/app_bar_base" />
+    <com.guodong.widget.ClearEditText
+        android:id="@+id/registerPhoneEdit"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp20"
+        android:hint="@string/phone"
+        style="@style/Setting_EditText"
+        android:inputType="phone"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp20"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/registerCodeEdit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="@string/code"
+            style="@style/Setting_EditText"
+            />
+        <Button
+            android:id="@+id/registerCodeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp10"
+            android:text="@string/get_code"/>
+    </LinearLayout>
+    <com.guodong.widget.ClearEditText
+        android:id="@+id/registerPwdEdit"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp20"
+        android:hint="@string/pwd"
+        style="@style/Setting_EditText"
+        android:inputType="text"/>
+    <com.guodong.widget.ClearEditText
+        android:id="@+id/registerConfirmPwdEdit"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp20"
+        android:hint="@string/confirm_pwd"
+        style="@style/Setting_EditText"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp30"
+        android:background="@drawable/button_background"
+        android:text="@string/register"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/fontSize16" />
+</LinearLayout>

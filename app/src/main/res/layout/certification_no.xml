@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar_base" />
+
+    <EditText
+        android:id="@+id/certificationNameEdit"
+        style="@style/Setting_EditText"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp20"
+        android:hint="@string/certification_name_info"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/certificationCardEdit"
+        style="@style/Setting_EditText"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp10"
+        android:hint="@string/certification_card_info" />
+
+    <EditText
+        android:id="@+id/certificationAlipayEdit"
+        style="@style/Setting_EditText"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp10"
+        android:hint="@string/certification_alipay_info" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/button_background"
+        android:text="@string/certification"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/fontSize16" />
+
+</LinearLayout>

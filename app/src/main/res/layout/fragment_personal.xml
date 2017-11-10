@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorHint"
+    android:scrollbars="none"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/personalSetting"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:padding="@dimen/dp5"
+            android:src="@mipmap/photo"/>
+
+        <ImageView
+            android:id="@+id/personalPhotoImage"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/photo"
+            android:scaleType="fitCenter"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textSize="@dimen/fontSize14"
+            android:textColor="@color/colorWhite"
+            android:text="LSQ108"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp0.5"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:orientation="vertical">
+                <com.guodong.widget.TextDrawable
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_gravity="right|center_vertical"
+                    android:drawablePadding="@dimen/dp10"
+                    android:gravity="center_vertical"
+                    android:text="@string/fetch"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/fontSize18"
+                    app:icon_direction="right"
+                    app:icon_height="@dimen/dp15"
+                    app:icon_width="@dimen/dp15"
+                    app:icon_src_normal="@mipmap/question_mark"/>
+                <TextView
+                    android:id="@+id/personalFetchText"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="￥999"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:orientation="vertical">
+                <com.guodong.widget.TextDrawable
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp30"
+                    android:layout_gravity="right|center_vertical"
+                    android:drawablePadding="@dimen/dp10"
+                    android:gravity="center_vertical"
+                    android:text="@string/cash_pledge"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/fontSize18"
+                    app:icon_direction="right"
+                    app:icon_height="@dimen/dp15"
+                    app:icon_width="@dimen/dp15"
+                    app:icon_src_normal="@mipmap/question_mark"/>
+                <TextView
+                    android:id="@+id/personalCashPledgeText"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="￥999"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp0.5"
+            android:background="@color/colorBlack"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp10"
+            android:textSize="@dimen/fontSize16"
+            android:textColor="@color/colorBlack"
+            android:text="@string/commodity_management"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/reviewText"
+                    style="@style/Personal_Text"
+                    android:text="@string/review" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/onOfferText"
+                    style="@style/Personal_Text"
+                    android:text="@string/on_offer" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/soldText"
+                    style="@style/Personal_Text"
+                    android:text="@string/sold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/storageText"
+                    style="@style/Personal_Text"
+                    android:text="@string/storage" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp10"
+            android:textSize="@dimen/fontSize16"
+            android:textColor="@color/colorBlack"
+            android:text="@string/order_management"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tradingText"
+                    style="@style/Personal_Text"
+                    android:text="@string/trading" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/completeText"
+                    style="@style/Personal_Text"
+                    android:text="@string/complete" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/cancleText"
+                    style="@style/Personal_Text"
+                    android:text="@string/cancle" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/allText"
+                    style="@style/Personal_Text"
+                    android:text="@string/all" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/collectLayout"
+            android:layout_marginTop="@dimen/dp30"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/personalIcon1"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/personalIcon1"
+                android:text="@string/collect" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/browsingHistoryLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/personalIcon2"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/personalIcon2"
+                android:text="@string/browsing_history" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/roleManagerLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/personalIcon3"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/personalIcon3"
+                android:text="@string/role_manager" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/notescontactLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/personalIcon4"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/personalIcon4"
+                android:text="@string/notescontact" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/helpLayout"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp20"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/personalIcon5"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/personalIcon5"
+                android:text="@string/help" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

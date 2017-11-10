@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--<include layout="@layout/app_bar_base" />-->
+
+        <RelativeLayout
+            android:id="@+id/settingPwdLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon1"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon1"
+                android:text="@string/setting_pwd" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingPhoneLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon2"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon2"
+                android:text="@string/setting_phone" />
+
+            <ImageView
+                style="@style/Setting_IconRight" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingWeiXinLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon3"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon3"
+                android:text="@string/setting_weixin" />
+
+            <ImageView
+                style="@style/Setting_IconRight" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingRelNameLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon4"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon4"
+                android:text="@string/setting_realName" />
+
+            <ImageView
+                style="@style/Setting_IconRight" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingQuestionLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon5"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon5"
+                android:text="@string/setting_question" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingNetLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon6"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon6"
+                android:text="@string/setting_net" />
+
+            <ImageView
+                style="@style/Setting_IconRight"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingCacheLayout"
+            android:layout_marginTop="@dimen/dp30"
+            style="@style/Setting_Layout"
+            >
+
+            <ImageView
+                android:id="@+id/settingIcon7"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq" />
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon7"
+
+                android:text="@string/setting_cache" />
+
+            <ImageView
+                style="@style/Setting_IconRight"
+                android:src="@mipmap/icon_def_qq" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/settingAboutLayout"
+            android:layout_marginTop="@dimen/dp10"
+            style="@style/Setting_Layout">
+
+            <ImageView
+                android:id="@+id/settingIcon8"
+                style="@style/Setting_IconLeft"
+                android:src="@mipmap/icon_def_qq"/>
+
+            <TextView
+                style="@style/Setting_Text"
+                android:layout_toRightOf="@id/settingIcon8"
+                android:text="@string/setting_about" />
+
+            <ImageView
+                style="@style/Setting_IconRight" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</ScrollView>

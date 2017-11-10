@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar_base" />
+
+    <TextView
+        android:id="@+id/certificationNameText"
+        style="@style/Setting_Text"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/border"
+        android:text="张**"/>
+    <TextView
+        android:id="@+id/certificationCardText"
+        style="@style/Setting_Text"
+        android:layout_marginTop="@dimen/dp20"
+        android:background="@drawable/border"
+        android:inputType="text"
+        android:text="5****************7"/>
+
+    <RelativeLayout
+        android:id="@+id/certificationAlipayLayout"
+        android:layout_marginTop="@dimen/dp20"
+        style="@style/Setting_Layout">
+
+        <ImageView
+            android:id="@+id/aboutIcon2"
+            style="@style/Setting_IconLeft"
+            android:src="@mipmap/icon_def_qq" />
+
+        <TextView
+            style="@style/Setting_Text"
+            android:layout_toRightOf="@id/aboutIcon2"
+            android:text="@string/alipay" />
+
+        <ImageView
+            style="@style/Setting_IconRight"/>
+
+
+    </RelativeLayout>
+</LinearLayout>
