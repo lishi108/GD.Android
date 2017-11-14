@@ -2,13 +2,14 @@ package com.guodong.business.presenter.user;
 
 
 import com.guodong.business.bean.User;
+import com.guodong.business.config.DataManager;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.model.user.LoginModel;
 import com.guodong.business.view.MainActivity;
 import com.guodong.http.BaseObserver;
 import com.guodong.mvp.BasePresenter;
-import com.guodong.utils.LogUtils;
 import com.guodong.utils.ToastUtil;
+import com.orhanobut.logger.Logger;
 
 /**
  * Description:
@@ -45,7 +46,9 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
                 .subscribe(new BaseObserver<User>(getView().getContext(),"login",true) {
                     @Override
                     public void onSuccess(User user) {
-                        LogUtils.e(user.getPhone());
+                        Logger.e(user.getPhone());
+                        DataManager.saveLoginInfo(user);
+                        DataManager.saveIsFirst(false);
                         mView.startToActivity(MainActivity.class);
                     }
 

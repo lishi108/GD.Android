@@ -5,8 +5,8 @@ import com.guodong.business.contract.RegisterContract;
 import com.guodong.business.model.user.RegisterModel;
 import com.guodong.http.BaseObserver;
 import com.guodong.mvp.BasePresenter;
-import com.guodong.utils.LogUtils;
 import com.guodong.utils.ToastUtil;
+import com.orhanobut.logger.Logger;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,7 +39,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
                 .subscribe(new BaseObserver<Integer>(mView.getContext(),"register",false) {
                     @Override
                     public void onSuccess(Integer integer) {
-                        LogUtils.e(integer+"");
+                        Logger.e(integer+"");
                     }
 
                     @Override

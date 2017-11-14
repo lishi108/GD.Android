@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/app_bar_base" />
+    <!--<include layout="@layout/app_bar_base" />-->
 
-    <EditText
+    <com.guodong.widget.ClearEditText
         android:id="@+id/oldPhoneEdit"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/dp20"
+        android:drawableRight="@mipmap/set_exit"
         android:hint="@string/setting_old_phone"
         style="@style/Setting_EditText"
         android:inputType="phone"/>

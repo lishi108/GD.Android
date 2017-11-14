@@ -221,7 +221,6 @@ public class ImageUtils {
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
-            // Log.e(TAG, "transform byte exception");
         }
         return out.toByteArray();
     }

@@ -1,7 +1,7 @@
 package com.guodong.business.api;
 
 
-import com.guodong.app.AppConfig;
+import com.guodong.business.config.AppConfig;
 import com.guodong.http.RetrofitManager;
 
 /**

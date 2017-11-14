@@ -14,14 +14,14 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('keystore.properties').newDataInputStream())
 keystoreFilepath = properties.getProperty("keystore.path")
 
-System.out.println("path:"+keystoreFilepath);
+System.out.println("path:" + keystoreFilepath);
 if (keystoreFilepath) {
     keystorePSW = properties.getProperty("keystore.password")
     keystoreAlias = properties.getProperty("keystore.alias")
     keystoreAliasPSW = properties.getProperty("keystore.alias_password")
     keyfile = file(keystoreFilepath)
-}else {
-    System.out.println("path:"+keystoreFilepath);
+} else {
+    System.out.println("path:" + keystoreFilepath);
 }
 
 //获取当前时间
@@ -67,7 +67,6 @@ android {
 //        //关闭预编译
 //        preDexLibraries = false
 //    }
-
 
 
     buildTypes {

@@ -2,7 +2,7 @@ package com.guodong.http;
 
 import android.util.Log;
 
-import com.guodong.app.AppConfig;
+import com.guodong.business.config.AppConfig;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;

@@ -1,7 +1,7 @@
 package com.guodong.http;
 
 
-import com.guodong.app.AppConfig;
+import com.guodong.business.config.AppConfig;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;

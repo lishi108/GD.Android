@@ -3,6 +3,7 @@ package com.guodong.utils;
 import android.util.Log;
 
 import com.guodong.BuildConfig;
+import com.orhanobut.logger.Logger;
 
 
 /**
@@ -44,7 +45,7 @@ public class LogUtils {
 
         // Throwable instance must be created before any methods
         getMethodNames(new Throwable().getStackTrace());
-        Log.e(className, createLog(message));
+        Logger.e(createLog(message));
     }
 
 

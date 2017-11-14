@@ -15,7 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.guodong.app.BaseApplication;
+import com.guodong.BaseApplication;
 import com.guodong.http.RxManager;
 
 import butterknife.ButterKnife;

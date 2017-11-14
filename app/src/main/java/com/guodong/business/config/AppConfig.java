@@ -1,4 +1,4 @@
-package com.guodong.app;
+package com.guodong.business.config;
 
 
 import com.guodong.utils.SDCardUtils;
@@ -18,6 +18,12 @@ public class AppConfig {
     public static final long CACHE_SIZE = 1024 * 1024 * 100;  //缓存空间
     public static final String BASE_PATH = SDCardUtils.getSDCardPath()+"/";
     public static final String CACHE_PATH = BASE_PATH;
+
+
+    public static final String SHARED_FILE_NAME = "sharedPreference";
+    public static final String LOGINE_KEY = "loginKey";
+    public static final String LOGINE_FIRST_KEY = "isFirst";
+
 
 
 

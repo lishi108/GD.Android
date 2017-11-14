@@ -75,6 +75,6 @@ public interface RegisterContract {
         /**
          * 注册
          */
-        public Observable<User> register(String phone,String code,String pwd,String pwdTwo);
+        public Observable<User> register(String phone, String code, String pwd, String pwdTwo);
     }
 }

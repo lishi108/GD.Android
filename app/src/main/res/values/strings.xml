@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyMVPFrame</string>
+    <string name="app_name">GD_Android</string>
     <string name="loadingText">加载中...</string>
     <!--spalash-->
     <string name="use_now">立即使用</string>

@@ -1,6 +1,5 @@
 package com.guodong.business.view.spalash;
 
-import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -13,20 +12,31 @@ import com.guodong.R;
 import com.guodong.animation.ZoomOutPageTransformer;
 import com.guodong.business.adapter.CustomPagerAdapter;
 import com.guodong.business.bean.PictureInfo;
-import com.guodong.business.contract.SpalashContract;
-import com.guodong.business.presenter.spalash.SpalashPresenter;
+import com.guodong.business.config.DataManager;
+import com.guodong.business.contract.SplashContract;
+import com.guodong.business.presenter.spalash.SplashPresenter;
 import com.guodong.business.view.user.LoginActivity;
 import com.guodong.mvp.BaseActivity;
 import com.guodong.utils.DensityUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
-public class SpalashActivity extends BaseActivity<SpalashPresenter> implements SpalashContract.ISpalashView, ViewPager.OnPageChangeListener {
+public class SplashActivity extends BaseActivity<SplashPresenter> implements SplashContract.ISplashView, ViewPager.OnPageChangeListener {
 
+    @BindView(R.id.welcomeLayout)
+    RelativeLayout welcomeLayout;
+    @BindView(R.id.splashImage)
+    ImageView splashImage;
     @BindView(R.id.spalashViewPager)
     ViewPager spalashViewPager;
     @BindView(R.id.pointGroupLayout)
@@ -46,23 +56,47 @@ public class SpalashActivity extends BaseActivity<SpalashPresenter> implements S
     private CustomPagerAdapter adapter;
 
     @Override
-    protected SpalashPresenter loadPresenter() {
-        return new SpalashPresenter();
+    protected SplashPresenter loadPresenter() {
+        return new SplashPresenter();
     }
 
 
     @Override
     protected void initData() {
         super.initData();
-        mPresenter.getImages();
-        mImageViewList = new ArrayList<>();
+        Observable.create(new ObservableOnSubscribe() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter e) throws Exception {
+                if(DataManager.getIsFirst()) e.onNext(true);
+                else {
+                    splashImage.setVisibility(View.VISIBLE);
+                    splashImage.setBackgroundResource(R.mipmap.welcome);
+                    welcomeLayout.setVisibility(View.GONE);
+                    intentToLoginActivity();
+                    e.onComplete();
+                    Logger.e("不是第一次进入");
+                }
+            }
+        })
+        .subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+                Logger.e("第一次进入,准备请求图片");
+                splashImage.setVisibility(View.GONE);
+                welcomeLayout.setVisibility(View.VISIBLE);
 
-//    初始化引导页的三个页面
+                mPresenter.getImages();
+                mImageViewList = new ArrayList<>();
 
-        adapter = new CustomPagerAdapter(mImageViewList);
-        spalashViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        spalashViewPager.setAdapter(adapter);
-        spalashViewPager.addOnPageChangeListener(this);
+                //    初始化引导页的三个页面
+
+                adapter = new CustomPagerAdapter(mImageViewList);
+                spalashViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+                spalashViewPager.setAdapter(adapter);
+                spalashViewPager.addOnPageChangeListener(SplashActivity.this);
+            }
+        });
+
 
     }
 
@@ -103,9 +137,16 @@ public class SpalashActivity extends BaseActivity<SpalashPresenter> implements S
     }
 
     private void intentToLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+        splashImage.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(LoginActivity.class);
+                finish();
+            }
+        },1000);
+//        Intent intent = new Intent(this, LoginActivity.class);
+//        startActivity(intent);
+//        finish();
     }
 
     @Override

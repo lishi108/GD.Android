@@ -13,14 +13,14 @@ import io.reactivex.Observable;
  * Created by Administrator on 2017/10/31.
  */
 
-public interface SpalashContract {
-    interface ISpalashView extends BaseContract.IBaseView{
+public interface SplashContract {
+    interface ISplashView extends BaseContract.IBaseView{
         void setImages(List<PictureInfo> images);
     }
-    interface  ISpalashPresenter extends BaseContract.IBasePresennter{
+    interface  ISplashPresenter extends BaseContract.IBasePresennter{
         void getImages();
     }
-    interface ISpalashModel  extends BaseContract.IBaseModel{
+    interface ISplashModel  extends BaseContract.IBaseModel{
 //        Observable<User> Login(String userName, String pwd);
         Observable<List<PictureInfo>> getImages();
     }

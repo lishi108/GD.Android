@@ -3,7 +3,7 @@ package com.guodong.business.model.spalash;
 
 import com.guodong.R;
 import com.guodong.business.bean.PictureInfo;
-import com.guodong.business.contract.SpalashContract;
+import com.guodong.business.contract.SplashContract;
 import com.guodong.http.RxSchedulers;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import io.reactivex.Observable;
  * Created by Administrator on 2017/10/31.
  */
 
-public class SpalashModel implements SpalashContract.ISpalashModel {
+public class SplashModel implements SplashContract.ISplashModel {
     @Override
     public Observable<List<PictureInfo>> getImages() {
         List<PictureInfo> infoList = new ArrayList<>();
