@@ -4,7 +4,7 @@ package com.guodong.business.model.spalash;
 import com.guodong.R;
 import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.contract.SplashContract;
-import com.guodong.http.RxSchedulers;
+import com.guodong.business.http.RxSchedulers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +39,26 @@ public class SplashModel implements SplashContract.ISplashModel {
                 .compose(RxSchedulers.<List<PictureInfo>> io_main());
     }
 
+
+//
+//    public Observable<List<PictureInfo>> getImages() {
+////        HttpHeaders headers = new HttpHeaders();
+////        headers.put("aaa", "header");
+////        HttpParams params = new HttpParams();
+////        params.put("bbb", "param");
+//        return OkGo.<BaseEntity<List<PictureInfo>>>get("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510832788065&di=694cfc5ba73a1cfc8cc7d91a46290670&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F3801213fb80e7bec36aa2529252eb9389a506b81.jpg")
+////                .headers(headers)
+////                .params(params)
+//                .converter(new JsonConvert<BaseEntity<List<PictureInfo>>>())
+//                .adapt(new ObservableBody<BaseEntity<List<PictureInfo>>>())
+//                .map(new Function<BaseEntity<List<PictureInfo>>, List<PictureInfo>>() {
+//                    @Override
+//                    public List<PictureInfo> apply(@NonNull BaseEntity<List<PictureInfo>> listBaseEntity) throws Exception {
+//                        return listBaseEntity.getData();
+//                    }
+//                })
+//                .compose(RxSchedulers.<List<PictureInfo>>io_main());
+//    }
 
 //    @Override
 //    public Observable<User> getCalendar(String date) {

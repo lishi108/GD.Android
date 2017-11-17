@@ -3,12 +3,15 @@ package com.guodong.business.presenter.spalash;
 
 import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.contract.SplashContract;
+import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.spalash.SplashModel;
-import com.guodong.http.BaseObserver;
 import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
 
 import java.util.List;
+
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Function;
 
 /**
  * Description:
@@ -25,10 +28,20 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
     @Override
     public void getImages() {
         getModel().getImages()
+                .map(new Function<List<PictureInfo>, List<PictureInfo>>() {
+                    @Override
+                    public List<PictureInfo> apply(@NonNull List<PictureInfo> pictureInfoList) throws Exception {
+                        pictureInfoList.add(pictureInfoList.get(0));
+                        pictureInfoList.add(pictureInfoList.get(0));
+                        pictureInfoList.add(pictureInfoList.get(0));
+                        return pictureInfoList;
+                    }
+                })
                 .subscribe(new BaseObserver<List<PictureInfo>>(getView().getContext(),"spalash",false) {
                     @Override
                     public void onSuccess(List<PictureInfo> pictureInfoList) {
                         getView().setImages(pictureInfoList);
+//                        DataManager.saveIsFirst(false);
                     }
 
                     @Override

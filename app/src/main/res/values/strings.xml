@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">GD_Android</string>
     <string name="loadingText">加载中...</string>
+    <!--search-->
+    <string name="searchHint">请输入查找的内容</string>
+    <string name="search">搜索</string>
     <!--spalash-->
     <string name="use_now">立即使用</string>
     <string name="skip">跳过</string>
@@ -66,4 +69,23 @@
     <string name="certification_alipay_info">请输入支付宝账户</string>
     <string name="certification">认证</string>
     <string name="alipay">支付宝</string>
+
+
+    <string-array name="data">
+        <item>我是第一行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+        <item>我是第二行数据</item>
+    </string-array>
 </resources>

@@ -1,4 +1,4 @@
-package com.guodong.http;
+package com.guodong.business.http;
 
 
 import com.guodong.business.config.AppConfig;

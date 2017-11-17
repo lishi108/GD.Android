@@ -3,7 +3,7 @@ package com.guodong.business.model.user;
 
 import com.guodong.business.bean.User;
 import com.guodong.business.contract.RegisterContract;
-import com.guodong.http.RxSchedulers;
+import com.guodong.business.http.RxSchedulers;
 
 import io.reactivex.Observable;
 

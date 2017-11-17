@@ -2,8 +2,8 @@ package com.guodong.business.presenter.user;
 
 
 import com.guodong.business.contract.RegisterContract;
+import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.user.RegisterModel;
-import com.guodong.http.BaseObserver;
 import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
 import com.orhanobut.logger.Logger;

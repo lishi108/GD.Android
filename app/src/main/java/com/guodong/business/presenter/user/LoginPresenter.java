@@ -1,12 +1,10 @@
 package com.guodong.business.presenter.user;
 
 
-import com.guodong.business.bean.User;
-import com.guodong.business.config.DataManager;
+import com.guodong.business.bean.ServerModel;
 import com.guodong.business.contract.LoginContract;
+import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.user.LoginModel;
-import com.guodong.business.view.MainActivity;
-import com.guodong.http.BaseObserver;
 import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
 import com.orhanobut.logger.Logger;
@@ -41,15 +39,30 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 //                return Boolean.TRUE;
 //            }
 //        }).
+//
+//        mModel.Login(userName,pwd)
+//                .subscribe(new BaseObserver<User>(getView().getContext(),"login",true) {
+//                    @Override
+//                    public void onSuccess(User user) {
+//                        Logger.e(user.getPhone());
+//                        DataManager.saveLoginInfo(user);
+//                        DataManager.saveIsFirst(false);
+//                        mView.startToActivity(MainActivity.class);
+//                    }
+//
+//                    @Override
+//                    public void onError(String message) {
+//                        ToastUtil.showToast(getView().getContext(),message);
+//                    }
+//                });
 
-        mModel.Login(userName,pwd)
-                .subscribe(new BaseObserver<User>(getView().getContext(),"login",true) {
+        mModel.Login("222","2222")
+//                .observeOn(AndroidSchedulers.mainThread())//
+                .subscribe(new BaseObserver<ServerModel>(getView().getContext(),"login",true) {
                     @Override
-                    public void onSuccess(User user) {
-                        Logger.e(user.getPhone());
-                        DataManager.saveLoginInfo(user);
-                        DataManager.saveIsFirst(false);
-                        mView.startToActivity(MainActivity.class);
+                    public void onSuccess(ServerModel user) {
+                        Logger.e(user.toString());
+                        Logger.e(user.ip);
                     }
 
                     @Override

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,7 +17,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guodong.BaseApplication;
-import com.guodong.http.RxManager;
+import com.guodong.business.http.RxManager;
+import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
 
@@ -50,7 +52,8 @@ public abstract class AbsActivity extends AppCompatActivity {
 
     private void initCommonData() {
         ButterKnife.bind(this);
-        TAG = getPackageName() + "." + getClass().getSimpleName();
+//        TAG = getPackageName() + "." + getClass().getSimpleName();
+        Logger.e("TAG:::",TAG);
         /** 是否沉浸状态栏 **/
         if (isSetStatusBar) {
             steepStatusBar();
@@ -137,16 +140,16 @@ public abstract class AbsActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         /*此处多Fragment返回键切换Fragment与双击返回键推出应用冲突，根据项目情况做调整
          */
-        if (KeyEvent.KEYCODE_BACK == keyCode) {
-            if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
-                finish();
-                return true;
-            }
-        }
-//        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-//            exit();
-//            return true;
+//        if (KeyEvent.KEYCODE_BACK == keyCode) {
+//            if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+//                finish();
+//                return true;
+//            }
 //        }
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            exit();
+            return true;
+        }
         return super.onKeyDown(keyCode, event);
     }
 

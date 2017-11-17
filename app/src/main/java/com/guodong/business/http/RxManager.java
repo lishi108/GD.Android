@@ -1,4 +1,6 @@
-package com.guodong.http;
+package com.guodong.business.http;
+
+import android.support.annotation.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +29,7 @@ public class RxManager {
         }
         return rxManager;
     }
-    public void add(String key, Disposable disposable){
+    public void add(@NonNull String key, Disposable disposable){
         Set<String> keySet = map.keySet();
         if(keySet.contains(key)){
             CompositeDisposable compositeDisposable = map.get(key);
@@ -38,11 +40,13 @@ public class RxManager {
             map.put(key,compositeDisposable);
         }
     }
-    public void clear(String key){
+    public void clear(@NonNull String key){
         Set<String> keySet = map.keySet();
         if(keySet.contains(key)){
             CompositeDisposable compositeDisposable = map.get(key);
+            compositeDisposable.dispose();
             compositeDisposable.clear();
+
             map.remove(key);
         }
     }

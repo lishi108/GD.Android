@@ -1,4 +1,4 @@
-package com.guodong.http;
+package com.guodong.business.http;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by LSQ108 on 2017/10/29.
  */
 
-public class RxSchedulers  {
+public class RxSchedulers {
     public static <T>ObservableTransformer <T,T> io_main(){
         return new ObservableTransformer<T, T>() {
             @Override

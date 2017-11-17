@@ -1,7 +1,12 @@
 package com.guodong.business.model.home;
 
 
+import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.contract.HomeContract;
+
+import java.util.List;
+
+import io.reactivex.Observable;
 
 /**
  * Description:
@@ -10,4 +15,13 @@ import com.guodong.business.contract.HomeContract;
 
 public class HomeModel implements HomeContract.IHomeModel {
 
+    @Override
+    public Observable<List<PictureInfo>> getBannerImages() {
+        return null;
+    }
+
+    @Override
+    public Observable<List<String>> getData() {
+        return null;
+    }
 }

@@ -1,6 +1,7 @@
 package com.guodong.business.contract;
 
 
+import com.guodong.business.bean.ServerModel;
 import com.guodong.business.bean.User;
 import com.guodong.mvp.BaseContract;
 
@@ -12,17 +13,24 @@ import io.reactivex.Observable;
  */
 
 public interface LoginContract {
-    interface ILoginView extends BaseContract.IBaseView{
+    interface ILoginView extends BaseContract.IBaseView {
         String getUserName();
+
         String getPassword();
+
         void startToActivity(Class activityClass);
     }
-    interface  ILoginPresenter extends BaseContract.IBasePresennter{
+
+    interface ILoginPresenter extends BaseContract.IBasePresennter {
         void login(String userName, String pwd);
+
         void login(int type);
     }
-    interface ILoginModel  extends BaseContract.IBaseModel{
-        Observable<User> Login(String userName, String pwd);
+
+    interface ILoginModel extends BaseContract.IBaseModel {
+        //        Observable<User> Login(String userName, String pwd);
+        Observable<ServerModel> Login(String userName, String pwd);
+
         Observable<User> Login(int type);
     }
 }

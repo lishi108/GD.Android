@@ -18,22 +18,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <android.support.v4.view.ViewPager
-                android:id="@+id/spalashViewPager"
+                android:id="@+id/splashViewPager"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="0dp"/>
-            <!--<com.guodong.widget.MaterialIndicator-->
-                <!--android:id="@+id/indicator"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:paddingBottom="@dimen/dp16"-->
-                <!--android:paddingLeft="@dimen/dp16"-->
-                <!--android:paddingRight="@dimen/dp16"-->
-                <!--android:paddingTop="@dimen/dp16"-->
-                <!--app:mi_indicatorRadius="@dimen/dp5"-->
-                <!--app:mi_indicatorPadding="@dimen/dp30"-->
-                <!--app:mi_indicatorColor="@color/colorAccent"/>-->
+            <com.guodong.widget.MaterialIndicator
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="@dimen/dp16"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:paddingTop="@dimen/dp16"
+                app:mi_indicatorRadius="@dimen/dp5"
+                app:mi_indicatorPadding="@dimen/dp30"
+                app:mi_indicatorColor="@color/colorAccent"/>
         </LinearLayout>
 
 
@@ -62,23 +62,23 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/dp50"/>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/dp30">
+        <!--<RelativeLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="@dimen/dp30">-->
 
-            <!-- 线性布局用来显示引导页的圆点，使用代码给布局中添加圆点 -->
-            <LinearLayout
-                android:id="@+id/pointGroupLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            <!--&lt;!&ndash; 线性布局用来显示引导页的圆点，使用代码给布局中添加圆点 &ndash;&gt;-->
+            <!--<LinearLayout-->
+                <!--android:id="@+id/pointGroupLayout"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
     </RelativeLayout>
 
 
