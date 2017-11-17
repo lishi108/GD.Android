@@ -11,6 +11,7 @@ import com.guodong.utils.ToastUtil;
 import java.util.List;
 
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 
 /**
@@ -37,7 +38,14 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
                         return pictureInfoList;
                     }
                 })
-                .subscribe(new BaseObserver<List<PictureInfo>>(getView().getContext(),"spalash",false) {
+                .subscribe(new BaseObserver<List<PictureInfo>>(getView().getContext(),false) {
+
+
+                    @Override
+                    public void addonSubscribe(@NonNull Disposable d) {
+                        addDisposable(d);
+                    }
+
                     @Override
                     public void onSuccess(List<PictureInfo> pictureInfoList) {
                         getView().setImages(pictureInfoList);

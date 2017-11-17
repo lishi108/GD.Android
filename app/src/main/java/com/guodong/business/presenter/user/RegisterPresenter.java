@@ -36,7 +36,12 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
 
         //获取验证码
         mModel.getCode(mView.getPhone())
-                .subscribe(new BaseObserver<Integer>(mView.getContext(),"register",false) {
+                .subscribe(new BaseObserver<Integer>(mView.getContext(),false) {
+                    @Override
+                    public void addonSubscribe(@NonNull Disposable d) {
+                        addDisposable(d);
+                    }
+
                     @Override
                     public void onSuccess(Integer integer) {
                         Logger.e(integer+"");

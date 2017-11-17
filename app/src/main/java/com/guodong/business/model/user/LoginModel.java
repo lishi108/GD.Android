@@ -6,13 +6,14 @@ import com.guodong.business.bean.User;
 import com.guodong.business.config.AppConfig;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.http.BaseEntity;
-import com.guodong.business.http.ComFunction;
-import com.guodong.business.http.RxSchedulers;
 import com.guodong.business.http.callback.JsonConvert;
 import com.lzy.okgo.OkGo;
 import com.lzy.okrx2.adapter.ObservableBody;
 
 import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Description:
@@ -34,10 +35,17 @@ public class LoginModel implements LoginContract.ILoginModel {
         return OkGo.<BaseEntity<ServerModel>>get(AppConfig.URL_JSONOBJECT)
                 .headers("aaa","111")
                 .params("bbb","222")
-                .converter(new JsonConvert<BaseEntity<ServerModel>>())
+                .converter(new JsonConvert<BaseEntity<ServerModel>>(){})
                 .adapt(new ObservableBody<BaseEntity<ServerModel>>())
-                .compose(RxSchedulers.<BaseEntity<ServerModel>>io_main())
-                .map(new ComFunction<ServerModel>());
+                .subscribeOn(Schedulers.io())
+//                .compose(RxSchedulers.<BaseEntity<ServerModel>>io_main())
+//                .map(new ComFunction<ServerModel>());
+                .map(new Function<BaseEntity<ServerModel>, ServerModel>() {
+                    @Override
+                    public ServerModel apply(@NonNull BaseEntity<ServerModel> serverModelBaseEntity) throws Exception {
+                        return serverModelBaseEntity.getData();
+                    }
+                });
 
     }
 

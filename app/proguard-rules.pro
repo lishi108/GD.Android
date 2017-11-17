@@ -233,6 +233,10 @@ public static java.lang.String TABLENAME;
   **[] $VALUES;
   public *;
 }
+# banner 的混淆代码
+-keep class com.youth.banner.** {
+    *;
+ }
 
 
 #okio

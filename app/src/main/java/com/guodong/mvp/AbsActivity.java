@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,8 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guodong.BaseApplication;
-import com.guodong.business.http.RxManager;
-import com.orhanobut.logger.Logger;
+import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 
@@ -41,6 +39,11 @@ public abstract class AbsActivity extends AppCompatActivity {
     private boolean isAllowScreenRotate = true;
 
 
+
+
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +55,6 @@ public abstract class AbsActivity extends AppCompatActivity {
 
     private void initCommonData() {
         ButterKnife.bind(this);
-//        TAG = getPackageName() + "." + getClass().getSimpleName();
-        Logger.e("TAG:::",TAG);
         /** 是否沉浸状态栏 **/
         if (isSetStatusBar) {
             steepStatusBar();
@@ -158,7 +159,7 @@ public abstract class AbsActivity extends AppCompatActivity {
             Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
         } else {
-            finish();
+            BaseApplication.getApplication().finishAll();
             System.exit(0);
         }
     }
@@ -167,7 +168,9 @@ public abstract class AbsActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         BaseApplication.getApplication().finishActivity(this);
-        RxManager.getInstance().clear(TAG);
+
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(mContext);
+        refWatcher.watch(this);
     }
 
     /**

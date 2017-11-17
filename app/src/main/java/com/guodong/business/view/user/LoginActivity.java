@@ -48,6 +48,7 @@ public class LoginActivity extends BaseTitleActivity<LoginPresenter> implements 
     @Override
     public void startToActivity(Class activityClass) {
         startActivity(activityClass);
+        finish();
     }
 
     @OnClick(R.id.forgetPwdView)
@@ -73,6 +74,10 @@ public class LoginActivity extends BaseTitleActivity<LoginPresenter> implements 
     @OnClick(R.id.login_select_qq)
     void onQQView(View view) {
 
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
 

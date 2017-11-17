@@ -8,6 +8,9 @@ import com.guodong.mvp.BasePresenter;
 
 import java.util.List;
 
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+
 /**
  * Description:
  * Created by Administrator on 2017/11/8.
@@ -22,7 +25,12 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView,HomeCont
 
     @Override
     public void getBannerImage() {
-        mModel.getBannerImages().subscribe(new BaseObserver<List<PictureInfo>>(mView.getContext(),"banner_key",false) {
+        mModel.getBannerImages().subscribe(new BaseObserver<List<PictureInfo>>(mView.getContext(),false) {
+            @Override
+            public void addonSubscribe(@NonNull Disposable d) {
+                addDisposable(d);
+            }
+
             @Override
             public void onSuccess(List<PictureInfo> pictureInfoList) {
 
@@ -37,7 +45,12 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView,HomeCont
 
     @Override
     public void getData() {
-        mModel.getData().subscribe(new BaseObserver<List<String>>(mView.getContext(),"home_data_key",false) {
+        mModel.getData().subscribe(new BaseObserver<List<String>>(mView.getContext(),false) {
+            @Override
+            public void addonSubscribe(@NonNull Disposable d) {
+                addDisposable(d);
+            }
+
             @Override
             public void onSuccess(List<String> strings) {
 

@@ -5,9 +5,14 @@ import com.guodong.business.bean.ServerModel;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.user.LoginModel;
+import com.guodong.business.view.MainActivity;
 import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
 import com.orhanobut.logger.Logger;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Description:
@@ -57,12 +62,19 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 //                });
 
         mModel.Login("222","2222")
-//                .observeOn(AndroidSchedulers.mainThread())//
-                .subscribe(new BaseObserver<ServerModel>(getView().getContext(),"login",true) {
+                .observeOn(AndroidSchedulers.mainThread())//
+                .subscribe(new BaseObserver<ServerModel>(getView().getContext(),true) {
+                    @Override
+                    public void addonSubscribe(@NonNull Disposable d) {
+                        addDisposable(d);
+                    }
+
                     @Override
                     public void onSuccess(ServerModel user) {
                         Logger.e(user.toString());
                         Logger.e(user.ip);
+//                        DataManager.saveIsFirst(false);
+                        mView.startToActivity(MainActivity.class);
                     }
 
                     @Override

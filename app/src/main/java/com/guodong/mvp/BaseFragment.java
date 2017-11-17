@@ -1,4 +1,5 @@
 package com.guodong.mvp;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.guodong.BaseApplication;
+import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 
@@ -94,6 +98,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         super.onDestroyView();
         if (mPresenter != null)
             mPresenter.detachView();
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(getContext());
+        refWatcher.watch(this);
     }
     public Bundle getBundle() {
         return mBundle;

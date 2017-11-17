@@ -179,4 +179,10 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
     void onUseViewClick(View view) {
         intentToLoginActivity();
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

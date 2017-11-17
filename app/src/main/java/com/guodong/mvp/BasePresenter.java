@@ -9,6 +9,8 @@ import java.util.HashMap;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 
 /**
@@ -26,6 +28,18 @@ public abstract class BasePresenter<V extends BaseContract.IBaseView, M extends 
 
     public M getModel() {
         return loadModel();
+    }
+
+    private CompositeDisposable compositeDisposable;
+    public void addDisposable(Disposable disposable) {
+        if (compositeDisposable == null) {
+            compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(disposable);
+    }
+
+    public void dispose() {
+        if (compositeDisposable != null) compositeDisposable.dispose();
     }
 
 
@@ -46,6 +60,8 @@ public abstract class BasePresenter<V extends BaseContract.IBaseView, M extends 
             viewReference.clear();
             viewReference = null;
         }
+
+        dispose();
     }
 
     @Override

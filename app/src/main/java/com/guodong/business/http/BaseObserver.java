@@ -22,22 +22,18 @@ import io.reactivex.disposables.Disposable;
  */
 
 public abstract class BaseObserver<T> implements Observer<T>{
-    private RxManager rxManager;
-    private String mKey;
     private LoadingDialog mDialog;
     private Context mContext;
     private boolean isShowDialog;
-    public BaseObserver(Context context, String key, boolean isShowDialog){
-        this.mKey = key;
+    public BaseObserver(Context context,boolean isShowDialog){
         this.mContext = context;
         this.isShowDialog = isShowDialog;
         mDialog = new LoadingDialog(context);
-        rxManager = RxManager.getInstance();
     }
 
     @Override
     public void onSubscribe(@NonNull Disposable d) {
-        rxManager.add(mKey,d);
+        addonSubscribe(d);
         if(isShowDialog){
             mDialog.show();
         }
@@ -71,6 +67,7 @@ public abstract class BaseObserver<T> implements Observer<T>{
         }
     }
     public void onStart(){}
+    public abstract void addonSubscribe(@NonNull Disposable d);
     public abstract void onSuccess( T t);
     public abstract void onError(String message);
 

@@ -2,6 +2,7 @@ package com.guodong;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 
 import com.guodong.business.config.DataManager;
 import com.guodong.business.http.OkHttpManager;
@@ -11,6 +12,8 @@ import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +53,10 @@ public class BaseApplication extends Application {
                 .setRetryCount(3) ;                              //全局统一超时重连次数，默认为三次，那么最差的情况会请求4次(一次原始请求，三次重连请求)，不需要可以设置为0
 //                .addCommonHeaders(headers)                      //全局公共头
 //                .addCommonParams(params);                       //全局公共参数
+
+        refWatcher = setupLeakCanary();
+
+
     }
 
     public static BaseApplication getApplication(){
@@ -71,4 +78,16 @@ public class BaseApplication extends Application {
         }
         System.exit(0);
     }
+    protected RefWatcher setupLeakCanary() {
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return RefWatcher.DISABLED;
+        }
+        return LeakCanary.install(this);
+    }
+    private RefWatcher refWatcher;
+    public static RefWatcher getRefWatcher(Context context) {
+        return application.refWatcher;
+    }
+
+
 }
