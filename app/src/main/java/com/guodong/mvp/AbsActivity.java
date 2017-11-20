@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -16,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guodong.BaseApplication;
+import com.guodong.utils.AutoUtils;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
@@ -47,6 +50,7 @@ public abstract class AbsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AutoUtils.setSize(this, false, 720, 1280);
         setContentView(getView());
         initCommonData();
         initData();
@@ -54,6 +58,7 @@ public abstract class AbsActivity extends AppCompatActivity {
     }
 
     private void initCommonData() {
+        AutoUtils.auto(this);
         ButterKnife.bind(this);
         /** 是否沉浸状态栏 **/
         if (isSetStatusBar) {
@@ -114,10 +119,23 @@ public abstract class AbsActivity extends AppCompatActivity {
     //添加fragment
     protected void addFragment(BaseFragment fragment) {
         if (fragment != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(getFragmentContentId(), fragment, fragment.getClass().getSimpleName())
-                    .addToBackStack(fragment.getClass().getSimpleName())
-                    .commitAllowingStateLoss();
+            FragmentManager fm = getSupportFragmentManager();
+            fm.popBackStack(fragment.getClass().getName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);//这是当前fragment在打开fragment相当于先按了返回键
+            //这是目前我找到惟一保证Fragment二次打开后返回栈元素惟一而又能刷新的 无bug的方法
+
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(getFragmentContentId(), fragment, fragment.getClass().getName());
+            transaction.isAddToBackStackAllowed();
+            transaction.addToBackStack(fragment.getClass().getName());
+            transaction.commit();
+
+
+
+
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(getFragmentContentId(), fragment, fragment.getClass().getSimpleName())
+//                    .addToBackStack(fragment.getClass().getSimpleName())
+//                    .commitAllowingStateLoss();
         }
     }
 

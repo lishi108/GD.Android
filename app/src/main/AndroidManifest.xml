@@ -15,14 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".business.view.spalash.SplashActivity">
+
+        </activity>
+        <activity android:name=".business.view.user.LoginActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".business.view.user.LoginActivity"
-            android:launchMode="singleTask"
-            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".business.view.user.RegisterActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateHidden">

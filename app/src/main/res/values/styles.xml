@@ -9,8 +9,8 @@
     </style>
     <style name="ToolBar">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?actionBarSize</item>
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_height">@dimen/dp40</item>
+        <item name="android:background">@color/colorWhite</item>
     </style>
 
     <style name="MaterialIndicator">
@@ -73,6 +73,16 @@
 
     </declare-styleable>
 
+    <style name="CodeInputEdit">
+        <item name="android:textSize">@dimen/fontSize18</item>
+        <item name="android:textColor">@color/color333333</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp0</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="Personal_Text">
         <item name="android:layout_width">@dimen/dp50</item>
         <item name="android:layout_height">@dimen/dp50</item>
@@ -118,9 +128,9 @@
         <item name="android:padding">@dimen/dp5</item>
         <item name="android:layout_marginLeft">@dimen/dp10</item>
         <item name="android:layout_marginRight">@dimen/dp10</item>
-        <item name="android:background">@drawable/border</item>
+        <item name="android:background">@null</item>
         <item name="android:textColorHint">@color/colorHint</item>
-        <item name="android:textSize">@dimen/fontSize14</item>
+        <item name="android:textSize">@dimen/fontSize12</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 

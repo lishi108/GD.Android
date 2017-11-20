@@ -219,7 +219,8 @@ public static java.lang.String TABLENAME;
 -keep public class * implements butterknife.Unbinder {
     public <init>(**, android.view.View);
 }
--keep class butterknife.*
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
 -keepclasseswithmembernames class * {
     @butterknife.* <methods>;
 }

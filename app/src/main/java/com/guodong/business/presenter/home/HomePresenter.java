@@ -5,6 +5,7 @@ import com.guodong.business.contract.HomeContract;
 import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.home.HomeModel;
 import com.guodong.mvp.BasePresenter;
+import com.guodong.utils.ToastUtil;
 
 import java.util.List;
 
@@ -25,41 +26,45 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView,HomeCont
 
     @Override
     public void getBannerImage() {
-        mModel.getBannerImages().subscribe(new BaseObserver<List<PictureInfo>>(mView.getContext(),false) {
-            @Override
-            public void addonSubscribe(@NonNull Disposable d) {
-                addDisposable(d);
-            }
+        mModel.getBannerImages()
+                .subscribe(new BaseObserver<List<PictureInfo>>(getView().getContext(),false) {
 
-            @Override
-            public void onSuccess(List<PictureInfo> pictureInfoList) {
 
-            }
+                    @Override
+                    public void addonSubscribe(@NonNull Disposable d) {
+                        addDisposable(d);
+                    }
 
-            @Override
-            public void onError(String message) {
+                    @Override
+                    public void onSuccess(List<PictureInfo> pictureInfoList) {
+                        mView.setBannerImages(pictureInfoList);
+                    }
 
-            }
-        });
+                    @Override
+                    public void onError(String message) {
+                        ToastUtil.showToast(getView().getContext(),message);
+                    }
+                });
     }
 
     @Override
     public void getData() {
-        mModel.getData().subscribe(new BaseObserver<List<String>>(mView.getContext(),false) {
-            @Override
-            public void addonSubscribe(@NonNull Disposable d) {
-                addDisposable(d);
-            }
+        mModel.getData()
+                .subscribe(new BaseObserver<List<String>>(mView.getContext(),true) {
+                    @Override
+                    public void addonSubscribe(@NonNull Disposable d) {
 
-            @Override
-            public void onSuccess(List<String> strings) {
+                    }
 
-            }
+                    @Override
+                    public void onSuccess(List<String> strings) {
 
-            @Override
-            public void onError(String message) {
+                    }
 
-            }
-        });
+                    @Override
+                    public void onError(String message) {
+
+                    }
+                });
     }
 }

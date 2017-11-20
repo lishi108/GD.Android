@@ -17,12 +17,12 @@ public class SetttingActivity extends BaseTitleActivity {
     }
     @Override
     protected int getFragmentContentId() {
-        return R.id.settingFrameLayout;
+        return R.id.frameLayout;
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_setting;
+        return R.layout.activity_common;
     }
     @Override
     public void initData() {

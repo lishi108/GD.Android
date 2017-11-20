@@ -9,6 +9,7 @@ import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 
 import com.guodong.R;
+import com.guodong.business.adapter.CustomLinearLayoutManager;
 import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.contract.HomeContract;
 import com.guodong.business.presenter.home.HomePresenter;
@@ -65,6 +66,13 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     protected void initData() {
         if(bannerImages == null) bannerImages = new ArrayList<>();
         if(mDataList == null) mDataList = new ArrayList<>();
+        CustomLinearLayoutManager linearLayoutManager = new CustomLinearLayoutManager(getContext());
+        linearLayoutManager.setScrollEnabled(false);
+        homeRecyclerView.setLayoutManager(linearLayoutManager);
+        homeRecyclerView.setNestedScrollingEnabled(false);
+        homeRecyclerView.setFocusable(false);
+
+
         commonAdapter = new CommonAdapter<String>(getContext(),R.layout.item_home_recyclerview,mDataList) {
             @Override
             protected void convert(ViewHolder holder, String s, int position) {
@@ -113,6 +121,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
                 }
             }
         });
+        initHeaderAndFooter();
+        homeRecyclerView.setAdapter(mHeaderAndFooterWrapper);
     }
 
     @Override
@@ -122,6 +132,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
             bannerImages.clear();
             bannerImages.addAll(bannerImages);
             bannerViewHolder = new BannerViewHolder(getContext(),bannarView,bannerImages);
+            mHeaderAndFooterWrapper.notifyDataSetChanged();
         }
     }
 

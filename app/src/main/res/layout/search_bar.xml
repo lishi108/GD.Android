@@ -41,9 +41,10 @@
         android:hint="@string/searchHint"
         android:background="@drawable/border"
         android:textColor="@color/colorWhite"
-        android:layout_alignBaseline="@+id/searchButton"
-        android:layout_alignBottom="@+id/searchButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_toRightOf="@+id/searchIcon"
+        android:layout_toLeftOf="@+id/searchButton" />
 
 
 

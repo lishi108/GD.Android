@@ -1,84 +1,37 @@
 package com.guodong.business.view.user;
 
 import android.view.View;
-import android.widget.EditText;
 
 import com.guodong.R;
-import com.guodong.business.contract.LoginContract;
-import com.guodong.business.presenter.user.LoginPresenter;
 import com.guodong.mvp.BaseTitleActivity;
 
-import butterknife.BindView;
-import butterknife.OnClick;
+/**
+ * Description:
+ * Created by Administrator on 2017/11/20.
+ */
 
-public class LoginActivity extends BaseTitleActivity<LoginPresenter> implements LoginContract.ILoginView {
-    @BindView(R.id.userNameEdit)
-    EditText userNameEdit;
-    @BindView(R.id.pwdEdit)
-    EditText pwdEdit;
-    @Override
-    protected LoginPresenter loadPresenter() {
-        return new LoginPresenter();
-    }
-
+public class LoginActivity extends BaseTitleActivity {
     public int initTitle() {
-        return R.string.login;
+        return R.string.NullText;
     }
     @Override
-    protected void initData() {
+    protected int getFragmentContentId() {
+        return R.id.frameLayout;
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_common;
+    }
+    @Override
+    public void initData() {
         super.initData();
-        userNameEdit.setText("17781139662");
-        pwdEdit.setText("123456");
-    }
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_login;
+        addFragment(new LoginFragment());
     }
 
     @Override
-    public String getUserName() {
-        return userNameEdit.getText().toString().trim();
+    public void onBackClick(View view) {
+        removeFragment();
     }
-
-    @Override
-    public String getPassword() {
-        return pwdEdit.getText().toString().trim();
-    }
-
-    @Override
-    public void startToActivity(Class activityClass) {
-        startActivity(activityClass);
-        finish();
-    }
-
-    @OnClick(R.id.forgetPwdView)
-    void onForgetPwd(View view) {
-
-    }
-
-    @OnClick(R.id.phoneLoginView)
-    void onPhoneLogin(View view) {
-
-    }
-
-    @OnClick(R.id.loginButton)
-    void onLoginButton(View view) {
-        mPresenter.login(getUserName(),getPassword());
-    }
-
-    @OnClick(R.id.login_select_wechart)
-    void onWeiChartView(View view) {
-
-    }
-
-    @OnClick(R.id.login_select_qq)
-    void onQQView(View view) {
-
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
 
 }

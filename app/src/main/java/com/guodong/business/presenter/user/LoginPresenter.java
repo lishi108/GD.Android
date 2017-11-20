@@ -5,7 +5,6 @@ import com.guodong.business.bean.ServerModel;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.user.LoginModel;
-import com.guodong.business.view.MainActivity;
 import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
 import com.orhanobut.logger.Logger;
@@ -74,7 +73,6 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
                         Logger.e(user.toString());
                         Logger.e(user.ip);
 //                        DataManager.saveIsFirst(false);
-                        mView.startToActivity(MainActivity.class);
                     }
 
                     @Override

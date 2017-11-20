@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">GD_Android</string>
     <string name="loadingText">加载中...</string>
+    <string name="NullText">""</string>
     <!--search-->
     <string name="searchHint">请输入查找的内容</string>
     <string name="search">搜索</string>
@@ -13,11 +14,19 @@
     <string name="pwd">密码</string>
     <string name="confirm_pwd">确认密码</string>
     <string name="register">注册</string>
+    <string name="registeInfo">注册即表示同意《隐私权声明》</string>
+    <string name="codeInfo">输入验证码</string>
+    <string name="codeInfo2">短信已发送至+86</string>
+    <string name="codeInfo3">后重新发送</string>
+    <string name="codeInfo4">重新发送短信验证码</string>
+    <string name="pwdLogin">密码登陆</string>
     <!-- login-->
-    <string name="phone_info">请输入手机号</string>
+    <string name="phone_info">请输入账号/手机号</string>
     <string name="pwd_info">请输入密码</string>
-    <string name="fast_login">手机快速登陆</string>
+    <string name="fast_login">手机号快捷登陆</string>
     <string name="forget_pwd">忘记密码？</string>
+
+    <string name="phoneTitleinfo">+86</string>
     <string name="login">登陆</string>
     <string name="get_code">获取验证码</string>
     <string name="login_type_info">请选择三方登陆方式</string>

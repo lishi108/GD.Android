@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp43.5"
+        android:paddingRight="@dimen/dp43.5"
+        android:background="@drawable/white_background"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginRight="@dimen/dp24"
+        android:layout_marginLeft="@dimen/dp24">
+        <com.guodong.widget.TextDrawable
+            android:id="@+id/codeText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phoneTitleinfo"
+            android:textSize="@dimen/fontSize14"
+            android:textColor="@color/colorHint"
+            android:layout_centerVertical="true"
+            app:icon_height="@dimen/dp8"
+            app:icon_width="@dimen/dp8"
+            app:icon_direction="right"
+            android:drawablePadding="@dimen/dp5"
+            app:icon_src_normal="@mipmap/down"/>
+        <View
+            android:id="@+id/codeLine1"
+            android:layout_width="@dimen/dp0.5"
+            android:layout_height="@dimen/dp15"
+            android:layout_toRightOf="@+id/codeText1"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_centerVertical="true"
+            android:background="@color/colorLine"/>
+        <com.guodong.widget.ClearEditText
+            android:id="@+id/codePhoneEdit"
+            android:layout_toRightOf="@id/codeLine1"
+            style="@style/Setting_EditText"
+            android:layout_width="match_parent"
+            android:hint="@string/phone_info"
+            android:inputType="phone" />
+        <View
+            android:id="@+id/codeLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp0.5"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_below="@+id/codePhoneEdit"
+            android:background="@color/colorLine"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/getCodeButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp36.5"
+        android:layout_marginLeft="@dimen/dp24"
+        android:layout_marginRight="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp86"
+        android:background="@drawable/button_background"
+        android:text="@string/get_code"
+        android:textColor="@color/colorWhite"
+        android:enabled="false"
+        android:textSize="@dimen/fontSize14" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_gravity="center"
+        android:textSize="@dimen/fontSize9.5"
+        android:textColor="@color/colorHint"
+        android:text="@string/registeInfo"/>
+    <include layout="@layout/item_third_login" />
+
+</LinearLayout>

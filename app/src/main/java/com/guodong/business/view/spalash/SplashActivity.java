@@ -13,7 +13,7 @@ import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.config.DataManager;
 import com.guodong.business.contract.SplashContract;
 import com.guodong.business.presenter.spalash.SplashPresenter;
-import com.guodong.business.view.user.LoginActivity;
+import com.guodong.business.view.user.LoginFragment;
 import com.guodong.mvp.BaseActivity;
 import com.guodong.widget.MaterialIndicator;
 import com.orhanobut.logger.Logger;
@@ -139,7 +139,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
         splashImage.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(LoginActivity.class);
+                startActivity(LoginFragment.class);
                 finish();
             }
         },1000);

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp24"
+        android:layout_marginRight="@dimen/dp24"
+        android:layout_marginTop="@dimen/dp100"
+        android:background="@drawable/white_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp25"
+            android:text="@string/codeInfo"
+            android:textColor="@color/color333333" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp14"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/codeInfo2"
+                android:textColor="@color/color666666"
+                android:textSize="@dimen/fontSize11.5" />
+
+            <TextView
+                android:id="@+id/codePhoneTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dp3"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="17781139662"
+                android:textColor="@color/color666666"
+                android:textSize="@dimen/fontSize11.5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp52.5"
+            android:layout_marginRight="@dimen/dp52.5"
+            android:layout_marginTop="@dimen/dp23.5"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp35"
+                android:layout_marginBottom="@dimen/dp24"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/codeEdit1"
+                    style="@style/CodeInputEdit"
+                    android:text="4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/colorHint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp35"
+                android:layout_marginBottom="@dimen/dp24"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/codeEdit2"
+                    style="@style/CodeInputEdit"
+                    android:text="4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/colorHint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp35"
+                android:layout_marginBottom="@dimen/dp24"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/codeEdit3"
+                    style="@style/CodeInputEdit"
+                    android:text="4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/colorHint" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp35"
+                android:layout_marginBottom="@dimen/dp24"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/codeEdit4"
+                    style="@style/CodeInputEdit"
+                    android:text="4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/colorHint" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/codeTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorff4040"
+            android:textSize="@dimen/fontSize11.5"
+            android:text="23"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color666666"
+            android:textSize="@dimen/fontSize11.5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:text="@string/codeInfo3"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sendCodeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp20"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/fontSize11.5"
+        android:layout_marginLeft="@dimen/dp5"
+        android:text="@string/codeInfo4"
+        android:visibility="invisible"
+        />
+</LinearLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp24"
+            android:layout_marginRight="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp47.5"
+            android:background="@drawable/white_background"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp43.5"
+                android:layout_marginRight="@dimen/dp43.5"
+                android:layout_marginTop="@dimen/dp10">
+
+                <ImageView
+                    android:id="@+id/loginIcon1"
+                    android:layout_width="@dimen/dp15"
+                    android:layout_height="@dimen/dp15"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:src="@mipmap/login_icon1" />
+
+                <com.guodong.widget.ClearEditText
+                    android:id="@+id/userNameEdit"
+                    style="@style/Setting_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/loginIcon1"
+                    android:hint="@string/phone_info"
+                    android:textSize="@dimen/fontSize11.5"
+                    android:inputType="phone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp0.5"
+                    android:layout_below="@+id/userNameEdit"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/colorLine" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp43.5"
+                android:layout_marginRight="@dimen/dp43.5">
+
+                <ImageView
+                    android:id="@+id/loginIcon2"
+                    android:layout_width="@dimen/dp15"
+                    android:layout_height="@dimen/dp15"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:src="@mipmap/login_icon2" />
+
+                <com.guodong.widget.ClearEditText
+                    android:id="@+id/pwdEdit"
+                    style="@style/Setting_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/loginIcon2"
+                    android:hint="@string/phone_info"
+                    android:textSize="@dimen/fontSize11.5"
+                    android:inputType="phone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp0.5"
+                    android:layout_below="@+id/pwdEdit"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:background="@color/colorLine" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/forgetPwdView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp43.5"
+                android:text="@string/forget_pwd"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/fontSize11.5" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginLeft="@dimen/dp24"
+            android:layout_marginRight="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@mipmap/button_enable"
+            android:text="@string/login"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/fontSize14" />
+
+        <TextView
+            android:id="@+id/phoneLoginView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp31"
+            android:layout_marginTop="@dimen/dp10"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorHint"
+            android:textSize="@dimen/fontSize12"
+            android:text="@string/fast_login" />
+
+        <include layout="@layout/item_third_login" />
+    </LinearLayout>
+
+</ScrollView>

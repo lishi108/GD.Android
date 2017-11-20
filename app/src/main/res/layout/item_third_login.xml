@@ -2,64 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp24"
+    android:layout_marginRight="@dimen/dp24"
+    android:layout_marginTop="@dimen/dp120"
     android:gravity="center_horizontal"
-    android:layout_marginTop="@dimen/dp10"
-    android:layout_marginLeft="@dimen/dp10"
-    android:layout_marginRight="@dimen/dp10"
-    android:background="@color/colorHint"
     android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="@string/login_type_info"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/fontSize20" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/dp10">
-
-            <ImageView
-                android:id="@+id/login_select_wechart"
-                android:layout_width="@dimen/dp50"
-                android:layout_height="@dimen/dp50"
-                android:src="@mipmap/icon_def_wx" />
-
-            <ImageView
-                android:id="@+id/login_select_qq"
-                android:layout_width="@dimen/dp50"
-                android:layout_height="@dimen/dp50"
-                android:layout_marginLeft="@dimen/dp20"
-                android:src="@mipmap/icon_def_qq" />
-
-
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="@dimen/dp0.5"
-            android:layout_margin="@dimen/dp10"
-            android:background="@color/colorWhite" />
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:background="@color/colorLine" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginRight="@dimen/dp5"
             android:gravity="center"
-            android:layout_marginBottom="@dimen/dp10"
-            android:orientation="horizontal">
+            android:text="@string/login_type_info"
+            android:textColor="@color/colorHint"
+            android:textSize="@dimen/fontSize14" />
 
-            <TextView
-                android:id="@+id/login_by_agree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/login_select_agree"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/fontSize16" />
-        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp0.5"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:background="@color/colorLine" />
+    </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/login_select_wechart"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:src="@mipmap/weichat" />
+
+        <TextView
+            android:id="@+id/loginSelectTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_toRightOf="@id/login_select_wechart"
+            android:text="@string/weichat"
+            android:textColor="@color/colorHint"
+            android:textSize="@dimen/fontSize12" />
+
+        <ImageView
+            android:id="@+id/login_select_qq"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginLeft="@dimen/dp30"
+            android:layout_toRightOf="@id/loginSelectTextView"
+            android:src="@mipmap/qq" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/login_select_qq"
+            android:text="@string/qq"
+            android:layout_marginLeft="@dimen/dp5"
+            android:textColor="@color/colorHint"
+            android:textSize="@dimen/fontSize12" />
+    </RelativeLayout>
 </LinearLayout>

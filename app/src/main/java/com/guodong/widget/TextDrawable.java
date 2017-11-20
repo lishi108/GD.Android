@@ -291,7 +291,7 @@ public class TextDrawable extends AppCompatTextView {
         // Be lenient about moving outside of buttons
         if ((x < 0 - mTouchSlop) || (x >= getWidth() + mTouchSlop) ||
                 (y < 0 - mTouchSlop) || (y >= getHeight() + mTouchSlop)) {
-            // Outside button
+            // Outside button_enable
             flag = true;
         }
         return flag;

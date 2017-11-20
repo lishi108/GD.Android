@@ -17,8 +17,6 @@ public interface LoginContract {
         String getUserName();
 
         String getPassword();
-
-        void startToActivity(Class activityClass);
     }
 
     interface ILoginPresenter extends BaseContract.IBasePresennter {
