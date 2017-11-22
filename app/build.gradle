@@ -95,10 +95,12 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         def file = output.outputFile
                         def outDirectory = file.parent
+
                         def fileName = file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk")
                         if ("true".equals(project.IS_JENKINS)) {
                             outDirectory = '/home/android/apk/'
                         }
+                        println("outDirectory::::::"+outDirectory)
                         output.outputFile = new File(outDirectory, fileName)
                     }
 
