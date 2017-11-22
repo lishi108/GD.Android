@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="fontSize6">6sp</dimen>
     <dimen name="fontSize9.5">9.5sp</dimen>
     <dimen name="fontSize11.5">11.5sp</dimen>
     <dimen name="fontSize12">12sp</dimen>
@@ -9,13 +10,16 @@
     <dimen name="fontSize16">16sp</dimen>
     <dimen name="fontSize18">18sp</dimen>
     <dimen name="fontSize20">20sp</dimen>
+    <dimen name="dp_5">-5dp</dimen>
     <dimen name="dp0">0dp</dimen>
     <dimen name="dp0.5">0.5dp</dimen>
     <dimen name="dp1">1dp</dimen>
     <dimen name="dp3">3dp</dimen>
     <dimen name="dp5">5dp</dimen>
+    <dimen name="dp7">7dp</dimen>
     <dimen name="dp10">10dp</dimen>
     <dimen name="dp8">8dp</dimen>
+    <dimen name="dp9">9dp</dimen>
     <dimen name="dp14">14dp</dimen>
     <dimen name="dp15">15dp</dimen>
     <dimen name="dp16">16dp</dimen>
@@ -35,6 +39,7 @@
     <dimen name="dp86">86dp</dimen>
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp120">120dp</dimen>
+    <dimen name="dp150">150dp</dimen>
     <dimen name="dp160">160dp</dimen>
     <dimen name="dp200">200dp</dimen>
     <dimen name="dp360">360dp</dimen>

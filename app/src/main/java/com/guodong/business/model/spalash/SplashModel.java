@@ -21,15 +21,15 @@ public class SplashModel implements SplashContract.ISplashModel {
     public Observable<List<PictureInfo>> getImages() {
         List<PictureInfo> infoList = new ArrayList<>();
         PictureInfo p1 = new PictureInfo();
-        p1.setResourceId(R.mipmap.spalash1);
+        p1.setResourceId(R.drawable.spalash1);
         PictureInfo p2 = new PictureInfo();
-        p2.setResourceId(R.mipmap.spalash2);
+        p2.setResourceId(R.drawable.spalash2);
         PictureInfo p3 = new PictureInfo();
-        p3.setResourceId(R.mipmap.spalash3);
+        p3.setResourceId(R.drawable.spalash3);
         PictureInfo p4 = new PictureInfo();
-        p4.setResourceId(R.mipmap.sp1);
+        p4.setResourceId(R.drawable.sp1);
         PictureInfo p5 = new PictureInfo();
-        p5.setResourceId(R.mipmap.sp2);
+        p5.setResourceId(R.drawable.sp2);
         infoList.add(p1);
         infoList.add(p2);
         infoList.add(p3);

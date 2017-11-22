@@ -6,6 +6,8 @@ import android.widget.EditText;
 import com.guodong.R;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.presenter.user.LoginPresenter;
+import com.guodong.business.view.MainActivity;
+import com.guodong.mvp.BaseTitleActivity;
 import com.guodong.mvp.BaseTitleFragment;
 
 import butterknife.BindView;
@@ -22,9 +24,9 @@ public class LoginFragment extends BaseTitleFragment<LoginPresenter> implements 
     }
     @Override
     protected void initData() {
-        mActivity.getOther().setVisibility(View.VISIBLE);
-        mActivity.getOther().setText(R.string.register);
-        mActivity.getOther().setOnClickListener(new View.OnClickListener() {
+        ((BaseTitleActivity)getActivity()).getOther().setVisibility(View.VISIBLE);
+        ((BaseTitleActivity)getActivity()).getOther().setText(R.string.register);
+        ((BaseTitleActivity)getActivity()).getOther().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 removeFragment();
@@ -60,7 +62,8 @@ public class LoginFragment extends BaseTitleFragment<LoginPresenter> implements 
 
     @OnClick(R.id.loginButton)
     void onLoginButton(View view) {
-        mPresenter.login(getUserName(),getPassword());
+//        mPresenter.login(getUserName(),getPassword());
+        mActivity.startActivity(MainActivity.class);
     }
 
     @OnClick(R.id.login_select_wechart)

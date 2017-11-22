@@ -33,13 +33,14 @@
                     android:layout_height="@dimen/dp15"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp10"
-                    android:src="@mipmap/login_icon1" />
+                    android:src="@drawable/login_icon1" />
 
                 <com.guodong.widget.ClearEditText
                     android:id="@+id/userNameEdit"
                     style="@style/Setting_EditText"
                     android:layout_width="match_parent"
                     android:layout_toRightOf="@id/loginIcon1"
+                    android:layout_alignBaseline="@id/loginIcon1"
                     android:hint="@string/phone_info"
                     android:textSize="@dimen/fontSize11.5"
                     android:inputType="phone" />
@@ -64,16 +65,17 @@
                     android:layout_height="@dimen/dp15"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp10"
-                    android:src="@mipmap/login_icon2" />
+                    android:src="@drawable/login_icon2" />
 
                 <com.guodong.widget.ClearEditText
                     android:id="@+id/pwdEdit"
                     style="@style/Setting_EditText"
                     android:layout_width="match_parent"
+                    android:layout_alignBaseline="@id/loginIcon2"
                     android:layout_toRightOf="@id/loginIcon2"
                     android:hint="@string/phone_info"
-                    android:textSize="@dimen/fontSize11.5"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:textSize="@dimen/fontSize11.5" />
 
                 <View
                     android:layout_width="match_parent"
@@ -89,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/dp5"
-                android:layout_marginBottom="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:padding="@dimen/dp5"
                 android:layout_marginRight="@dimen/dp43.5"
                 android:text="@string/forget_pwd"
                 android:textColor="@color/colorPrimary"
@@ -104,7 +107,7 @@
             android:layout_marginLeft="@dimen/dp24"
             android:layout_marginRight="@dimen/dp24"
             android:layout_marginTop="@dimen/dp20"
-            android:background="@mipmap/button_enable"
+            android:background="@drawable/button_enable"
             android:text="@string/login"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/fontSize14" />
@@ -115,6 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp31"
             android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
             android:gravity="center_vertical"
             android:textColor="@color/colorHint"
             android:textSize="@dimen/fontSize12"

@@ -70,7 +70,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
                 if(DataManager.getIsFirst()) e.onNext(true);
                 else {
                     splashImage.setVisibility(View.VISIBLE);
-                    splashImage.setBackgroundResource(R.mipmap.welcome);
+                    splashImage.setBackgroundResource(R.drawable.welcome);
                     welcomeLayout.setVisibility(View.GONE);
                     intentToLoginActivity();
                     e.onComplete();

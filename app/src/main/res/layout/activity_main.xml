@@ -3,47 +3,79 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/mainFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp0"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp5">
     </FrameLayout>
-    <RadioGroup
-        android:id="@+id/tablGroupButton"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
-        android:gravity="center_vertical"
         android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/homeButton"
-            android:layout_width="@dimen/dp0"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/home_table_selector"
-            android:checked="true"
-            android:button="@null"
-            android:gravity="center"
-            android:background="@null"/>
-        <RadioButton
-            android:id="@+id/goodsButton"
-            android:layout_width="@dimen/dp0"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/message_table_selector"
-            android:button="@null"
-            android:background="@null"/>
-        <RadioButton
-            android:id="@+id/personButton"
-            android:layout_width="@dimen/dp0"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/person_table_selector"
-            android:button="@null"
-            android:background="@null"/>
 
-    </RadioGroup>
+        <LinearLayout
+            android:id="@+id/homeLayout"
+            style="@style/MainTableBottomLayout">
+
+            <ImageView
+                android:id="@+id/homeImageView"
+                style="@style/MainTableBottomImageView"
+                android:src="@drawable/home0" />
+
+            <TextView
+                style="@style/MainTableBottomTextView"
+                android:text="@string/home" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buyLayout"
+            style="@style/MainTableBottomLayout">
+
+            <ImageView
+                android:id="@+id/buyImageView"
+                style="@style/MainTableBottomImageView"
+                android:src="@drawable/cart0" />
+
+            <TextView
+                style="@style/MainTableBottomTextView"
+                android:text="@string/buy" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/findLayout"
+            style="@style/MainTableBottomLayout">
+
+            <ImageView
+                android:id="@+id/findImageView"
+                style="@style/MainTableBottomImageView"
+                android:src="@drawable/find0" />
+
+            <TextView
+                style="@style/MainTableBottomTextView"
+                android:text="@string/find" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/personLayout"
+            style="@style/MainTableBottomLayout">
+
+            <ImageView
+                android:id="@+id/personImageView"
+                style="@style/MainTableBottomImageView"
+                android:src="@drawable/person0" />
+
+            <TextView
+                style="@style/MainTableBottomTextView"
+                android:text="@string/person" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

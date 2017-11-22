@@ -92,6 +92,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         }catch (Exception e) {
             new ClassCastException(this.toString() + "实现IBaseView或者IBaseView子类接口");
         }
+
     }
     @Override
     public void onDestroyView() {

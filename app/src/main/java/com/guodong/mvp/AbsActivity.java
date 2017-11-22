@@ -124,6 +124,7 @@ public abstract class AbsActivity extends AppCompatActivity {
             //这是目前我找到惟一保证Fragment二次打开后返回栈元素惟一而又能刷新的 无bug的方法
 
             FragmentTransaction transaction = fm.beginTransaction();
+//            transaction.setCustomAnimations(R.animator.slide_right_in,R.animator.slide_left_out,R.animator.slide_left_in,R.animator.slide_right_out);
             transaction.replace(getFragmentContentId(), fragment, fragment.getClass().getName());
             transaction.isAddToBackStackAllowed();
             transaction.addToBackStack(fragment.getClass().getName());

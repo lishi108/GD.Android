@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/settingIcon1"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -38,7 +38,7 @@
             <ImageView
                 android:id="@+id/settingIcon2"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -58,7 +58,7 @@
             <ImageView
                 android:id="@+id/settingIcon3"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -78,7 +78,7 @@
             <ImageView
                 android:id="@+id/settingIcon4"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -98,7 +98,7 @@
             <ImageView
                 android:id="@+id/settingIcon5"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -118,7 +118,7 @@
             <ImageView
                 android:id="@+id/settingIcon6"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -139,7 +139,7 @@
             <ImageView
                 android:id="@+id/settingIcon7"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -149,7 +149,7 @@
 
             <ImageView
                 style="@style/Setting_IconRight"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
 
         </RelativeLayout>
@@ -161,7 +161,7 @@
             <ImageView
                 android:id="@+id/settingIcon8"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq"/>
+                android:src="@drawable/icon_def_qq"/>
 
             <TextView
                 style="@style/Setting_Text"

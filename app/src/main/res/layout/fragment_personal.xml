@@ -18,7 +18,7 @@
             android:layout_marginRight="@dimen/dp30"
             android:layout_marginTop="@dimen/dp30"
             android:padding="@dimen/dp5"
-            android:src="@mipmap/photo"/>
+            android:src="@drawable/photo"/>
 
         <ImageView
             android:id="@+id/personalPhotoImage"
@@ -26,7 +26,7 @@
             android:layout_height="@dimen/dp50"
             android:layout_marginTop="@dimen/dp10"
             android:layout_gravity="center_horizontal"
-            android:src="@mipmap/photo"
+            android:src="@drawable/photo"
             android:scaleType="fitCenter"/>
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                     app:icon_direction="right"
                     app:icon_height="@dimen/dp15"
                     app:icon_width="@dimen/dp15"
-                    app:icon_src_normal="@mipmap/question_mark"/>
+                    app:icon_src_normal="@drawable/question_mark"/>
                 <TextView
                     android:id="@+id/personalFetchText"
                     android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
                     app:icon_direction="right"
                     app:icon_height="@dimen/dp15"
                     app:icon_width="@dimen/dp15"
-                    app:icon_src_normal="@mipmap/question_mark"/>
+                    app:icon_src_normal="@drawable/question_mark"/>
                 <TextView
                     android:id="@+id/personalCashPledgeText"
                     android:layout_width="wrap_content"
@@ -242,7 +242,7 @@
             <ImageView
                 android:id="@+id/personalIcon1"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -263,7 +263,7 @@
             <ImageView
                 android:id="@+id/personalIcon2"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -283,7 +283,7 @@
             <ImageView
                 android:id="@+id/personalIcon3"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -303,7 +303,7 @@
             <ImageView
                 android:id="@+id/personalIcon4"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"
@@ -324,7 +324,7 @@
             <ImageView
                 android:id="@+id/personalIcon5"
                 style="@style/Setting_IconLeft"
-                android:src="@mipmap/icon_def_qq" />
+                android:src="@drawable/icon_def_qq" />
 
             <TextView
                 style="@style/Setting_Text"

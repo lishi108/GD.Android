@@ -28,7 +28,7 @@
         <ImageView
             android:id="@+id/aboutIcon2"
             style="@style/Setting_IconLeft"
-            android:src="@mipmap/icon_def_qq" />
+            android:src="@drawable/icon_def_qq" />
 
         <TextView
             style="@style/Setting_Text"

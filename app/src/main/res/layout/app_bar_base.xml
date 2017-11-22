@@ -12,7 +12,7 @@
         android:layout_marginLeft="@dimen/dp10"
         android:paddingRight="@dimen/dp20"
         android:scaleType="fitCenter"
-        android:src="@mipmap/back"
+        android:src="@drawable/back"
         />
 
     <TextView

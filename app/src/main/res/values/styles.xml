@@ -12,6 +12,28 @@
         <item name="android:layout_height">@dimen/dp40</item>
         <item name="android:background">@color/colorWhite</item>
     </style>
+    <style name="MainTableBottomLayout">
+        <item name="android:layout_width">@dimen/dp0</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="MainTableBottomImageView">
+        <item name="android:layout_width">@dimen/dp20</item>
+        <item name="android:layout_height">@dimen/dp20</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_marginTop">@dimen/dp3</item>
+    </style>
+    <style name="MainTableBottomTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color333333</item>
+        <item name="android:textSize">@dimen/fontSize9.5</item>
+        <item name="android:layout_marginTop">@dimen/dp1</item>
+        <item name="android:layout_marginBottom">@dimen/dp3</item>
+        <item name="android:gravity">center</item>
+    </style>
 
     <style name="MaterialIndicator">
         <item name="mi_indicatorRadius">4dp</item>
@@ -81,6 +103,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:background">@color/colorWhite</item>
         <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
     </style>
 
     <style name="Personal_Text">
@@ -112,7 +135,7 @@
         <item name="android:layout_height">@dimen/dp20</item>
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_centerVertical">true</item>
-        <item name="android:src">@mipmap/icon_def_qq</item>
+        <item name="android:src">@drawable/icon_def_qq</item>
     </style>
     <style name="Setting_Text">
         <item name="android:layout_width">match_parent</item>

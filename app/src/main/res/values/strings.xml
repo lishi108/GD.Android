@@ -38,6 +38,11 @@
     <string name="weichat">微信</string>
     <string name="qq">QQ</string>
 
+    <!--main table bottom-->
+    <string name="home">首页</string>
+    <string name="buy">买</string>
+    <string name="find">发现</string>
+    <string name="person">个人中心</string>
     <!--fragment personal-->
     <string name="commodity_management">商品管理</string>
     <string name="order_management">订单管理</string>

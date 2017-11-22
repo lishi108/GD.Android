@@ -1,10 +1,12 @@
 package com.guodong.business.view;
 
-import android.graphics.drawable.Drawable;
-import android.widget.FrameLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.guodong.R;
 import com.guodong.business.view.goods.GoodsFragment;
 import com.guodong.business.view.home.HomeFragment;
@@ -12,25 +14,23 @@ import com.guodong.business.view.user.PersonalFragment;
 import com.guodong.mvp.BaseActivity;
 import com.guodong.mvp.BaseFragment;
 import com.guodong.mvp.BasePresenter;
-import com.guodong.utils.DensityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
-    @BindView(R.id.mainFrameLayout)
-    FrameLayout mainFrameLayout;
-    @BindView(R.id.homeButton)
-    RadioButton homeButton;
-    @BindView(R.id.goodsButton)
-    RadioButton goodsButton;
-    @BindView(R.id.personButton)
-    RadioButton personButton;
-    @BindView(R.id.tablGroupButton)
-    RadioGroup radioGroup;
-
+    @BindView(R.id.homeImageView)
+    ImageView homeImageView;
+    @BindView(R.id.buyImageView)
+    ImageView buyImageView;
+    @BindView(R.id.findImageView)
+    ImageView findImageView;
+    @BindView(R.id.personImageView)
+    ImageView personImageView;
+    private Context mContext;
 
     @Override
     protected int getFragmentContentId() {
@@ -41,31 +41,17 @@ public class MainActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_main;
     }
+
     @Override
     public void initData() {
-        changeImageSize();
+        mContext = MainActivity.this;
         final List<BaseFragment> fragments = new ArrayList<>();
         fragments.add(new HomeFragment());
         fragments.add(new GoodsFragment());
         fragments.add(new PersonalFragment());
 
         addFragment(fragments.get(0));
-
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.homeButton:
-                        addFragment(fragments.get(0));
-                        break;
-                    case R.id.goodsButton:
-                        addFragment(fragments.get(1));;
-                        break;
-                    case R.id.personButton:
-                        addFragment(fragments.get(2));
-                        break;
-                }
-            }
-        });
+        changeTableStatus();
 
     }
 
@@ -74,18 +60,47 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
-    private void changeImageSize() {
-        //定义底部标签图片大小
-        Drawable drawableFirst = getResources().getDrawable(R.drawable.home_table_selector);
-        drawableFirst.setBounds(0, 0, DensityUtils.dp2px(mContext,mContext.getResources().getDimension(R.dimen.dp20)), DensityUtils.dp2px(mContext,mContext.getResources().getDimension(R.dimen.dp20)));//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
-        homeButton.setCompoundDrawables(null, drawableFirst, null, null);//只放上面
+    @OnClick({R.id.homeLayout, R.id.buyLayout, R.id.findLayout, R.id.personLayout})
+    void onTableClick(View view) {
+//        if (firstTag) firstTag = false;
+//        else
+            changeTableStatus();
+        switch (view.getId()) {
+            case R.id.homeLayout:
+                addFragment(new HomeFragment());
+                Glide.with(mContext)
+                        .load(R.drawable.home)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(new GlideDrawableImageViewTarget(homeImageView, 1));
+                break;
+            case R.id.buyLayout:
+                addFragment(new GoodsFragment());
+                Glide.with(MainActivity.this)
+                        .load(R.drawable.cart)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(new GlideDrawableImageViewTarget(buyImageView, 1));
+                break;
+            case R.id.findLayout:
+                addFragment(new GoodsFragment());
+                Glide.with(MainActivity.this)
+                        .load(R.drawable.find)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(new GlideDrawableImageViewTarget(findImageView, 1));
+                break;
+            case R.id.personLayout:
+                addFragment(new PersonalFragment());
+                Glide.with(MainActivity.this)
+                        .load(R.drawable.person)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(new GlideDrawableImageViewTarget(personImageView, 1));
+                break;
+        }
+    }
 
-        Drawable drawableSearch = getResources().getDrawable(R.drawable.message_table_selector);
-        drawableSearch.setBounds(0, 0, DensityUtils.dp2px(mContext,mContext.getResources().getDimension(R.dimen.dp20)), DensityUtils.dp2px(mContext,mContext.getResources().getDimension(R.dimen.dp20)));//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
-        goodsButton.setCompoundDrawables(null, drawableSearch, null, null);//只放上面
-
-        Drawable drawableMe = getResources().getDrawable(R.drawable.person_table_selector);
-        drawableMe.setBounds(0, 0, DensityUtils.dp2px(mContext,mContext.getResources().getDimension(R.dimen.dp20)), DensityUtils.dp2px(mContext,mContext.getResources().getDimension(R.dimen.dp20)));//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
-        personButton.setCompoundDrawables(null, drawableMe, null, null);//只放上面
+    private void changeTableStatus() {
+        Glide.with(mContext).load(R.drawable.home0).into(homeImageView);
+        Glide.with(mContext).load(R.drawable.cart0).into(buyImageView);
+        Glide.with(mContext).load(R.drawable.find0).into(findImageView);
+        Glide.with(mContext).load(R.drawable.person0).into(personImageView);
     }
 }

@@ -9,7 +9,7 @@
         android:id="@+id/oldPhoneEdit"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/dp20"
-        android:drawableRight="@mipmap/set_exit"
+        android:drawableRight="@drawable/set_exit"
         android:hint="@string/setting_old_phone"
         style="@style/Setting_EditText"
         android:inputType="phone"/>
