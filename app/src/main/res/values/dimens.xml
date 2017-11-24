@@ -3,6 +3,7 @@
 
     <dimen name="fontSize6">6sp</dimen>
     <dimen name="fontSize9.5">9.5sp</dimen>
+    <dimen name="fontSize10">10sp</dimen>
     <dimen name="fontSize11.5">11.5sp</dimen>
     <dimen name="fontSize12">12sp</dimen>
     <dimen name="fontSize13.4">13.4sp</dimen>
@@ -14,12 +15,14 @@
     <dimen name="dp0">0dp</dimen>
     <dimen name="dp0.5">0.5dp</dimen>
     <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
     <dimen name="dp3">3dp</dimen>
     <dimen name="dp5">5dp</dimen>
     <dimen name="dp7">7dp</dimen>
-    <dimen name="dp10">10dp</dimen>
     <dimen name="dp8">8dp</dimen>
     <dimen name="dp9">9dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp12">12dp</dimen>
     <dimen name="dp14">14dp</dimen>
     <dimen name="dp15">15dp</dimen>
     <dimen name="dp16">16dp</dimen>
@@ -36,6 +39,7 @@
     <dimen name="dp47.5">47.5dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="dp52.5">52.5dp</dimen>
+    <dimen name="dp75">75dp</dimen>
     <dimen name="dp86">86dp</dimen>
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp120">120dp</dimen>

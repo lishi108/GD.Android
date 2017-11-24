@@ -10,10 +10,7 @@
         android:id="@+id/mainFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp0"
-        android:layout_weight="1"
-        android:layout_marginBottom="@dimen/dp5"
-        android:layout_marginRight="@dimen/dp5"
-        android:layout_marginLeft="@dimen/dp5">
+        android:layout_weight="1">
     </FrameLayout>
 
     <LinearLayout

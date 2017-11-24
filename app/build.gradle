@@ -42,6 +42,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // dex突破65535的限制
+        multiDexEnabled true
+        // 默认是umeng的渠道
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
     signingConfigs {
         debug {
@@ -58,17 +62,41 @@ android {
         }
     }
 
+    packagingOptions {
+        exclude 'AndroidManifest.xml'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'pom.properties'
+    }
     lintOptions {
         abortOnError false
     }
+
+
+    productFlavors {
+        yingyongbao {
+            manifestPlaceholders = [ CHANNEL_NAME:"YINGYONGBAO"]
+        }
+        umeng {
+            manifestPlaceholders = [ CHANNEL_NAME:"UMENG" ]
+        }
+        wandoujia {
+            manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+        }
+
+    }
+    allprojects {
+        repositories {
+            mavenCentral()
+            maven { url "https://jitpack.io" }
+        }
+    }
 //    dexOptions {
-//        incremental true
-//        javaMaxHeapSize "4g"
-//        //关闭预编译
+//        incremental false
 //        preDexLibraries = false
+//        jumboMode = false
+//        javaMaxHeapSize "4g"
 //    }
-
-
     buildTypes {
         debug {
             debuggable true
@@ -96,7 +124,8 @@ android {
                         def file = output.outputFile
                         def outDirectory = file.parent
 
-                        def fileName = file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk")
+//                        def fileName = file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk")
+                        def fileName = "GD_v${defaultConfig.versionName}_${getCurrentTime()}_${variant.productFlavors[0].name}.apk"
                         if ("true".equals(project.IS_JENKINS)) {
                             outDirectory = '/home/android/apk/'
                         }

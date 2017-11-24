@@ -40,9 +40,9 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
             @Override
             public void onClick(View v) {
                 addFragment(new LoginFragment());
-                removeFragment();
             }
         });
+        mActivity.setTitle(R.string.NullText);
     }
     @Override
     protected int getLayoutId() {

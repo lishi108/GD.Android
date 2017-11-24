@@ -41,12 +41,6 @@ public abstract class AbsActivity extends AppCompatActivity {
     /** 是否横屏竖屏  false  横屏   true  竖屏 **/
     private boolean isAllowScreenRotate = true;
 
-
-
-
-
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

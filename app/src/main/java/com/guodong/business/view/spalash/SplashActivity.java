@@ -13,7 +13,7 @@ import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.config.DataManager;
 import com.guodong.business.contract.SplashContract;
 import com.guodong.business.presenter.spalash.SplashPresenter;
-import com.guodong.business.view.user.LoginFragment;
+import com.guodong.business.view.user.LoginActivity;
 import com.guodong.mvp.BaseActivity;
 import com.guodong.widget.MaterialIndicator;
 import com.orhanobut.logger.Logger;
@@ -139,41 +139,11 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
         splashImage.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(LoginFragment.class);
+                startActivity(LoginActivity.class);
                 finish();
             }
         },1000);
     }
-//
-//    @Override
-//    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//    }
-//
-//    @Override
-//    public void onPageSelected(int position) {
-//        if (position == imageList.size() - 1) {
-////          最后一个页面，设置开始体验按钮显示
-//            startButton.setVisibility(View.VISIBLE);
-//        } else {
-//            startButton.setVisibility(View.INVISIBLE);
-//        }
-////        changePointStatus(position);
-//    }
-//
-//
-//    @Override
-//    public void onPageScrollStateChanged(int state) {
-//
-//    }
-//
-////    private void changePointStatus(int position){
-////        for(int i=0;i<imageList.size();i++){
-////            if(position == i) pointGroupLayout.getChildAt(i).setBackgroundResource(R.drawable.shape_point_white);
-////            else pointGroupLayout.getChildAt(i).setBackgroundResource(R.drawable.shape_point_gray);
-////        }
-////    }
-
 
     @OnClick({R.id.skipButton,R.id.startButton})
     void onUseViewClick(View view) {

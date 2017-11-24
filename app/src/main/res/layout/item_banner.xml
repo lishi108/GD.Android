@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.youth.banner.Banner
-        android:id="@+id/banner"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/bannerLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp200" />
+        android:layout_height="@dimen/dp150"
+        android:clipChildren="false"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/bannerViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:clipChildren="false"></android.support.v4.view.ViewPager>
+        <com.guodong.business.adapter.BannerMaterialIndicator
+            android:id="@+id/bannerIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="@dimen/dp3"
+            android:paddingLeft="@dimen/dp3"
+            android:paddingRight="@dimen/dp3"
+            android:paddingTop="@dimen/dp3"
+            app:mi_indicatorRadius="@dimen/dp3"
+            app:mi_indicatorPadding="@dimen/dp30"
+            app:mi_defaultColor="@color/color4775ee"
+            app:mi_indicatorColor="@color/color4775ee"/>
+    </LinearLayout>
 </LinearLayout>

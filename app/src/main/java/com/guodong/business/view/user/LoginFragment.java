@@ -7,7 +7,6 @@ import com.guodong.R;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.presenter.user.LoginPresenter;
 import com.guodong.business.view.MainActivity;
-import com.guodong.mvp.BaseTitleActivity;
 import com.guodong.mvp.BaseTitleFragment;
 
 import butterknife.BindView;
@@ -24,15 +23,15 @@ public class LoginFragment extends BaseTitleFragment<LoginPresenter> implements 
     }
     @Override
     protected void initData() {
-        ((BaseTitleActivity)getActivity()).getOther().setVisibility(View.VISIBLE);
-        ((BaseTitleActivity)getActivity()).getOther().setText(R.string.register);
-        ((BaseTitleActivity)getActivity()).getOther().setOnClickListener(new View.OnClickListener() {
+        mActivity.getOther().setVisibility(View.VISIBLE);
+        mActivity.getOther().setText(R.string.register);
+        mActivity.getOther().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeFragment();
-                addFragment(new LoginFragment());
+                addFragment(new RegisterFragment());
             }
         });
+        mActivity.setTitle(R.string.NullText);
     }
     @Override
     protected int getLayoutId() {

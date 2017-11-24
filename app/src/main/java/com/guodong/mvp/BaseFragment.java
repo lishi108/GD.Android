@@ -73,26 +73,28 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
                 ((ViewGroup)rootView.getParent()).removeView(rootView);
             }
         }
+
         return rootView;
     }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+//        AutoUtils.setSize(getActivity(), false, 720, 1280);
+//        AutoUtils.auto(view);
         ButterKnife.bind(this,view);
+        //由于fragment生命周期比较复杂,所以Presenter在onCreateView创建视图之后再进行绑定,不然会报空指针异常
         //创建presenter
         mPresenter = loadPresenter();
-        initData();
-    }
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        //由于fragment生命周期比较复杂,所以Presenter在onCreateView创建视图之后再进行绑定,不然会报空指针异常
         try {
             mPresenter.attachView(this);
         }catch (Exception e) {
             new ClassCastException(this.toString() + "实现IBaseView或者IBaseView子类接口");
         }
-
+        initData();
+    }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
     @Override
     public void onDestroyView() {

@@ -1,29 +1,30 @@
-package com.guodong.widget;
+package com.guodong.business.adapter;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.v4.view.PagerAdapter;
+import android.os.Message;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Interpolator;
 
 import com.guodong.R;
+import com.guodong.business.view.home.BannerViewHolder;
 
 /**
  * Description: 游标指示器
  * Created by Administrator on 2017/11/14.
  */
 
-public class MaterialIndicator extends View implements ViewPager.OnPageChangeListener {
+public class BannerMaterialIndicator extends View implements ViewPager.OnPageChangeListener {
 
-    private static final String TAG = MaterialIndicator.class.getSimpleName();
+    private static final String TAG = BannerMaterialIndicator.class.getSimpleName();
     private static final int UNDEFINED_PADDING = -1;
     private final Interpolator interpolator = new FastOutSlowInInterpolator();
     private final Paint indicatorPaint;
@@ -37,23 +38,28 @@ public class MaterialIndicator extends View implements ViewPager.OnPageChangeLis
     private float deselectedAlpha = 0.2f;
     private float offset;
     private PageListener pageListener;
+    private boolean firstDraw = true;
 
-    public MaterialIndicator(Context context, AttributeSet attrs) {
+
+
+    private BannerViewHolder.ImageHandler imageHandler;
+
+    public BannerMaterialIndicator(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MaterialIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BannerMaterialIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MaterialIndicator, 0, R.style.MaterialIndicator);
         selectedIndicatorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         indicatorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        indicatorPaint.setColor(Color.BLACK);
+        indicatorPaint.setColor(typedArray.getColor(R.styleable.MaterialIndicator_mi_defaultColor, 0));
         indicatorPaint.setAlpha((int) (deselectedAlpha * 255));
         selectorRect = new RectF();
         if (isInEditMode()) {
             count = 3;
         }
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MaterialIndicator, 0, R.style.MaterialIndicator);
-        try {
+       try {
             indicatorRadius = typedArray.getDimension(R.styleable.MaterialIndicator_mi_indicatorRadius, 0);
             indicatorPadding = typedArray.getDimension(R.styleable.MaterialIndicator_mi_indicatorPadding, UNDEFINED_PADDING);
             selectedIndicatorPaint.setColor(typedArray.getColor(R.styleable.MaterialIndicator_mi_indicatorColor, 0));
@@ -61,32 +67,52 @@ public class MaterialIndicator extends View implements ViewPager.OnPageChangeLis
             typedArray.recycle();
         }
     }
+    public BannerViewHolder.ImageHandler getImageHandler() {
+        return imageHandler;
+    }
+
+    public void setImageHandler(BannerViewHolder.ImageHandler imageHandler) {
+        this.imageHandler = imageHandler;
+    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        selectedPage = position;
+//        selectedPage = position%count;
         offset = positionOffset;
-        invalidate();
+//        invalidate();
     }
 
     @Override
     public void onPageSelected(int position) {
-        selectedPage = position;
-        offset = 0;
+        selectedPage = position%count;
+        offset = 0.0f;
         invalidate();
+        Log.e("TAG","selectedPage:"+selectedPage+";position:"+position+";count:"+count);
+
         if (pageListener != null)
-            pageListener.onPageListener(position);
+            pageListener.onPageListener(position%count);
+        imageHandler.sendMessage(Message.obtain(imageHandler, BannerViewHolder.ImageHandler.MSG_PAGE_CHANGED, position, 0));
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+        switch (state) {
+            case ViewPager.SCROLL_STATE_DRAGGING:
+                imageHandler.sendEmptyMessage(BannerViewHolder.ImageHandler.MSG_KEEP_SILENT);
+                break;
+            case ViewPager.SCROLL_STATE_IDLE:
+                imageHandler.sendEmptyMessageDelayed(BannerViewHolder.ImageHandler.MSG_UPDATE_IMAGE, BannerViewHolder.ImageHandler.MSG_DELAY);
+                break;
+            default:
+                break;
+        }
     }
 
-    public void setAdapter(PagerAdapter adapter) {
-        this.count = adapter.getCount();
+    public void setCount(int indicators) {
+        this.count = indicators;
         requestLayout();
         invalidate();
+        firstDraw = false;
     }
 
     @Override
@@ -123,17 +149,17 @@ public class MaterialIndicator extends View implements ViewPager.OnPageChangeLis
         for (int i = 0; i < count; i++) {
             float position = indicatorStartX(gap, i);
             canvas.drawCircle(position + indicatorRadius, midY(), indicatorRadius, indicatorPaint);
+            if(i==selectedPage){
+                selectorRect.set(position - indicatorRadius*2, midY() - indicatorRadius, position+indicatorRadius*3, midY() + indicatorRadius);
+                canvas.drawRoundRect(selectorRect, indicatorRadius, indicatorRadius, selectedIndicatorPaint);
+            }
+
         }
-        float extenderStart = indicatorStartX(gap, selectedPage) + Math.max(gap * (interpolatedOffset() - 0.5f) * 2, 0);
-        float extenderEnd = indicatorStartX(gap, selectedPage) + indicatorDiameter() + Math.min(gap * interpolatedOffset() * 2, gap);
-//        selectorRect.set(extenderStart, midY() - indicatorRadius, extenderEnd, midY() + indicatorRadius);
-        selectorRect.set(extenderStart-(extenderEnd-extenderStart)/2, midY() - indicatorRadius, extenderEnd+(extenderEnd-extenderStart)/2, midY() + indicatorRadius);
-        canvas.drawRoundRect(selectorRect, indicatorRadius, indicatorRadius, selectedIndicatorPaint);
     }
 
     private float getGapBetweenIndicators() {
         if (indicatorPadding == UNDEFINED_PADDING) {
-            return (getWidth() - indicatorDiameter()) / (count + 1);
+            return (getWidth() - indicatorDiameter()) / (count+1);
         } else {
             return indicatorPadding;
         }

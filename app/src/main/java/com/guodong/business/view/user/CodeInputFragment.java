@@ -38,6 +38,7 @@ public class CodeInputFragment extends BaseTitleFragment<CodeInputPresenter> imp
     protected void initData() {
         mActivity.getOther().setVisibility(View.VISIBLE);
         mActivity.getOther().setText(R.string.pwdLogin);
+        mActivity.setTitle(R.string.NullText);
         mBundle = getBundle();
         String phone  = mBundle.getString("phone");
         if(!StringUtils.checkNullString(phone)) codePhoneTextView.setText(phone);

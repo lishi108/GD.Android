@@ -2,6 +2,8 @@ package com.guodong.business.model.home;
 
 
 import com.guodong.R;
+import com.guodong.business.bean.GameInfo;
+import com.guodong.business.bean.HotEquipmentInfo;
 import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.contract.HomeContract;
 import com.guodong.business.http.RxSchedulers;
@@ -37,18 +39,70 @@ public class HomeModel implements HomeContract.IHomeModel {
         infoList.add(p3);
         infoList.add(p4);
         infoList.add(p5);
-        return Observable.just(infoList)
-                .compose(RxSchedulers.<List<PictureInfo>> io_main());
+        return Observable.just(infoList).compose(RxSchedulers.<List<PictureInfo>> io_main());
     }
 
     @Override
-    public Observable<List<String>> getData() {
-        List<String> mDatas = new ArrayList<>();
-        for (int i = 'A'; i <= 'z'; i++)
-        {
-            mDatas.add((char) i + "");
-        }
+    public Observable<List<GameInfo>> getGameData() {
+        List<GameInfo> mDatas = new ArrayList<>();
+        GameInfo gameInfo1 = new GameInfo();
+        gameInfo1.setName("地下城勇士");
+        gameInfo1.setIconId(R.drawable.sp1);
+        mDatas.add(gameInfo1);
+
+        GameInfo gameInfo2 = new GameInfo();
+        gameInfo2.setName("ddddddddd");
+        gameInfo2.setIconId(R.drawable.sp2);
+        mDatas.add(gameInfo2);
+
+        GameInfo gameInfo3 = new GameInfo();
+        gameInfo3.setName("mmmmmm");
+        gameInfo3.setIconId(R.drawable.spalash1);
+        mDatas.add(gameInfo3);
+
+        GameInfo gameInfo4 = new GameInfo();
+        gameInfo4.setName("地下城勇士");
+        gameInfo4.setIconId(R.drawable.sp1);
+        mDatas.add(gameInfo4);
+
+        GameInfo gameInfo5 = new GameInfo();
+        gameInfo5.setName("地下城勇士");
+        gameInfo5.setIconId(R.drawable.sp1);
+        mDatas.add(gameInfo5);
+
+        GameInfo gameInfo6 = new GameInfo();
+        gameInfo6.setName("地下城勇士");
+        gameInfo6.setIconId(R.drawable.sp1);
+        mDatas.add(gameInfo6);
+
+
+        GameInfo gameInfo7 = new GameInfo();
+        gameInfo7.setName("地下城勇士");
+        gameInfo7.setIconId(R.drawable.sp1);
+        mDatas.add(gameInfo7);
+
+
+        GameInfo gameInfo8 = new GameInfo();
+        gameInfo8.setName("地下城勇士");
+        gameInfo8.setIconId(R.drawable.sp1);
+        mDatas.add(gameInfo8);
+
+
         return Observable.just(mDatas)
-                .compose(RxSchedulers.<List<String>> io_main());
+                .compose(RxSchedulers.<List<GameInfo>> io_main());
+    }
+
+    @Override
+    public Observable<List<HotEquipmentInfo>> getHotEquipment() {
+        List<HotEquipmentInfo> mDatas = new ArrayList<>();
+        HotEquipmentInfo gameInfo1 = new HotEquipmentInfo();
+        gameInfo1.setTitle("地下城勇士");
+        gameInfo1.setUrlId(R.drawable.sp1);
+        gameInfo1.setPrivce(200);
+        gameInfo1.setAddress("广东区-电信服务器-游戏1区");
+        mDatas.add(gameInfo1);
+
+        return Observable.just(mDatas)
+                .compose(RxSchedulers.<List<HotEquipmentInfo>> io_main());
     }
 }

@@ -43,6 +43,12 @@
     <string name="buy">买</string>
     <string name="find">发现</string>
     <string name="person">个人中心</string>
+    
+    <!--home fragment-->
+    <string name="hot">热门</string>
+    <string name="praize">点赞</string>
+    <string name="comment">评论</string>
+
     <!--fragment personal-->
     <string name="commodity_management">商品管理</string>
     <string name="order_management">订单管理</string>

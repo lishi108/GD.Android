@@ -25,15 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".business.view.user.RegisterActivity"
-            android:launchMode="singleTask"
-            android:windowSoftInputMode="stateHidden">
+        <activity android:name=".business.view.MainActivity"
+            android:launchMode="singleTask">
+
 
         </activity>
-        <activity android:name=".business.view.MainActivity"
-            android:launchMode="singleTask"/>
         <activity android:name=".business.view.user.SetttingActivity"
             android:launchMode="singleTask"/>
     </application>
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="${UMENG_CHANNEL_VALUE}" />
 
 </manifest>
