@@ -74,7 +74,7 @@ public class RegisterFragment extends BaseTitleFragment<PhoneLoginPresenter> imp
         }else {
             phoneOk = false;
             codeLine.setBackgroundResource(R.color.colorLine);
-            getCodeButton.setBackgroundResource(R.drawable.button_background);
+            getCodeButton.setBackgroundResource(R.drawable.button);
         }
     }
 

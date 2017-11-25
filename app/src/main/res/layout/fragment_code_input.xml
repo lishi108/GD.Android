@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <LinearLayout
@@ -20,6 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dp25"
             android:text="@string/codeInfo"
+            android:textSize="@dimen/fontSize20"
             android:textColor="@color/color333333" />
 
         <LinearLayout
@@ -37,7 +38,7 @@
                 android:gravity="right"
                 android:text="@string/codeInfo2"
                 android:textColor="@color/color666666"
-                android:textSize="@dimen/fontSize11.5" />
+                android:textSize="@dimen/fontSize12" />
 
             <TextView
                 android:id="@+id/codePhoneTextView"
@@ -151,14 +152,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorff4040"
-            android:textSize="@dimen/fontSize11.5"
+            android:textSize="@dimen/fontSize12"
             android:text="23"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/color666666"
-            android:textSize="@dimen/fontSize11.5"
+            android:textSize="@dimen/fontSize12"
             android:layout_marginLeft="@dimen/dp5"
             android:text="@string/codeInfo3"
             />
@@ -171,7 +172,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp20"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/fontSize11.5"
+        android:textSize="@dimen/fontSize12"
         android:layout_marginLeft="@dimen/dp5"
         android:text="@string/codeInfo4"
         android:visibility="invisible"

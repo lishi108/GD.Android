@@ -57,6 +57,7 @@ public abstract class AbsActivity extends AppCompatActivity {
         /** 是否沉浸状态栏 **/
         if (isSetStatusBar) {
             steepStatusBar();
+//            StatusBarUtil.setColor(this, R.color.colorWhite);
         }
         /** 是否旋转屏幕 **/
         if (!isAllowScreenRotate) {

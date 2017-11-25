@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toolbar"
     style="@style/ToolBar"
     >
+
 
     <ImageView
         android:id="@+id/back"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
+        android:layout_centerVertical="true"
         android:paddingRight="@dimen/dp20"
-        android:scaleType="fitCenter"
         android:src="@drawable/back"
         />
 
@@ -19,23 +20,27 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textSize="@dimen/fontSize16"
+        android:textSize="@dimen/fontSize18"
         android:text="@string/app_name"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/color333333"
         />
 
     <TextView
         android:id="@+id/other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="right"
         android:layout_gravity="right"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:layout_marginRight="@dimen/dp15"
+        android:paddingLeft="@dimen/dp10"
         android:textSize="@dimen/fontSize14"
         android:textColor="@color/colorPrimary"
         />
 
-</android.support.v7.widget.Toolbar>
+</RelativeLayout>

@@ -13,6 +13,7 @@ import com.guodong.mvp.BaseTitleFragment;
 import com.guodong.utils.StringUtils;
 import com.guodong.utils.ToastUtil;
 import com.guodong.widget.ClearEditText;
+import com.guodong.widget.CodeDialogFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,6 +28,7 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
     Button getCodeButton;
     private TextView rightTitleView;
     private boolean phoneOk = false;
+    private CodeDialogFragment dialogFragment;
     @Override
     protected PhoneLoginPresenter loadPresenter() {
         return new PhoneLoginPresenter();
@@ -56,6 +58,9 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
     void onGetCodeButton(View view) {
         if (phoneOk) {
             mPresenter.getPhoneLoginCode(codePhoneEdit.getText().toString().trim());
+            dialogFragment = CodeDialogFragment.getInstance(true);
+            dialogFragment.show(getFragmentManager(),"Code");
+
         }else {
             ToastUtil.showToast(getContext(),R.string.phone_login_badnumber);
         }
@@ -84,7 +89,7 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
         }else {
             phoneOk = false;
             codeLine.setBackgroundResource(R.color.colorLine);
-            getCodeButton.setBackgroundResource(R.drawable.button_background);
+            getCodeButton.setBackgroundResource(R.drawable.button);
         }
     }
 

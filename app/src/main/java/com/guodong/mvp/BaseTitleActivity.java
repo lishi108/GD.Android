@@ -3,6 +3,7 @@ package com.guodong.mvp;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.guodong.R;
@@ -19,6 +20,8 @@ import butterknife.Unbinder;
 
 public abstract class BaseTitleActivity<P extends BasePresenter> extends BaseActivity<P> {
 
+    @BindView(R.id.toolbar)
+    RelativeLayout mToolbar;
     @BindView(R.id.title)
     TextView mTitle;
     @BindView(R.id.other)

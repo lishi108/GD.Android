@@ -34,11 +34,14 @@
     <dimen name="dp31">31dp</dimen>
     <dimen name="dp35">35dp</dimen>
     <dimen name="dp36.5">36.5dp</dimen>
+    <dimen name="dp37.5">37.5dp</dimen>
     <dimen name="dp40">40dp</dimen>
     <dimen name="dp43.5">43.5dp</dimen>
+    <dimen name="dp44">44dp</dimen>
     <dimen name="dp47.5">47.5dp</dimen>
     <dimen name="dp50">50dp</dimen>
     <dimen name="dp52.5">52.5dp</dimen>
+    <dimen name="dp70">70dp</dimen>
     <dimen name="dp75">75dp</dimen>
     <dimen name="dp86">86dp</dimen>
     <dimen name="dp100">100dp</dimen>

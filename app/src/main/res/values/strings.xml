@@ -22,15 +22,17 @@
     <string name="pwdLogin">密码登陆</string>
     <!-- login-->
     <string name="phone_info">请输入账号/手机号</string>
+    <string name="phone_input_info">请输入手机号</string>
     <string name="pwd_info">请输入密码</string>
-    <string name="fast_login">手机号快捷登陆</string>
+    <string name="fast_login">手机号快捷登录</string>
     <string name="forget_pwd">忘记密码？</string>
 
     <string name="phoneTitleinfo">+86</string>
-    <string name="login">登陆</string>
+    <string name="login">登录</string>
     <string name="get_code">获取验证码</string>
-    <string name="login_type_info">请选择三方登陆方式</string>
-    <string name="login_select_agree">登录即代表你同意%1$s服务和隐私条款</string>
+    <string name="get_code_success">获取验证码成功</string>
+    <string name="get_code_failed">获取验证码失败</string>
+    <string name="login_type_info">第三方</string>
 
     <string name="phone_login_badnumber">请输入正确的手机号</string>
     <string name="phone_login_badpwd">密码格式不正确</string>

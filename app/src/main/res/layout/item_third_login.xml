@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/dp24"
     android:layout_marginRight="@dimen/dp24"
-    android:layout_marginTop="@dimen/dp120"
+    android:layout_marginTop="@dimen/dp100"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -29,7 +29,7 @@
             android:gravity="center"
             android:text="@string/login_type_info"
             android:textColor="@color/colorHint"
-            android:textSize="@dimen/fontSize14" />
+            android:textSize="@dimen/fontSize12" />
 
         <View
             android:layout_width="0dp"
