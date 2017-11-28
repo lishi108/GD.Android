@@ -14,9 +14,9 @@ import io.reactivex.functions.Function;
 public class ComFunction<T> implements Function<BaseEntity<T>, T> {
     @Override
     public T apply(@NonNull BaseEntity<T> tBaseEntity) throws Exception {
-        int code = tBaseEntity.getCode();
+        int code = tBaseEntity.getResCode();
         if (code != AppConfig.SUCCESS_CODE) {
-            throw new ApiException(tBaseEntity.getMessage());
+            throw new ApiException(tBaseEntity.getMsg());
         }
         return tBaseEntity.getData();
     }

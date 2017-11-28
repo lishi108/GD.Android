@@ -16,8 +16,8 @@ public class SimpleResponse implements Serializable {
 
     public BaseEntity toBaseEntity(){
         BaseEntity baseResponse = new BaseEntity();
-        baseResponse.setCode(code);
-        baseResponse.setMessage(msg);
+        baseResponse.setResCode(code);
+        baseResponse.setMsg(msg);
         return baseResponse;
     }
 }

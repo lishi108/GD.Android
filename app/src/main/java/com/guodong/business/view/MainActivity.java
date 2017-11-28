@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
                         .into(new GlideDrawableImageViewTarget(buyImageView, 1));
                 break;
             case R.id.findLayout:
-                addFragment(new GoodsFragment());
+//                addFragment(new GoodsFragment());
                 Glide.with(MainActivity.this)
                         .load(R.drawable.find)
                         .diskCacheStrategy(DiskCacheStrategy.SOURCE)

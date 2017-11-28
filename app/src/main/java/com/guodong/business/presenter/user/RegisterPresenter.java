@@ -8,15 +8,8 @@ import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
 import com.orhanobut.logger.Logger;
 
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 
 /**
  * Description:
@@ -31,11 +24,11 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
     }
 
     @Override
-    public void getCode() {
-        final long time = 60;
-
-        //获取验证码
-        mModel.getCode(mView.getPhone())
+    public void getCode(@NonNull String phone) {
+//        final long time = 60;
+//
+//        //获取验证码
+        mModel.getCode(phone)
                 .subscribe(new BaseObserver<Integer>(mView.getContext(),false) {
                     @Override
                     public void addonSubscribe(@NonNull Disposable d) {
@@ -44,7 +37,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
 
                     @Override
                     public void onSuccess(Integer integer) {
-                        Logger.e(integer+"");
+                        Logger.e("Register code is:"+integer);
                     }
 
                     @Override
@@ -52,45 +45,45 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
                         ToastUtil.showToast(mView.getContext(),message);
                     }
                 });
-
-        //倒计时功能
-        Observable.interval(0,1, TimeUnit.SECONDS)
-                .take(time+1)
-                .map(new Function<Long, Long>() {
-                    @Override
-                    public Long apply(@NonNull Long aLong) throws Exception {
-                        return time-aLong;
-                    }
-                })
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(new Consumer<Disposable>() {
-                    @Override
-                    public void accept(Disposable disposable) throws Exception {
-                        mView.setCodeButtonEnable(false);
-                    }
-                })
-                .subscribe(new Observer<Long>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(@NonNull Long aLong) {
-                        mView.setCodeButton(aLong+" s后重发");
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        ToastUtil.showToast(mView.getContext(),e.getMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        mView.setCodeButtonEnable(true);
-                        mView.setCodeButton("获取验证码");
-                    }
-                });
+//
+//        //倒计时功能
+//        Observable.interval(0,1, TimeUnit.SECONDS)
+//                .take(time+1)
+//                .map(new Function<Long, Long>() {
+//                    @Override
+//                    public Long apply(@NonNull Long aLong) throws Exception {
+//                        return time-aLong;
+//                    }
+//                })
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doOnSubscribe(new Consumer<Disposable>() {
+//                    @Override
+//                    public void accept(Disposable disposable) throws Exception {
+//                        mView.setCodeButtonEnable(false);
+//                    }
+//                })
+//                .subscribe(new Observer<Long>() {
+//                    @Override
+//                    public void onSubscribe(@NonNull Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(@NonNull Long aLong) {
+//                        mView.setCodeButton(aLong+" s后重发");
+//                    }
+//
+//                    @Override
+//                    public void onError(@NonNull Throwable e) {
+//                        ToastUtil.showToast(mView.getContext(),e.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        mView.setCodeButtonEnable(true);
+//                        mView.setCodeButton("获取验证码");
+//                    }
+//                });
 
     }
 

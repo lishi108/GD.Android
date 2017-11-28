@@ -135,15 +135,16 @@ public class JsonConvert<T> implements Converter<T> {
                 // 泛型格式如下： new JsonCallback<LzyResponse<内层JavaBean>>(this)
                 BaseEntity baseEntity = Convert.fromJson(jsonReader, type);
                 response.close();
-                int code = baseEntity.getCode();
+                int code = baseEntity.getResCode();
+                boolean ok = baseEntity.isSuccess();
                 //这里的0是以下意思
                 //一般来说服务器会和客户端约定一个数表示成功，其余的表示失败，这里根据实际情况修改
-                if (code == 0) {
+                if (code == 200 && ok) {
                     //noinspection unchecked
                     return (T) baseEntity;
                 }else {
                     //直接将服务端的错误信息抛出，onError中可以获取
-                    throw new ApiException("错误代码：" + code + "，错误信息：" + baseEntity.getMessage());
+                    throw new ApiException("错误代码：" + code + "，错误信息：" + baseEntity.getMsg());
                 }
             }
         }

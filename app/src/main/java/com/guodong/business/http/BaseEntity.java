@@ -8,24 +8,33 @@ import java.io.Serializable;
  */
 
 public class BaseEntity <T> implements Serializable {
-    private int code;
+    private int resCode;
     private String msg;
+    private boolean isSuccess;
     private T data;
 
-    public int getCode() {
-        return code;
+    public int getResCode() {
+        return resCode;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setResCode(int resCode) {
+        this.resCode = resCode;
     }
 
-    public String getMessage() {
+    public String getMsg() {
         return msg;
     }
 
-    public void setMessage(String message) {
-        this.msg = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public boolean isSuccess() {
+        return isSuccess;
+    }
+
+    public void setSuccess(boolean success) {
+        isSuccess = success;
     }
 
     public T getData() {

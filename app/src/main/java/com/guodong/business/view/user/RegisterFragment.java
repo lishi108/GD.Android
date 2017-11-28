@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.guodong.R;
-import com.guodong.business.contract.PhoneLoginContract;
-import com.guodong.business.presenter.user.PhoneLoginPresenter;
+import com.guodong.business.contract.RegisterContract;
+import com.guodong.business.presenter.user.RegisterPresenter;
 import com.guodong.mvp.BaseTitleFragment;
 import com.guodong.utils.StringUtils;
 import com.guodong.utils.ToastUtil;
@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
-public class RegisterFragment extends BaseTitleFragment<PhoneLoginPresenter> implements PhoneLoginContract.IPhoneLoginView {
+public class RegisterFragment extends BaseTitleFragment<RegisterPresenter> implements RegisterContract.IRegisterView {
     @BindView(R.id.codeLine)
     View codeLine;
     @BindView(R.id.codePhoneEdit)
@@ -26,8 +26,8 @@ public class RegisterFragment extends BaseTitleFragment<PhoneLoginPresenter> imp
     Button getCodeButton;
     private boolean phoneOk = false;
     @Override
-    protected PhoneLoginPresenter loadPresenter() {
-        return new PhoneLoginPresenter();
+    protected RegisterPresenter loadPresenter() {
+        return new RegisterPresenter();
     }
     @Override
     protected void initData() {
@@ -45,7 +45,7 @@ public class RegisterFragment extends BaseTitleFragment<PhoneLoginPresenter> imp
     @OnClick(R.id.getCodeButton)
     void onGetCodeButton(View view) {
         if (phoneOk) {
-            mPresenter.getPhoneLoginCode(codePhoneEdit.getText().toString().trim());
+            mPresenter.getCode(codePhoneEdit.getText().toString().trim());
         }else {
             ToastUtil.showToast(getContext(),R.string.phone_login_badnumber);
         }
@@ -78,7 +78,7 @@ public class RegisterFragment extends BaseTitleFragment<PhoneLoginPresenter> imp
         }
     }
 
-    @Override
+
     public void intentToCodeInput(String phone) {
         mBundle = new Bundle();
         mBundle.putString("phone",phone);

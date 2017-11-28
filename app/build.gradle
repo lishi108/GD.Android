@@ -164,11 +164,10 @@ dependencies {
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     compile 'com.zhy:base-rvadapter:3.0.3'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
-    compile 'com.youth.banner:banner:1.4.10'
     compile 'com.lzy.net:okgo:3.0.4'
     compile 'com.lzy.net:okrx2:2.0.2'
-
-//    leakcanary
+    //    leakcanary
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    compile files('libs/open_sdk_r5923_lite.jar')
 }

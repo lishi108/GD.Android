@@ -60,7 +60,8 @@ public abstract class BasePresenter<V extends BaseContract.IBaseView, M extends 
             viewReference.clear();
             viewReference = null;
         }
-
+        if(loadingDialog!=null&&loadingDialog.isShowing())
+            loadingDialog.dismiss();
         dispose();
     }
 

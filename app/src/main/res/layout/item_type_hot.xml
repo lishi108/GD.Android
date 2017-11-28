@@ -3,26 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorBackground">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:layout_marginTop="@dimen/dp10"
         android:background="@color/colorWhite"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
+
         <ImageView
             android:layout_width="@dimen/dp20"
             android:layout_height="@dimen/dp20"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/dp20"
-            android:src="@drawable/hot"/>
+            android:src="@drawable/hot" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/fontSize14"
-            android:textColor="@color/color333333"
             android:layout_marginLeft="@dimen/dp10"
-            android:text="@string/hot"/>
+            android:text="@string/hot"
+            android:textColor="@color/color333333"
+            android:textSize="@dimen/fontSize14" />
     </LinearLayout>
 
 </LinearLayout>

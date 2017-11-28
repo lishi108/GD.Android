@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/search_bar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dp20"
+    android:layout_height="@dimen/dp30"
     android:layout_marginTop="@dimen/dp10"
     android:layout_marginLeft="@dimen/dp9"
     android:background="@color/transparent"
@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/messageImageView"
-            android:layout_width="@dimen/dp15"
-            android:layout_height="@dimen/dp15"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
             android:layout_centerInParent="true"
             android:background="@drawable/message"
             android:textColor="@color/colorWhite" />
@@ -62,8 +62,8 @@
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_toRightOf="@+id/messageImageView"
             android:background="@drawable/shap_circle_red"
-            android:text="9"
             android:gravity="center"
+            android:text="9"
             android:textColor="@color/colorf2fbff"
             android:textSize="@dimen/fontSize6" />
     </RelativeLayout>

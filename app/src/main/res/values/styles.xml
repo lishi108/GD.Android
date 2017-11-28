@@ -22,8 +22,8 @@
         <item name="android:orientation">vertical</item>
     </style>
     <style name="MainTableBottomImageView">
-        <item name="android:layout_width">@dimen/dp20</item>
-        <item name="android:layout_height">@dimen/dp20</item>
+        <item name="android:layout_width">@dimen/dp24</item>
+        <item name="android:layout_height">@dimen/dp24</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:layout_marginTop">@dimen/dp3</item>
     </style>
@@ -31,7 +31,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/color333333</item>
-        <item name="android:textSize">@dimen/fontSize9.5</item>
+        <item name="android:textSize">@dimen/fontSize10</item>
         <item name="android:layout_marginTop">@dimen/dp1</item>
         <item name="android:layout_marginBottom">@dimen/dp3</item>
         <item name="android:gravity">center</item>

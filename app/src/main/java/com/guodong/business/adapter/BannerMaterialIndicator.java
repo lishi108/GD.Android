@@ -150,7 +150,7 @@ public class BannerMaterialIndicator extends View implements ViewPager.OnPageCha
             float position = indicatorStartX(gap, i);
             canvas.drawCircle(position + indicatorRadius, midY(), indicatorRadius, indicatorPaint);
             if(i==selectedPage){
-                selectorRect.set(position - indicatorRadius*2, midY() - indicatorRadius, position+indicatorRadius*3, midY() + indicatorRadius);
+                selectorRect.set((float) (position - indicatorRadius*1.5), midY() - indicatorRadius, position+indicatorRadius*2, midY() + indicatorRadius);
                 canvas.drawRoundRect(selectorRect, indicatorRadius, indicatorRadius, selectedIndicatorPaint);
             }
 
