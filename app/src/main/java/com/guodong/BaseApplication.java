@@ -1,6 +1,7 @@
 package com.guodong;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 
@@ -76,7 +77,14 @@ public class BaseApplication extends Application {
         for(Activity mActivity:mActivitys){
             mActivity.finish();
         }
-        System.exit(0);
+        try {
+            ActivityManager activityManager = (ActivityManager) this
+                    .getSystemService(Context.ACTIVITY_SERVICE);
+            activityManager.restartPackage(this.getPackageName());
+            System.exit(0);
+            android.os.Process.killProcess(android.os.Process.myPid());
+        } catch (Exception e) {
+        }
     }
     protected RefWatcher setupLeakCanary() {
         if (LeakCanary.isInAnalyzerProcess(this)) {

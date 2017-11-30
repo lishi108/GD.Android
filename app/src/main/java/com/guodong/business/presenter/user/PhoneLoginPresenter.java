@@ -1,6 +1,8 @@
 package com.guodong.business.presenter.user;
 
 
+import android.content.Context;
+
 import com.guodong.business.contract.PhoneLoginContract;
 import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.user.PhoneLoginModel;
@@ -22,8 +24,8 @@ public class PhoneLoginPresenter extends BasePresenter<PhoneLoginContract.IPhone
     }
 
     @Override
-    public void getPhoneLoginCode(final String phone) {
-        mModel.getPhoneCode().subscribe(new BaseObserver<Integer>(mView.getContext(),true) {
+    public void getPhoneLoginCode(@NonNull final Context context, @NonNull final String phone) {
+        mModel.getPhoneCode().subscribe(new BaseObserver<Integer>(context,true) {
             @Override
             public void addonSubscribe(@NonNull Disposable d) {
                 addDisposable(d);
@@ -36,7 +38,7 @@ public class PhoneLoginPresenter extends BasePresenter<PhoneLoginContract.IPhone
 
             @Override
             public void onError(String message) {
-                ToastUtil.showToast(mView.getContext(),message);
+                ToastUtil.showToast(context,message);
             }
         });
     }

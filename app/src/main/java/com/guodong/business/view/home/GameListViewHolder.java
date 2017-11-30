@@ -21,46 +21,45 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Description:
+ * Description:首页home的横向列表辅助
  * Created by Administrator on 2017/11/24.
  */
 
 public class GameListViewHolder {
     private Context context;
-    private View gameView;
     @BindView(R.id.horizontalRecyclerview)
     BetterRecyclerView gameRecyclerView;
     private CommonAdapter<GameInfo> adapter;
     private List<GameInfo> gameInfoList;
     private int radius;
-    public GameListViewHolder(Context context,@NonNull View view){
+
+    public GameListViewHolder(Context context, @NonNull View view) {
         this.context = context;
-        this.gameView = view;
-        ButterKnife.bind(this,gameView);
+        ButterKnife.bind(this, view);
         init();
     }
-    public void setData(@NonNull List<GameInfo> gameInfos){
-        if(gameInfos!=null){
-            if(gameInfoList.size()>0) gameInfoList.clear();
-            gameInfoList.addAll(gameInfos);
-            adapter.notifyDataSetChanged();
-        }
+
+    public void setData(@NonNull List<GameInfo> gameInfos) {
+        if (gameInfoList.size() > 0) gameInfoList.clear();
+        gameInfoList.addAll(gameInfos);
+        adapter.notifyDataSetChanged();
     }
-    private void init(){
-        if(gameInfoList==null) gameInfoList = new ArrayList<>();
+
+    private void init() {
+        if (gameInfoList == null) gameInfoList = new ArrayList<>();
         radius = context.getResources().getDimensionPixelOffset(R.dimen.dp5);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         gameRecyclerView.setLayoutManager(layoutManager);
-        adapter = new CommonAdapter<GameInfo>(context,R.layout.item_game_horizontal,gameInfoList) {
+        adapter = new CommonAdapter<GameInfo>(context, R.layout.item_game_horizontal, gameInfoList) {
             @Override
             protected void convert(ViewHolder holder, GameInfo gameInfo, int position) {
-                holder.setText(R.id.gameNameText,gameInfoList.get(position).getName());
+                holder.setText(R.id.gameNameText, gameInfoList.get(position).getName());
                 ImageView imageView = holder.getView(R.id.gameImage);
                 Glide.with(context)
                         .load(gameInfoList.get(position).getIconId())
                         .error(R.mipmap.ic_launcher)
-                        .transform(new GlideRoundTransform(context,radius))
+                        .transform(new GlideRoundTransform(context, radius))
                         .into(imageView);
             }
         };

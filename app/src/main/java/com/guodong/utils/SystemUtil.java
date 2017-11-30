@@ -1,5 +1,6 @@
 package com.guodong.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -75,6 +76,7 @@ public class SystemUtil {
      *
      * @return  手机IMEI
      */
+    @SuppressLint("HardwareIds")
     public static String getIMEI(Context ctx) {
         TelephonyManager tm = (TelephonyManager) ctx.getApplicationContext().getSystemService(Activity.TELEPHONY_SERVICE);
         if (tm != null) {
@@ -124,7 +126,7 @@ public class SystemUtil {
     public static String getSysCarrier(Context context) {
         String moblieType = "0";
         TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
-        String imsi = telephonyManager.getSubscriberId();
+        @SuppressLint("HardwareIds") String imsi = telephonyManager.getSubscriberId();
         if (imsi != null && imsi.length() > 0) {
             //因为移动网络编号46000下的IMSI已经用完，所以虚拟了一个46002编号，134/159号段使用了此编号
             if (imsi.startsWith("46000") || imsi.startsWith("46002")) {
@@ -156,6 +158,7 @@ public class SystemUtil {
     }
 
     /** >=2.3 */
+    @SuppressLint("ObsoleteSdkInt")
     public static boolean hasGingerbread() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD;
     }

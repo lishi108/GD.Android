@@ -1,11 +1,14 @@
 package com.guodong.business.contract;
 
 
+import android.content.Context;
+
 import com.guodong.business.bean.ServerModel;
 import com.guodong.business.bean.User;
 import com.guodong.mvp.BaseContract;
 
 import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
 
 /**
  * Description:
@@ -20,7 +23,7 @@ public interface LoginContract {
     }
 
     interface ILoginPresenter extends BaseContract.IBasePresennter {
-        void login(String userName, String pwd);
+        void login(@NonNull Context context, @NonNull String userName,@NonNull String pwd);
 
         void login(int type);
     }

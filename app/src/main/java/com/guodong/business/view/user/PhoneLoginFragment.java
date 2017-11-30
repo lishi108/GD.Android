@@ -57,7 +57,7 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
     @OnClick(R.id.getCodeButton)
     void onGetCodeButton(View view) {
         if (phoneOk) {
-            mPresenter.getPhoneLoginCode(codePhoneEdit.getText().toString().trim());
+            mPresenter.getPhoneLoginCode(mContext,codePhoneEdit.getText().toString().trim());
             dialogFragment = CodeDialogFragment.getInstance(true);
             dialogFragment.show(getFragmentManager(),"Code");
 

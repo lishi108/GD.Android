@@ -1,6 +1,8 @@
 package com.guodong.business.contract;
 
 
+import android.content.Context;
+
 import com.guodong.business.bean.GameInfo;
 import com.guodong.business.bean.HotEquipmentInfo;
 import com.guodong.business.bean.PictureInfo;
@@ -22,9 +24,9 @@ public interface HomeContract {
         void setHotEquipment(List<HotEquipmentInfo> hotEquipments);
     }
     interface  IHomePresenter extends BaseContract.IBasePresennter{
-        void getBannerImage();
-        void getGameData();
-        void getHotEquipment();
+        void getBannerImage(Context context);
+        void getGameData(Context context);
+        void getHotEquipment(Context context);
     }
     interface IHomeModel  extends BaseContract.IBaseModel{
         Observable<List<PictureInfo>> getBannerImages();

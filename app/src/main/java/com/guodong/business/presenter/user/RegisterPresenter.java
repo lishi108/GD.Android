@@ -1,6 +1,8 @@
 package com.guodong.business.presenter.user;
 
 
+import android.content.Context;
+
 import com.guodong.business.contract.RegisterContract;
 import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.user.RegisterModel;
@@ -24,12 +26,12 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
     }
 
     @Override
-    public void getCode(@NonNull String phone) {
+    public void getCode(@NonNull final Context context, @NonNull String phone) {
 //        final long time = 60;
 //
 //        //获取验证码
         mModel.getCode(phone)
-                .subscribe(new BaseObserver<Integer>(mView.getContext(),false) {
+                .subscribe(new BaseObserver<Integer>(context,false) {
                     @Override
                     public void addonSubscribe(@NonNull Disposable d) {
                         addDisposable(d);
@@ -42,7 +44,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
 
                     @Override
                     public void onError(String message) {
-                        ToastUtil.showToast(mView.getContext(),message);
+                        ToastUtil.showToast(context,message);
                     }
                 });
 //
@@ -75,7 +77,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
 //
 //                    @Override
 //                    public void onError(@NonNull Throwable e) {
-//                        ToastUtil.showToast(mView.getContext(),e.getMessage());
+//                        ToastUtil.showToast(context,e.getMessage());
 //                    }
 //
 //                    @Override
@@ -88,7 +90,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.IRegisterV
     }
 
     @Override
-    public void register() {
+    public void register(@NonNull Context context) {
 
     }
 }

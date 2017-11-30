@@ -1,9 +1,12 @@
 package com.guodong.business.contract;
 
 
+import android.content.Context;
+
 import com.guodong.mvp.BaseContract;
 
 import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
 
 /**
  * Description:
@@ -16,7 +19,7 @@ public interface PhoneLoginContract {
     }
 
     interface IPhoneLoginPresenter extends BaseContract.IBasePresennter {
-        void getPhoneLoginCode(String phone);
+        void getPhoneLoginCode(@NonNull Context context,@NonNull String phone);
     }
 
     interface IPhoneLoginModel extends BaseContract.IBaseModel {

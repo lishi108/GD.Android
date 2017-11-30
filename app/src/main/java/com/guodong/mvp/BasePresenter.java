@@ -1,8 +1,8 @@
 package com.guodong.mvp;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.UiThread;
 import android.util.Log;
-
-import com.guodong.widget.LoadingDialog;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -19,8 +19,8 @@ import io.reactivex.functions.Function;
  */
 
 public abstract class BasePresenter<V extends BaseContract.IBaseView, M extends BaseContract.IBaseModel> implements BaseContract.IBasePresennter {
-    private WeakReference viewReference;
-    protected LoadingDialog loadingDialog;
+    private WeakReference<V> viewReference;
+//    protected LoadingDialog loadingDialog;
     protected V mView;
     protected M mModel;
 
@@ -39,18 +39,20 @@ public abstract class BasePresenter<V extends BaseContract.IBaseView, M extends 
     }
 
     public void dispose() {
-        if (compositeDisposable != null) compositeDisposable.dispose();
+        if (compositeDisposable != null){
+            compositeDisposable.dispose();
+            compositeDisposable = null;
+        }
     }
 
 
+    @UiThread
     @Override
-    public void attachView(BaseContract.IBaseView iView) {
+    public void attachView(@NonNull BaseContract.IBaseView iView) {
         Log.e("TAG", "MVP attachView begin!!!");
         viewReference = new WeakReference(iView);
-        mView = (V) viewReference.get();
+        mView = viewReference.get();
         mModel = getModel();
-        if (loadingDialog == null)
-            loadingDialog = new LoadingDialog(getView().getContext());
     }
 
     @Override
@@ -60,14 +62,14 @@ public abstract class BasePresenter<V extends BaseContract.IBaseView, M extends 
             viewReference.clear();
             viewReference = null;
         }
-        if(loadingDialog!=null&&loadingDialog.isShowing())
-            loadingDialog.dismiss();
+//        if(loadingDialog!=null&&loadingDialog.isShowing())
+//            loadingDialog.dismiss();
         dispose();
     }
 
     @Override
     public V getView() {
-        return (V) viewReference.get();
+        return viewReference == null ? null : viewReference.get();
     }
 
     public HashMap<String, BaseContract.IBaseModel> loadModelMap(BaseContract.IBaseModel... models) {

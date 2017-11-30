@@ -6,6 +6,7 @@ import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -21,7 +22,7 @@ public class LocalFileContentProvider extends ContentProvider {
 
 
     @Override
-    public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
+    public ParcelFileDescriptor openFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
 
         Log.e("path1:", uri.getPath());
         File file = new File(uri.getPath());
@@ -32,7 +33,7 @@ public class LocalFileContentProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public AssetFileDescriptor openAssetFile(Uri uri, String mode) throws FileNotFoundException {
+    public AssetFileDescriptor openAssetFile(@NonNull Uri uri, @NonNull String mode) throws FileNotFoundException {
         return super.openAssetFile(uri, mode);
     }
 
@@ -42,27 +43,27 @@ public class LocalFileContentProvider extends ContentProvider {
     }
 
     @Override
-    public int delete(Uri uri, String s, String[] as) {
+    public int delete(@NonNull Uri uri, @NonNull String s, String[] as) {
         throw new UnsupportedOperationException("Not supported by this provider");
     }
 
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         throw new UnsupportedOperationException("Not supported by this provider");
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues contentvalues) {
+    public Uri insert(@NonNull Uri uri, ContentValues contentvalues) {
         throw new UnsupportedOperationException("Not supported by this provider");
     }
 
     @Override
-    public Cursor query(Uri uri, String[] as, String s, String[] as1, String s1) {
+    public Cursor query(@NonNull Uri uri, String[] as, String s, String[] as1, String s1) {
         throw new UnsupportedOperationException("Not supported by this provider");
     }
 
     @Override
-    public int update(Uri uri, ContentValues contentvalues, String s, String[] as) {
+    public int update(@NonNull Uri uri, ContentValues contentvalues, String s, String[] as) {
         throw new UnsupportedOperationException("Not supported by this provider");
     }
 

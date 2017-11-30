@@ -97,7 +97,7 @@ public class HomeModel implements HomeContract.IHomeModel {
         List<HotEquipmentInfo> mDatas = new ArrayList<>();
         HotEquipmentInfo gameInfo1 = new HotEquipmentInfo();
         gameInfo1.setTitle("地下城勇士");
-        gameInfo1.setUrlId(R.drawable.sp1);
+        gameInfo1.setUrlId(R.drawable.spalash2);
         gameInfo1.setPrivce(200);
         gameInfo1.setAddress("广东区-电信服务器-游戏1区");
         mDatas.add(gameInfo1);

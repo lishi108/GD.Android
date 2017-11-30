@@ -1,6 +1,9 @@
 package com.guodong.business.contract;
 
 
+import android.content.Context;
+import android.support.annotation.NonNull;
+
 import com.guodong.business.bean.PictureInfo;
 import com.guodong.mvp.BaseContract;
 
@@ -18,7 +21,7 @@ public interface SplashContract {
         void setImages(List<PictureInfo> images);
     }
     interface  ISplashPresenter extends BaseContract.IBasePresennter{
-        void getImages();
+        void getImages(@NonNull Context context);
     }
     interface ISplashModel  extends BaseContract.IBaseModel{
 //        Observable<User> Login(String userName, String pwd);

@@ -1,6 +1,8 @@
 package com.guodong.business.presenter.spalash;
 
 
+import android.content.Context;
+
 import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.contract.SplashContract;
 import com.guodong.business.http.BaseObserver;
@@ -27,7 +29,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
     }
 
     @Override
-    public void getImages() {
+    public void getImages(@NonNull final Context context) {
         getModel().getImages()
                 .map(new Function<List<PictureInfo>, List<PictureInfo>>() {
                     @Override
@@ -38,7 +40,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
                         return pictureInfoList;
                     }
                 })
-                .subscribe(new BaseObserver<List<PictureInfo>>(getView().getContext(),false) {
+                .subscribe(new BaseObserver<List<PictureInfo>>(context,false) {
 
 
                     @Override
@@ -54,7 +56,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
 
                     @Override
                     public void onError(String message) {
-                        ToastUtil.showToast(getView().getContext(),message);
+                        ToastUtil.showToast(context,message);
                     }
                 });
     }
@@ -62,7 +64,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
 //    @Override
 //    public void getTextData(String key) {
 //        getModel().getUser("2017-10-29")
-//                .subscribe(new BaseObserver<User>(getView().getContext(),key,true) {
+//                .subscribe(new BaseObserver<User>(context,key,true) {
 //                    @Override
 //                    public void onSuccess(User User) {
 //                        getView().setText(User.getWeekday());
@@ -70,7 +72,7 @@ public class SplashPresenter extends BasePresenter<SplashContract.ISplashView,Sp
 //
 //                    @Override
 //                    public void onError(String message) {
-//                        ToastUtil.showToast(getView().getContext(),message);
+//                        ToastUtil.showToast(context,message);
 //                    }
 //                })
 //        ;

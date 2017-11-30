@@ -248,7 +248,7 @@ public class TextDrawable extends AppCompatTextView {
         }
 
         if (mBackgroundColorNormal == 0 && mBackgroundColorUnable == 0 && mBackgroundColorPressed == 0) {
-            if (mBorderColorPressed == 0 && mBorderColorUnable == 0 && mBorderColorNormal == 0) {
+            if (mBorderColorPressed == 0 && mBorderColorUnable == 0) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     setBackground(getBackground());
                 }

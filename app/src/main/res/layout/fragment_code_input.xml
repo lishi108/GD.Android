@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +35,6 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="@string/codeInfo2"
@@ -44,13 +45,12 @@
                 android:id="@+id/codePhoneTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/dp3"
                 android:layout_weight="1"
                 android:gravity="left"
                 android:text="17781139662"
                 android:textColor="@color/color666666"
-                android:textSize="@dimen/fontSize11.5" />
+                android:textSize="@dimen/fontSize12" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,6 +59,7 @@
             android:layout_marginLeft="@dimen/dp52.5"
             android:layout_marginRight="@dimen/dp52.5"
             android:layout_marginTop="@dimen/dp23.5"
+            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -71,7 +72,8 @@
                 <EditText
                     android:id="@+id/codeEdit1"
                     style="@style/CodeInputEdit"
-                    android:text="4" />
+                    android:hint="4"
+                    tools:ignore="TextFields" />
 
                 <View
                     android:layout_width="match_parent"
@@ -91,7 +93,8 @@
                 <EditText
                     android:id="@+id/codeEdit2"
                     style="@style/CodeInputEdit"
-                    android:text="4" />
+                    android:text="4"
+                    tools:ignore="TextFields" />
 
                 <View
                     android:layout_width="match_parent"
@@ -111,7 +114,8 @@
                 <EditText
                     android:id="@+id/codeEdit3"
                     style="@style/CodeInputEdit"
-                    android:text="4" />
+                    android:text="4"
+                    tools:ignore="TextFields" />
 
                 <View
                     android:layout_width="match_parent"
@@ -131,7 +135,8 @@
                 <EditText
                     android:id="@+id/codeEdit4"
                     style="@style/CodeInputEdit"
-                    android:text="4" />
+                    android:text="4"
+                    tools:ignore="TextFields" />
 
                 <View
                     android:layout_width="match_parent"

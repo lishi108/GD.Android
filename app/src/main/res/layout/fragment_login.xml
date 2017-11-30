@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorWhite"
-    android:scrollbars="none">
+    android:scrollbars="none"
+    tools:ignore="Overdraw">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,6 +33,7 @@
                     android:id="@+id/loginIcon1"
                     android:layout_width="@dimen/dp15"
                     android:layout_height="@dimen/dp15"
+                    android:contentDescription="@null"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp10"
                     android:src="@drawable/login_icon1" />
@@ -63,6 +66,7 @@
                     android:id="@+id/loginIcon2"
                     android:layout_width="@dimen/dp15"
                     android:layout_height="@dimen/dp15"
+                    android:contentDescription="@null"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp10"
                     android:src="@drawable/login_icon2" />
@@ -119,7 +123,7 @@
             android:layout_marginTop="@dimen/dp10"
             android:padding="@dimen/dp10"
             android:gravity="center_vertical"
-            android:textColor="@color/colorHint"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/fontSize12"
             android:text="@string/fast_login" />
 

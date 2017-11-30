@@ -17,7 +17,6 @@
         style="@style/Setting_Text"
         android:layout_marginTop="@dimen/dp20"
         android:background="@drawable/border"
-        android:inputType="text"
         android:text="5****************7"/>
 
     <RelativeLayout
@@ -27,6 +26,7 @@
 
         <ImageView
             android:id="@+id/aboutIcon2"
+            android:contentDescription="@null"
             style="@style/Setting_IconLeft"
             android:src="@drawable/icon_def_qq" />
 
@@ -36,6 +36,7 @@
             android:text="@string/alipay" />
 
         <ImageView
+            android:contentDescription="@null"
             style="@style/Setting_IconRight"/>
 
 

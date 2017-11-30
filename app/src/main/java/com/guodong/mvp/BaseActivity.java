@@ -1,7 +1,5 @@
 package com.guodong.mvp;
 
-import android.content.Context;
-
 import butterknife.ButterKnife;
 
 
@@ -31,10 +29,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AbsActivity 
         super.onDestroy();
         if (mPresenter != null)
             mPresenter.detachView();
-    }
-    @Override
-    public Context getContext() {
-        return this;
     }
     protected abstract P loadPresenter();
 }

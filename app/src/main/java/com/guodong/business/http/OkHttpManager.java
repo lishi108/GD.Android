@@ -1,5 +1,7 @@
 package com.guodong.business.http;
 
+import android.support.annotation.NonNull;
+
 import com.guodong.BaseApplication;
 import com.guodong.business.config.AppConfig;
 import com.lzy.okgo.cookie.CookieJarImpl;
@@ -25,7 +27,7 @@ public class OkHttpManager {
                     //开启log
                     HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                         @Override
-                        public void log(String message) {
+                        public void log(@NonNull String message) {
                             Logger.e("HTTP", message);
                         }
                     });

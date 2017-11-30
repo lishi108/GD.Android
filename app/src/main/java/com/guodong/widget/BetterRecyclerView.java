@@ -4,15 +4,13 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
 
 /**
- * Description:
+ * Description:处理横向滑动和ScrollView的滑动冲突
  * Created by Administrator on 2017/11/24.
  */
 
 public class BetterRecyclerView extends RecyclerView {
-    private ViewGroup parent;
 
     public BetterRecyclerView(Context context) {
         super(context);
@@ -20,10 +18,6 @@ public class BetterRecyclerView extends RecyclerView {
 
     public BetterRecyclerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-    }
-
-    public void setNestParent(ViewGroup parent) {
-        this.parent = parent;
     }
 
     private int lastX = -1;

@@ -2,8 +2,6 @@ package com.guodong.widget;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
@@ -43,7 +41,7 @@ public class LoadingDialog extends Dialog {
         setContentView(R.layout.loading_dialog);
         ButterKnife.bind(this);
         this.setCanceledOnTouchOutside(false);
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        getWindow().setBackgroundDrawableResource(R.color.transparent);
 //        WindowManager windowManager = getWindow().getWindowManager();
 //        Display display = windowManager.getDefaultDisplay();
 //        WindowManager.LayoutParams lp = this.getWindow().getAttributes();

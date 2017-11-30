@@ -1,6 +1,8 @@
 package com.guodong.business.contract;
 
 
+import android.content.Context;
+
 import com.guodong.business.bean.User;
 import com.guodong.mvp.BaseContract;
 
@@ -20,12 +22,12 @@ public interface RegisterContract {
         /**
          * 获取验证码
          */
-        void getCode(@NonNull String phone);
+        void getCode(@NonNull Context context,@NonNull String phone);
 
         /**
          * 注册
          */
-        void register();
+        void register(@NonNull Context context);
     }
     interface IRegisterModel  extends BaseContract.IBaseModel{
         /**

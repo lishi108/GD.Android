@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
     <ImageView
         android:id="@+id/gameImage"
         android:layout_width="@dimen/dp50"
         android:layout_height="@dimen/dp50"
+        android:contentDescription="@null"
         android:layout_marginTop="@dimen/dp15"
         android:src="@drawable/sp1"/>
     <TextView
@@ -19,8 +22,7 @@
         android:gravity="center"
         android:textColor="@color/color333333"
         android:textSize="@dimen/fontSize12"
-        android:padding="@dimen/dp3"
-        android:text="地下城勇士"/>
+        android:padding="@dimen/dp3"/>
 
 
 </LinearLayout>

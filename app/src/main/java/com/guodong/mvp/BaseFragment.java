@@ -23,6 +23,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     protected P mPresenter;
     protected BaseActivity mActivity;
     protected View rootView;
+    protected Context mContext;
 
     @Override
     public void onAttach(Context context) {
@@ -65,15 +66,15 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(rootView == null){
-            View view = inflater.inflate(getLayoutId(),null,false);
-            rootView = view;
-        }else{
-            if(rootView.getParent()!=null){
-                ((ViewGroup)rootView.getParent()).removeView(rootView);
-            }
-        }
-
+//        if(rootView == null){
+//            rootView = inflater.inflate(getLayoutId(),null,false);
+//        }else{
+//            if(rootView.getParent()!=null){
+//                ((ViewGroup)rootView.getParent()).removeView(rootView);
+//                rootView = inflater.inflate(getLayoutId(),null);
+//            }
+//        }
+        rootView = inflater.inflate(getLayoutId(),null);
         return rootView;
     }
     @Override
@@ -90,6 +91,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         }catch (Exception e) {
             new ClassCastException(this.toString() + "实现IBaseView或者IBaseView子类接口");
         }
+        mContext = getContext();
         initData();
     }
     @Override
@@ -110,6 +112,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     public BaseFragment getFragment() {
         return this;
     }
+
     protected abstract P loadPresenter();
     protected abstract int getLayoutId();
     protected abstract void initData();

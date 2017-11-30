@@ -33,13 +33,13 @@ public class SettingFragment extends BaseFragment  {
     void onViewClick(View view){
         switch (view.getId()){
             case R.id.settingPwdLayout:
-                addFragment(new PasswordFragment());
+                ((SetttingActivity)mActivity).addFragment(new PasswordFragment());
                 break;
             case R.id.settingPhoneLayout:
-                addFragment(new PhoneFragment());
+                ((SetttingActivity)mActivity).addFragment(new PhoneFragment());
                 break;
             case R.id.settingAboutLayout:
-                addFragment(new AboutFragment());
+                ((SetttingActivity)mActivity).addFragment(new AboutFragment());
                 break;
         }
     }

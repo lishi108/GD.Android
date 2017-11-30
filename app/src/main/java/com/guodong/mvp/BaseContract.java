@@ -1,16 +1,12 @@
 package com.guodong.mvp;
 
-import android.content.Context;
-
 /**
  * Description:
  * Created by LSQ108 on 2017/10/24.
  */
 
 public interface BaseContract {
-    interface IBaseView{
-        Context getContext();
-    }
+    interface IBaseView{}
     interface IBasePresennter<V extends IBaseView>{
         /**
          * 绑定View

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp75"
@@ -12,11 +14,24 @@
         android:layout_marginLeft="@dimen/dp20"
         android:layout_marginRight="@dimen/dp14"
         android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/hotImageView"
+        <RelativeLayout
             android:layout_width="@dimen/dp100"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/hotImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"/>
+            <ImageView
+                android:id="@+id/pauseImageView"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:contentDescription="@null"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pause"/>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,6 +44,7 @@
                 android:ellipsize="end"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/fontSize12"
+                android:textStyle="bold"
                 android:textColor="@color/color333333"/>
             <TextView
                 android:id="@+id/privceText"
@@ -45,7 +61,7 @@
                 android:layout_marginBottom="@dimen/dp10">
                 <TextView
                     android:id="@+id/commonText"
-                    android:layout_width="@dimen/dp0"
+                    android:layout_width="0dp"
                     android:layout_weight="1"
                     android:gravity="bottom|left"
                     android:textSize="@dimen/fontSize10"

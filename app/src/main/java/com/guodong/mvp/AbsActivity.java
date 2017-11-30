@@ -1,5 +1,6 @@
 package com.guodong.mvp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -18,7 +19,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guodong.BaseApplication;
-import com.guodong.utils.AutoUtils;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
@@ -44,7 +44,7 @@ public abstract class AbsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AutoUtils.setSize(this, false, 720, 1280);
+//        AutoUtils.setSize(this, false, 720, 1280);
         setContentView(getView());
         initCommonData();
         initData();
@@ -52,7 +52,7 @@ public abstract class AbsActivity extends AppCompatActivity {
     }
 
     private void initCommonData() {
-        AutoUtils.auto(this);
+//        AutoUtils.auto(this);
         ButterKnife.bind(this);
         /** 是否沉浸状态栏 **/
         if (isSetStatusBar) {
@@ -238,6 +238,7 @@ public abstract class AbsActivity extends AppCompatActivity {
     /**
      * 华为等设备底部虚拟按键
      */
+    @SuppressLint("ObsoleteSdkInt")
     protected void hideBottomUIMenu() {
         //隐藏虚拟按键，并且全屏
         if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {

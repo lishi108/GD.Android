@@ -79,8 +79,13 @@ public class LoginFragment extends BaseTitleFragment<LoginPresenter> implements 
 
     @OnClick(R.id.loginButton)
     void onLoginButton(View view) {
-//        mPresenter.login(getUserName(),getPassword());
         mActivity.startActivity(MainActivity.class);
+        ((LoginActivity)mActivity).removeFragment();
+        int count =  mActivity.getSupportFragmentManager().getBackStackEntryCount();
+            Logger.e("count is  null"+count);
+
+        ((LoginActivity)mActivity).finish();
+
     }
 
     @OnClick(R.id.login_select_wechart)
@@ -108,6 +113,18 @@ public class LoginFragment extends BaseTitleFragment<LoginPresenter> implements 
                 Tencent.handleResultData(data, new QQLoginListener());
             }
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Logger.e("LoginFragment is onResume");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Logger.e("LoginFragment is onDestroyView");
     }
 
     private class QQLoginListener implements IUiListener {

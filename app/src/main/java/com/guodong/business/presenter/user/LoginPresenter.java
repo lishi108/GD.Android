@@ -1,6 +1,8 @@
 package com.guodong.business.presenter.user;
 
 
+import android.content.Context;
+
 import com.guodong.business.bean.ServerModel;
 import com.guodong.business.contract.LoginContract;
 import com.guodong.business.http.BaseObserver;
@@ -26,18 +28,18 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
     }
 
     @Override
-    public void login(String userName, String pwd) {
+    public void login(@NonNull final Context context, @NonNull String userName, @NonNull String pwd) {
 //        Observable userObservable = Observable.just(userName);
 //        Observable passwordObservable = Observable.just(pwd);
 //        Observable.combineLatest(userObservable, passwordObservable, new BiFunction<String,String,Boolean>() {
 //            @Override
 //            public Boolean apply(@NonNull String o, @NonNull String o2) throws Exception {
 //                if(!StringUtils.checkPhoneNumber(o)){
-//                    ToastUtil.showToast(getView().getContext(), R.string.phone_login_badnumber);
+//                    ToastUtil.showToast(context, R.string.phone_login_badnumber);
 //                    return Boolean.FALSE;
 //                }
 //                if(StringUtils.checkNullString(o2)||o2.length()<6||o2.length()>12){
-//                    ToastUtil.showToast(getView().getContext(),R.string.phone_login_badpwd);
+//                    ToastUtil.showToast(context,R.string.phone_login_badpwd);
 //                    return Boolean.FALSE;
 //                }
 //                return Boolean.TRUE;
@@ -45,7 +47,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 //        }).
 //
 //        mModel.Login(userName,pwd)
-//                .subscribe(new BaseObserver<User>(getView().getContext(),"login",true) {
+//                .subscribe(new BaseObserver<User>(context,"login",true) {
 //                    @Override
 //                    public void onSuccess(User user) {
 //                        Logger.e(user.getPhone());
@@ -56,13 +58,13 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 //
 //                    @Override
 //                    public void onError(String message) {
-//                        ToastUtil.showToast(getView().getContext(),message);
+//                        ToastUtil.showToast(context,message);
 //                    }
 //                });
 
         mModel.Login("222","2222")
                 .observeOn(AndroidSchedulers.mainThread())//
-                .subscribe(new BaseObserver<ServerModel>(getView().getContext(),true) {
+                .subscribe(new BaseObserver<ServerModel>(context,true) {
                     @Override
                     public void addonSubscribe(@NonNull Disposable d) {
                         addDisposable(d);
@@ -77,7 +79,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 
                     @Override
                     public void onError(String message) {
-                        ToastUtil.showToast(getView().getContext(),message);
+                        ToastUtil.showToast(context,message);
                     }
                 });
 
@@ -91,7 +93,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 //    @Override
 //    public void getTextData(String key) {
 //        getModel().getUser("2017-10-29")
-//                .subscribe(new BaseObserver<User>(getView().getContext(),key,true) {
+//                .subscribe(new BaseObserver<User>(context,key,true) {
 //                    @Override
 //                    public void onSuccess(User User) {
 //                        getView().setText(User.getWeekday());
@@ -99,7 +101,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 //
 //                    @Override
 //                    public void onError(String message) {
-//                        ToastUtil.showToast(getView().getContext(),message);
+//                        ToastUtil.showToast(context,message);
 //                    }
 //                })
 //        ;

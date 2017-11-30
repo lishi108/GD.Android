@@ -45,7 +45,7 @@ public class RegisterFragment extends BaseTitleFragment<RegisterPresenter> imple
     @OnClick(R.id.getCodeButton)
     void onGetCodeButton(View view) {
         if (phoneOk) {
-            mPresenter.getCode(codePhoneEdit.getText().toString().trim());
+            mPresenter.getCode(mContext,codePhoneEdit.getText().toString().trim());
         }else {
             ToastUtil.showToast(getContext(),R.string.phone_login_badnumber);
         }

@@ -17,7 +17,6 @@ import com.guodong.R;
 import com.guodong.business.adapter.BannerAdapter;
 import com.guodong.business.adapter.BannerMaterialIndicator;
 import com.guodong.business.bean.PictureInfo;
-import com.guodong.utils.AutoUtils;
 import com.guodong.utils.glide.GlideRoundTransform;
 
 import java.lang.ref.WeakReference;
@@ -41,14 +40,11 @@ public class BannerViewHolder {
     LinearLayout bannerLayout;
     private List<PictureInfo> images = new ArrayList<>();
     private List<ImageView> imageViewList = new ArrayList<>();
-    private BannerAdapter adapter;
     private Context context;
     private ImageHandler handler = new ImageHandler(new WeakReference<BannerViewHolder>(this));
 
 
     public BannerViewHolder(Context context, @NonNull View view) {
-        if (null == view)
-            throw new NullPointerException("参数view不能为空");
         this.context = context;
         ButterKnife.bind(this, view);
         initViewPager();
@@ -64,7 +60,7 @@ public class BannerViewHolder {
                 ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 imageView.setLayoutParams(params);
 //                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                AutoUtils.auto(imageView);
+//                AutoUtils.auto(imageView);
                 Glide.with(context)
                         .load(images.get(i).getResourceId())
                         .placeholder(R.mipmap.ic_launcher)
@@ -73,7 +69,7 @@ public class BannerViewHolder {
                         .into(imageView);
                 imageViewList.add(imageView);
             }
-            adapter = new BannerAdapter(imageViewList);
+            BannerAdapter adapter = new BannerAdapter(imageViewList);
             bannerViewPager.setAdapter(adapter);
             bannerIndicator.setCount(images.size());
             bannerIndicator.setImageHandler(handler);
@@ -169,6 +165,20 @@ public class BannerViewHolder {
                 default:
                     break;
             }
+        }
+    }
+
+    public void clear(){
+        if(handler!=null){
+            handler.removeCallbacksAndMessages(null);
+        }
+        if(images!=null){
+            images.clear();
+            images = null;
+        }
+        if(imageViewList!=null){
+            imageViewList.clear();
+            imageViewList = null;
         }
     }
 

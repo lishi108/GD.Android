@@ -95,7 +95,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
                 splashViewPager.setAdapter(adapter);
                 splashViewPager.addOnPageChangeListener(indicator);
                 indicator.setAdapter(splashViewPager.getAdapter());
-                mPresenter.getImages();
+                mPresenter.getImages(mContext);
             }
         });
 

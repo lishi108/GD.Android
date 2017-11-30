@@ -132,6 +132,7 @@
         <item name="android:layout_width">@dimen/dp40</item>
         <item name="android:layout_height">@dimen/dp40</item>
         <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:contentDescription">@null</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
     <style name="Setting_IconRight">

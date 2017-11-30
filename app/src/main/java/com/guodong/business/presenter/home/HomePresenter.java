@@ -1,5 +1,7 @@
 package com.guodong.business.presenter.home;
 
+import android.content.Context;
+
 import com.guodong.business.bean.GameInfo;
 import com.guodong.business.bean.HotEquipmentInfo;
 import com.guodong.business.bean.PictureInfo;
@@ -28,9 +30,9 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView, HomeCon
     }
 
     @Override
-    public void getBannerImage() {
+    public void getBannerImage(final Context context) {
         mModel.getBannerImages()
-                .subscribe(new BaseObserver<List<PictureInfo>>(getView().getContext(), false) {
+                .subscribe(new BaseObserver<List<PictureInfo>>(context, false) {
 
 
                     @Override
@@ -45,15 +47,15 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView, HomeCon
 
                     @Override
                     public void onError(String message) {
-                        ToastUtil.showToast(getView().getContext(), message);
+                        ToastUtil.showToast(context, message);
                     }
                 });
     }
 
     @Override
-    public void getGameData() {
+    public void getGameData(final Context context) {
         mModel.getGameData()
-                .subscribe(new BaseObserver<List<GameInfo>>(mView.getContext(), true) {
+                .subscribe(new BaseObserver<List<GameInfo>>(context, true) {
                     @Override
                     public void addonSubscribe(@NonNull Disposable d) {
                         addDisposable(d);
@@ -66,13 +68,13 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView, HomeCon
 
                     @Override
                     public void onError(String message) {
-                        ToastUtil.showToast(getView().getContext(), message);
+                        ToastUtil.showToast(context, message);
                     }
                 });
     }
 
     @Override
-    public void getHotEquipment() {
+    public void getHotEquipment(final Context context) {
         mModel.getHotEquipment()
                 .map(new Function<List<HotEquipmentInfo>, List<HotEquipmentInfo>>() {
                     @Override
@@ -87,7 +89,7 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView, HomeCon
                         return hotEquipmentInfos;
                     }
                 })
-                .subscribe(new BaseObserver<List<HotEquipmentInfo>>(mView.getContext(),true) {
+                .subscribe(new BaseObserver<List<HotEquipmentInfo>>(context,true) {
                     @Override
                     public void addonSubscribe(@NonNull Disposable d) {
                         addDisposable(d);
@@ -100,7 +102,7 @@ public class HomePresenter extends BasePresenter<HomeContract.IHomeView, HomeCon
 
                     @Override
                     public void onError(String message) {
-                        ToastUtil.showToast(mView.getContext(),message);
+                        ToastUtil.showToast(context,message);
                     }
                 });
     }
