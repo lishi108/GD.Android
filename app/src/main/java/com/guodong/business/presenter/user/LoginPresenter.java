@@ -29,38 +29,6 @@ public class LoginPresenter extends BasePresenter<LoginContract.ILoginView,Login
 
     @Override
     public void login(@NonNull final Context context, @NonNull String userName, @NonNull String pwd) {
-//        Observable userObservable = Observable.just(userName);
-//        Observable passwordObservable = Observable.just(pwd);
-//        Observable.combineLatest(userObservable, passwordObservable, new BiFunction<String,String,Boolean>() {
-//            @Override
-//            public Boolean apply(@NonNull String o, @NonNull String o2) throws Exception {
-//                if(!StringUtils.checkPhoneNumber(o)){
-//                    ToastUtil.showToast(context, R.string.phone_login_badnumber);
-//                    return Boolean.FALSE;
-//                }
-//                if(StringUtils.checkNullString(o2)||o2.length()<6||o2.length()>12){
-//                    ToastUtil.showToast(context,R.string.phone_login_badpwd);
-//                    return Boolean.FALSE;
-//                }
-//                return Boolean.TRUE;
-//            }
-//        }).
-//
-//        mModel.Login(userName,pwd)
-//                .subscribe(new BaseObserver<User>(context,"login",true) {
-//                    @Override
-//                    public void onSuccess(User user) {
-//                        Logger.e(user.getPhone());
-//                        DataManager.saveLoginInfo(user);
-//                        DataManager.saveIsFirst(false);
-//                        mView.startToActivity(MainActivity.class);
-//                    }
-//
-//                    @Override
-//                    public void onError(String message) {
-//                        ToastUtil.showToast(context,message);
-//                    }
-//                });
 
         mModel.Login("222","2222")
                 .observeOn(AndroidSchedulers.mainThread())//

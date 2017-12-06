@@ -52,6 +52,17 @@
     <string name="praize">点赞</string>
     <string name="comment">评论</string>
 
+    <string name="keyword">关键字</string>
+    <string name="price_range">价格区间</string>
+    <string name="keyword_search">关键字搜索</string>
+    <string name="confirm">确定</string>
+    <string name="reset">重置</string>
+
+
+    <string name="roleName">角色名称:</string>
+    <string name="roleGrade">角色等级:</string>
+    <string name="contactPhone">联系手机:</string>
+    <string name="contactQQ">联系QQ:</string>
     <!--fragment personal-->
     <string name="commodity_management">商品管理</string>
     <string name="order_management">订单管理</string>
@@ -94,6 +105,25 @@
     <string name="alipay">支付宝</string>
 
 
+    <string-array name="goods_menu">
+        <item>金币</item>
+        <item>游戏区服</item>
+        <item>筛选</item>
+        <item>默认排序</item>
+    </string-array>
+    <string-array name="sort_menu">
+        <item>默认排序</item>
+        <item>价格排序</item>
+        <item>价格排序</item>
+        <item>单价排序</item>
+    </string-array>
+    <string-array name="sort_info">
+        <item>(价格由低到高排序)</item>
+        <item>(价格由高到低排序)</item>
+        <item>(价格由低到高排序)</item>
+        <item>(单价由高到低排序)</item>
+    </string-array>
+
     <string-array name="data">
         <item>我是第一行数据</item>
         <item>我是第二行数据</item>
@@ -111,4 +141,5 @@
         <item>我是第二行数据</item>
         <item>我是第二行数据</item>
     </string-array>
+
 </resources>

@@ -32,6 +32,7 @@ public class LoginModel implements LoginContract.ILoginModel {
 
     @Override
     public Observable<ServerModel> Login(String userName, String pwd) {
+
         return OkGo.<BaseEntity<ServerModel>>get(AppConfig.URL_JSONOBJECT)
                 .headers("aaa","111")
                 .params("bbb","222")

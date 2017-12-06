@@ -1,12 +1,12 @@
 package com.guodong.business.http;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.guodong.BaseApplication;
 import com.guodong.business.config.AppConfig;
 import com.lzy.okgo.cookie.CookieJarImpl;
 import com.lzy.okgo.cookie.store.SPCookieStore;
-import com.orhanobut.logger.Logger;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +28,7 @@ public class OkHttpManager {
                     HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
                         @Override
                         public void log(@NonNull String message) {
-                            Logger.e("HTTP", message);
+                            Log.e("HTTP", message);
                         }
                     });
                     loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

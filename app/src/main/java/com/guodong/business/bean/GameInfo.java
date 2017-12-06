@@ -11,6 +11,15 @@ public class GameInfo implements Serializable{
     private String name;
     private String iconUrl;
     private int iconId;
+    private String gameInfo;
+
+    public String getGameInfo() {
+        return gameInfo;
+    }
+
+    public void setGameInfo(String gameInfo) {
+        this.gameInfo = gameInfo;
+    }
 
     public int getIconId() {
         return iconId;

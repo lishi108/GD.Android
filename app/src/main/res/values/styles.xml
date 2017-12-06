@@ -107,7 +107,46 @@
         <item name="android:background">@color/colorWhite</item>
         <item name="android:digits">"1234567890"</item>
         <item name="android:gravity">center</item>
+        <item name="android:inputType">phone|number</item>
         <item name="android:maxLength">1</item>
+    </style>
+
+    <style name="GoodsListTitle">
+        <item name="android:textSize">@dimen/fontSize14</item>
+        <item name="android:textColor">@color/color333333</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="GoodsListTitle2">
+        <item name="android:textSize">@dimen/fontSize12</item>
+        <item name="android:textColor">@color/color999999</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <style name="RoleText1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color666666</item>
+        <item name="android:textSize">@dimen/fontSize12</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">@dimen/dp3</item>
+    </style>
+    <style name="RoleText2">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">4</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color333333</item>
+        <item name="android:textSize">@dimen/fontSize12</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">@dimen/dp3</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="Personal_Text">

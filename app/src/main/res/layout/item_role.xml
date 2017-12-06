@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorWhite"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp20"
+        android:layout_marginLeft="@dimen/dp20"
+        android:paddingBottom="@dimen/dp10"
+        android:orientation="vertical">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/RoleText1"
+            android:text="@string/roleName"/>
+        <TextView
+            style="@style/RoleText2"
+            android:text="小兽李大仁"/>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/RoleText1"
+                android:text="@string/roleGrade"/>
+            <TextView
+                style="@style/RoleText2"
+                android:text="小兽李大仁"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/RoleText1"
+                android:text="@string/contactPhone"/>
+            <TextView
+                style="@style/RoleText2"
+                android:text="小兽李大仁"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/RoleText1"
+                android:text="@string/contactQQ"/>
+            <TextView
+                style="@style/RoleText2"
+                android:text="小兽李大仁"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp10"
+        android:src="@drawable/edit"/>
+
+</RelativeLayout>

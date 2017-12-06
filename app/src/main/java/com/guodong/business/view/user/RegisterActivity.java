@@ -4,47 +4,42 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.guodong.R;
-import com.guodong.business.contract.PhoneLoginContract;
-import com.guodong.business.presenter.user.PhoneLoginPresenter;
-import com.guodong.mvp.BaseTitleFragment;
+import com.guodong.business.contract.RegisterContract;
+import com.guodong.business.presenter.user.RegisterPresenter;
+import com.guodong.mvp.BaseTitleActivity;
 import com.guodong.utils.StringUtils;
 import com.guodong.utils.ToastUtil;
 import com.guodong.widget.ClearEditText;
-import com.guodong.widget.CodeDialogFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
-public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> implements PhoneLoginContract.IPhoneLoginView {
+public class RegisterActivity extends BaseTitleActivity<RegisterPresenter> implements RegisterContract.IRegisterView {
     @BindView(R.id.codeLine)
     View codeLine;
     @BindView(R.id.codePhoneEdit)
     ClearEditText codePhoneEdit;
     @BindView(R.id.getCodeButton)
     Button getCodeButton;
-    private TextView rightTitleView;
     private boolean phoneOk = false;
-    private CodeDialogFragment dialogFragment;
+
     @Override
-    protected PhoneLoginPresenter loadPresenter() {
-        return new PhoneLoginPresenter();
+    protected RegisterPresenter loadPresenter() {
+        return new RegisterPresenter();
     }
+
+    @Override
+    protected int initTitle() {
+        return R.string.register;
+    }
+
     @Override
     protected void initData() {
-        rightTitleView = mActivity.getOther();
-        rightTitleView.setVisibility(View.VISIBLE);
-        rightTitleView.setText(R.string.pwdLogin);
-        rightTitleView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addFragment(new LoginFragment());
-            }
-        });
-        mActivity.setTitle(R.string.NullText);
+        super.initData();
+        getOther().setVisibility(View.GONE);
     }
     @Override
     protected int getLayoutId() {
@@ -57,12 +52,9 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
     @OnClick(R.id.getCodeButton)
     void onGetCodeButton(View view) {
         if (phoneOk) {
-            mPresenter.getPhoneLoginCode(mContext,codePhoneEdit.getText().toString().trim());
-            dialogFragment = CodeDialogFragment.getInstance(true);
-            dialogFragment.show(getFragmentManager(),"Code");
-
+            mPresenter.getCode(mContext,codePhoneEdit.getText().toString().trim());
         }else {
-            ToastUtil.showToast(getContext(),R.string.phone_login_badnumber);
+            ToastUtil.showToast(mContext,R.string.phone_login_badnumber);
         }
     }
 
@@ -95,10 +87,8 @@ public class PhoneLoginFragment extends BaseTitleFragment<PhoneLoginPresenter> i
 
     @Override
     public void intentToCodeInput(String phone) {
-        mBundle = new Bundle();
+        Bundle mBundle = new Bundle();
         mBundle.putString("phone",phone);
-        CodeInputFragment codeInputFragment = new CodeInputFragment();
-        codeInputFragment.setArguments(mBundle);
-        addFragment(codeInputFragment);
+        startActivity(CodeInputActivity.class,mBundle);
     }
 }

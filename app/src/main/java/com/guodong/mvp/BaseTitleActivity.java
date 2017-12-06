@@ -31,15 +31,16 @@ public abstract class BaseTitleActivity<P extends BasePresenter> extends BaseAct
     public void setTitle(@StringRes int title) {
         mTitle.setText(title);
     }
+    public void setmTitle(String title){
+        mTitle.setText(title);
+    }
 
     /**
      * 设置标题内容的资源ID
      *
      * @return
      */
-    public int initTitle() {
-        return -1;
-    }
+    protected abstract int initTitle();
 
     @Override
     protected void initData() {
@@ -57,6 +58,9 @@ public abstract class BaseTitleActivity<P extends BasePresenter> extends BaseAct
         return mOther;
     }
 
+    public TextView getmTitle(){
+        return mTitle;
+    }
     @Override
     protected int getLayoutId() {
         return R.layout.app_bar_base;
@@ -64,7 +68,8 @@ public abstract class BaseTitleActivity<P extends BasePresenter> extends BaseAct
 
     @OnClick(R.id.back)
     public void onBackClick(View view) {
-        finish();
+        AppManager.getAppManager().finishActivity(this);
+//        finish();
     }
 
     @Override

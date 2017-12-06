@@ -3,7 +3,10 @@ package com.guodong.business.contract;
 
 import android.content.Context;
 
+import com.guodong.business.http.BaseEntity;
 import com.guodong.mvp.BaseContract;
+
+import org.json.JSONException;
 
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
@@ -23,6 +26,6 @@ public interface PhoneLoginContract {
     }
 
     interface IPhoneLoginModel extends BaseContract.IBaseModel {
-        Observable<Integer> getPhoneCode();
+        Observable<BaseEntity> getPhoneCode(String phoneNumber) throws JSONException;
     }
 }

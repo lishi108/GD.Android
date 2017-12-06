@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp20"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/fontSize12"
+            android:text="@string/keyword" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@color/colorf1f1f1"
+            android:hint="@string/keyword_search"
+            android:paddingLeft="@dimen/dp10"
+            android:textColor="@color/colorcccccc"
+            android:textSize="@dimen/fontSize12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp20"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/fontSize12"
+            android:text="@string/price_range"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@color/colorf1f1f1"
+                android:textSize="@dimen/fontSize12"
+                android:textColor="@color/colorcccccc"
+                android:paddingLeft="@dimen/dp10"/>
+            <View
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp1"
+                android:background="@color/color666666"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_gravity="center"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@color/colorf1f1f1"
+                android:textSize="@dimen/fontSize12"
+                android:textColor="@color/colorcccccc"
+                android:paddingLeft="@dimen/dp10"/>
+        </LinearLayout>
+      
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginTop="@dimen/dp20"
+        android:textSize="@dimen/fontSize12"
+        android:textColor="@color/color666666"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp10"
+        android:text="保障服务"/>
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/flowLayout"
+        zhy:max_select="-1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp20"
+        android:padding="20dp">
+    </com.zhy.view.flowlayout.TagFlowLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp20"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp20">
+
+        <TextView
+            android:layout_width="@dimen/dp90"
+            android:layout_height="@dimen/dp30"
+            android:background="@color/color666666"
+            android:gravity="center"
+            android:text="@string/reset" />
+
+        <TextView
+            android:layout_width="@dimen/dp90"
+            android:layout_height="@dimen/dp30"
+            android:layout_marginLeft="90dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/confirm" />
+    </LinearLayout>
+</LinearLayout>

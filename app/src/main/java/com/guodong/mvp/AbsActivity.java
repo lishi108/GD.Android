@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guodong.BaseApplication;
+import com.guodong.utils.KeyboardUtils;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
@@ -72,14 +73,9 @@ public abstract class AbsActivity extends AppCompatActivity {
         if (null != getIntent()) {
             handleIntent(getIntent());
         }
-        //避免重复添加Fragment
-        if (null == getSupportFragmentManager().getFragments()) {
-            BaseFragment firstFragment = getFirstFragment();
-            if (null != firstFragment) {
-                addFragment(firstFragment);
-            }
-        }
-        BaseApplication.getApplication().addActivity(this);
+//        BaseApplication.getApplication().addActivity(this);
+        AppManager.getAppManager().addActivity(this);
+        KeyboardUtils.assistActivity(this);
     }
 
     /**
@@ -123,15 +119,7 @@ public abstract class AbsActivity extends AppCompatActivity {
             transaction.replace(getFragmentContentId(), fragment, fragment.getClass().getName());
             transaction.isAddToBackStackAllowed();
             transaction.addToBackStack(fragment.getClass().getName());
-            transaction.commit();
-
-
-
-
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(getFragmentContentId(), fragment, fragment.getClass().getSimpleName())
-//                    .addToBackStack(fragment.getClass().getSimpleName())
-//                    .commitAllowingStateLoss();
+            transaction.commitAllowingStateLoss();
         }
     }
 
@@ -173,7 +161,8 @@ public abstract class AbsActivity extends AppCompatActivity {
             Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
         } else {
-            BaseApplication.getApplication().finishAll();
+//            BaseApplication.getApplication().finishAll();
+            AppManager.getAppManager().finishAllActivity();
             System.exit(0);
         }
     }
@@ -181,8 +170,8 @@ public abstract class AbsActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseApplication.getApplication().finishActivity(this);
-
+//        BaseApplication.getApplication().finishActivity(this);
+        AppManager.getAppManager().finishActivity(this);
         RefWatcher refWatcher = BaseApplication.getRefWatcher(mContext);
         refWatcher.watch(this);
     }

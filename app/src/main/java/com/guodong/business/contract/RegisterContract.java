@@ -4,7 +4,10 @@ package com.guodong.business.contract;
 import android.content.Context;
 
 import com.guodong.business.bean.User;
+import com.guodong.business.http.BaseEntity;
 import com.guodong.mvp.BaseContract;
+
+import org.json.JSONException;
 
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
@@ -16,28 +19,23 @@ import io.reactivex.annotations.NonNull;
 
 public interface RegisterContract {
     interface IRegisterView extends BaseContract.IBaseView{
-
+       void intentToCodeInput(String phoneNumber);
     }
     interface  IRegisterPresenter extends BaseContract.IBasePresennter{
         /**
          * 获取验证码
          */
         void getCode(@NonNull Context context,@NonNull String phone);
-
-        /**
-         * 注册
-         */
-        void register(@NonNull Context context);
     }
     interface IRegisterModel  extends BaseContract.IBaseModel{
         /**
          * 获取验证码
          */
-        Observable<Integer> getCode(String phoneNumber);
+        Observable<BaseEntity> getCode(String phoneNumber) throws JSONException;
 
         /**
          * 注册
          */
-        public Observable<User> register(String phone, String code, String pwd, String pwdTwo);
+        Observable<User> register(String phone, String code, String pwd, String pwdTwo);
     }
 }

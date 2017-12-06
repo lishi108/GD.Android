@@ -1,8 +1,6 @@
 package com.guodong.business.view;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,19 +10,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.guodong.R;
 import com.guodong.business.view.find.FindFragment;
-import com.guodong.business.view.goods.GoodsFragment;
+import com.guodong.business.view.goods.GamesFragment;
 import com.guodong.business.view.home.HomeFragment;
-import com.guodong.business.view.user.LoginFragment;
 import com.guodong.business.view.user.PersonalFragment;
 import com.guodong.mvp.BaseActivity;
-import com.guodong.mvp.BaseFragment;
+import com.guodong.mvp.BaseContract;
 import com.guodong.mvp.BasePresenter;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity<BasePresenter> implements BaseContract.IBaseView {
     @BindView(R.id.homeImageView)
     ImageView homeImageView;
     @BindView(R.id.buyImageView)
@@ -37,15 +34,10 @@ public class MainActivity extends BaseActivity {
     private FragmentTransaction transaction;
 
     private HomeFragment homeFragment;
-    private GoodsFragment goodsFragment;
+    private GamesFragment gamesFragment;
     private FindFragment findFragment;
     private PersonalFragment personalFragment;
 
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     protected int getFragmentContentId() {
@@ -59,23 +51,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
+        super.initData();
         mContext = MainActivity.this;
-        Logger.e("当前fragment的数量："+getSupportFragmentManager().getBackStackEntryCount());
-        BaseFragment loginFragment = (BaseFragment) getSupportFragmentManager().findFragmentByTag(LoginFragment.class.getName());
-        if(loginFragment == null){
-            Logger.e(" MainActivity loginFragment is  null");
-        }else {
-            Logger.e("MainActivity  loginFragment is not null");
-        }
-
         changeTableStatus();
         selectFragment(0);
 
-    }
-
-    @Override
-    protected BasePresenter loadPresenter() {
-        return null;
     }
 
     @OnClick({R.id.homeLayout, R.id.buyLayout, R.id.findLayout, R.id.personLayout})
@@ -132,11 +112,11 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
             case 1:
-                if(goodsFragment == null){
-                    goodsFragment = new GoodsFragment();
-                    transaction.add(R.id.mainFrameLayout,goodsFragment);
+                if(gamesFragment == null){
+                    gamesFragment = new GamesFragment();
+                    transaction.add(R.id.mainFrameLayout, gamesFragment);
                 }else {
-                    transaction.show(goodsFragment);
+                    transaction.show(gamesFragment);
                 }
                 break;
             case 2:
@@ -178,8 +158,8 @@ public class MainActivity extends BaseActivity {
         if (homeFragment != null) {
             transaction.hide(homeFragment);
         }
-        if (goodsFragment != null) {
-            transaction.hide(goodsFragment);
+        if (gamesFragment != null) {
+            transaction.hide(gamesFragment);
         }
         if (findFragment != null) {
             transaction.hide(findFragment);
@@ -199,5 +179,15 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Logger.e("Main Activity destory!");
+    }
+
+    @Override
+    protected BasePresenter loadPresenter() {
+        return new BasePresenter() {
+            @Override
+            public BaseContract.IBaseModel loadModel() {
+                return null;
+            }
+        };
     }
 }

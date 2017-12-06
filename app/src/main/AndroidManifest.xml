@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".BaseApplication"
@@ -22,19 +25,23 @@
             android:name=".business.view.user.LoginActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity android:name=".business.view.user.CodeInputActivity"
+            android:windowSoftInputMode="stateVisible"/>
+        <activity android:name=".business.view.user.PhoneLoginActivity"/>
+        <activity android:name=".business.view.user.RegisterActivity"
+            android:windowSoftInputMode="stateVisible"/>
+        <activity
+            android:name=".business.view.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity
-            android:name=".business.view.MainActivity"
-            android:launchMode="singleTask">
-
-
-        </activity>
+        <activity android:name=".business.view.goods.GoodsActivity"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".business.view.user.SetttingActivity"
             android:launchMode="singleTask" />
@@ -59,6 +66,22 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
+        <!--支付宝支付-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <!--支付宝支付-->
         <!--QQ 三方登录-->
         <meta-data
             android:name="UMENG_CHANNEL"

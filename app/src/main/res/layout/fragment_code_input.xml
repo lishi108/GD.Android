@@ -5,8 +5,10 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:ignore="Overdraw">
-
+    <include
+        layout="@layout/app_bar_base"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,10 +74,10 @@
                 <EditText
                     android:id="@+id/codeEdit1"
                     style="@style/CodeInputEdit"
-                    android:hint="4"
                     tools:ignore="TextFields" />
 
                 <View
+                    android:id="@+id/codeLine1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp1"
                     android:layout_marginTop="@dimen/dp5"
@@ -93,10 +95,10 @@
                 <EditText
                     android:id="@+id/codeEdit2"
                     style="@style/CodeInputEdit"
-                    android:text="4"
                     tools:ignore="TextFields" />
 
                 <View
+                    android:id="@+id/codeLine2"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp1"
                     android:layout_marginTop="@dimen/dp5"
@@ -114,10 +116,10 @@
                 <EditText
                     android:id="@+id/codeEdit3"
                     style="@style/CodeInputEdit"
-                    android:text="4"
                     tools:ignore="TextFields" />
 
                 <View
+                    android:id="@+id/codeLine3"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp1"
                     android:layout_marginTop="@dimen/dp5"
@@ -135,10 +137,10 @@
                 <EditText
                     android:id="@+id/codeEdit4"
                     style="@style/CodeInputEdit"
-                    android:text="4"
                     tools:ignore="TextFields" />
 
                 <View
+                    android:id="@+id/codeLine4"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp1"
                     android:layout_marginTop="@dimen/dp5"
@@ -148,6 +150,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/codeTimeLayout"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp20"
         android:layout_width="wrap_content"

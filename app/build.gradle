@@ -170,4 +170,7 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     compile files('libs/open_sdk_r5923_lite.jar')
+    compile files('libs/alipaySdk-20170922.jar')
+
+    compile 'com.hyman:flowlayout-lib:1.1.2'
 }

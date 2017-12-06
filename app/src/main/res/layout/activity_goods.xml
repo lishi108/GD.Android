@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <include layout="@layout/app_bar_base"/>
+    <com.guodong.widget.DropDownMenu
+        android:id="@+id/dropDownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ddmenuTextSize="@dimen/fontSize14"
+        app:ddtextUnselectedColor="@color/color666666"
+        app:ddtextSelectedColor="@color/colorPrimary"
+        app:dddividerColor="@color/colorWhite"
+        app:ddunderlineColor="@color/colore3e3e3"
+        app:ddmenuMenuHeightPercent="0.5"
+        app:ddmenuSelectedIcon="@drawable/pull_icon"
+        app:ddmaskColor="@color/transparent_half"
+        app:ddmenuBackgroundColor="@color/colorWhite"
+        app:ddmenuUnselectedIcon="@drawable/pull_icon">
+    </com.guodong.widget.DropDownMenu>
+</LinearLayout>

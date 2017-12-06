@@ -13,7 +13,7 @@ public class ToastUtil {
     /** Toast第一次显示的内容 */
     private static String oldMsg ;
     /** Toast对象 */
-    private static Toast toast = null ;
+    private volatile static Toast toast = null ;
     /** Toast第一次显示的时间 */
     private static long oneTime = 0 ;
     /** Toast第二次显示的时间 */
@@ -31,7 +31,11 @@ public class ToastUtil {
      */
     public static void showToast(Context context, String message){
         if(toast == null){
-            toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+            synchronized (ToastUtil.class){
+                if(toast == null){
+                    toast = Toast.makeText(context.getApplicationContext(), message, Toast.LENGTH_SHORT);
+                }
+            }
             toast.show() ;
             oneTime = System.currentTimeMillis() ;
         }else{
@@ -60,6 +64,12 @@ public class ToastUtil {
                     Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
                 }
             });
+        }
+    }
+    public static void clear(){
+        if(toast!=null){
+            toast.cancel();
+            toast = null;
         }
     }
 }

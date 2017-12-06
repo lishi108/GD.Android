@@ -1,7 +1,5 @@
 package com.guodong;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 
@@ -63,29 +61,29 @@ public class BaseApplication extends Application {
     public static BaseApplication getApplication(){
         return application;
     }
-
-    public void addActivity(AbsActivity mActivity){
-        mActivitys.add(mActivity);
-    }
-
-    public void finishActivity(AbsActivity mActivity){
-        if(mActivity != null){
-            mActivitys.remove(mActivity);
-        }
-    }
-    public void finishAll(){
-        for(Activity mActivity:mActivitys){
-            mActivity.finish();
-        }
-        try {
-            ActivityManager activityManager = (ActivityManager) this
-                    .getSystemService(Context.ACTIVITY_SERVICE);
-            activityManager.restartPackage(this.getPackageName());
-            System.exit(0);
-            android.os.Process.killProcess(android.os.Process.myPid());
-        } catch (Exception e) {
-        }
-    }
+//
+//    public void addActivity(AbsActivity mActivity){
+//        mActivitys.add(mActivity);
+//    }
+//
+//    public void finishActivity(AbsActivity mActivity){
+//        if(mActivity != null){
+//            mActivitys.remove(mActivity);
+//        }
+//    }
+//    public void finishAll(){
+//        for(Activity mActivity:mActivitys){
+//            mActivity.finish();
+//        }
+//        try {
+//            ActivityManager activityManager = (ActivityManager) this
+//                    .getSystemService(Context.ACTIVITY_SERVICE);
+//            activityManager.restartPackage(this.getPackageName());
+//            System.exit(0);
+//            android.os.Process.killProcess(android.os.Process.myPid());
+//        } catch (Exception e) {
+//        }
+//    }
     protected RefWatcher setupLeakCanary() {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return RefWatcher.DISABLED;
