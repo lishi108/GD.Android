@@ -24,7 +24,7 @@ public class PhoneLoginModel implements PhoneLoginContract.IPhoneLoginModel {
     public  Observable<BaseEntity> getPhoneCode(String phoneNumber) throws JSONException{
         JSONObject object = new JSONObject();
         object.put("mobileNumber", phoneNumber);
-        object.put("mobileValidType", 2);
+        object.put("mobileValidType", 1);
         return OkGo.<BaseEntity>post("http://userservice.api.guodong.com/Mobile/SendValidCodeAsync")
                 .upJson(object.toString())
                 .converter(new JsonConvert<BaseEntity>() {

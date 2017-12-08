@@ -54,10 +54,10 @@ public class GameListViewHolder {
         adapter = new CommonAdapter<GameInfo>(context, R.layout.item_game_horizontal, gameInfoList) {
             @Override
             protected void convert(ViewHolder holder, GameInfo gameInfo, int position) {
-                holder.setText(R.id.gameNameText, gameInfoList.get(position).getName());
+                holder.setText(R.id.gameNameText, gameInfoList.get(position).getGameName());
                 ImageView imageView = holder.getView(R.id.gameImage);
                 Glide.with(context)
-                        .load(gameInfoList.get(position).getIconId())
+                        .load(gameInfoList.get(position).getLogoImg())
                         .error(R.mipmap.ic_launcher)
                         .transform(new GlideRoundTransform(context, radius))
                         .into(imageView);

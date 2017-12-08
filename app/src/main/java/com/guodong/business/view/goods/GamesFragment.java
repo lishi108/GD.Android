@@ -23,8 +23,6 @@ import java.util.List;
 
 import butterknife.BindView;
 
-import static android.R.attr.radius;
-
 /**
  * Description:
  * Created by Administrator on 2017/11/8.
@@ -51,13 +49,13 @@ public class GamesFragment extends BaseFragment<GamesPresenter> implements Games
         commonAdapter = new CommonAdapter<GameInfo>(mContext,R.layout.item_games,gameInfoList) {
             @Override
             protected void convert(ViewHolder holder, GameInfo gameInfo, int position) {
-                holder.setText(R.id.gameName, gameInfoList.get(position).getName());
-                holder.setText(R.id.gameInfo,gameInfoList.get(position).getGameInfo());
+                holder.setText(R.id.gameName, gameInfoList.get(position).getGameName());
+//                holder.setText(R.id.gameInfo,gameInfoList.get(position).getGameInfo());
                 ImageView imageView = holder.getView(R.id.gameIcon);
                 Glide.with(mContext)
-                        .load(gameInfoList.get(position).getIconId())
+                        .load(gameInfoList.get(position).getLogoImg())
                         .error(R.mipmap.ic_launcher)
-                        .transform(new GlideRoundTransform(mContext, radius))
+                        .transform(new GlideRoundTransform(mContext, 5))
                         .into(imageView);
 
             }
@@ -71,7 +69,7 @@ public class GamesFragment extends BaseFragment<GamesPresenter> implements Games
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 if(gameInfoList.get(position)!=null) {
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("game", gameInfoList.get(position));
+                    bundle.putParcelable("game", gameInfoList.get(position));
                     mActivity.startActivity(GoodsActivity.class, bundle);
                 }
             }

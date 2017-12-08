@@ -2,12 +2,16 @@ package com.guodong.business.presenter.games;
 
 import android.content.Context;
 
+import com.guodong.business.bean.Category;
 import com.guodong.business.bean.GameInfo;
+import com.guodong.business.bean.SubCategory;
 import com.guodong.business.contract.GoodsContract;
 import com.guodong.business.http.BaseObserver;
 import com.guodong.business.model.games.GoodsModel;
 import com.guodong.mvp.BasePresenter;
 import com.guodong.utils.ToastUtil;
+
+import org.json.JSONException;
 
 import java.util.List;
 
@@ -44,5 +48,57 @@ public class GoodsPresenter extends BasePresenter<GoodsContract.IGoodsView,Goods
                 ToastUtil.showToast(context,message);
             }
         });
+    }
+
+    @Override
+    public void getCategory(final Context context, @android.support.annotation.NonNull String gameId) {
+        try {
+            mModel.getCategory(gameId)
+                    .subscribe(new BaseObserver<List<Category>>(context,false) {
+                        @Override
+                        public void addonSubscribe(@NonNull Disposable d) {
+                            addDisposable(d);
+                        }
+
+                        @Override
+                        public void onSuccess(List<Category> categories) {
+
+                        }
+
+                        @Override
+                        public void onError(String message) {
+                            ToastUtil.showToast(context,message);
+                        }
+                    });
+        } catch (JSONException e) {
+            e.printStackTrace();
+            ToastUtil.showToast(context,e.getMessage());
+        }
+    }
+
+    @Override
+    public void getSubCategory(final Context context, @android.support.annotation.NonNull String categoryId) {
+        try {
+            mModel.getSubCategory(categoryId)
+                    .subscribe(new BaseObserver<List<SubCategory>>(context,false) {
+                        @Override
+                        public void addonSubscribe(@NonNull Disposable d) {
+                            addDisposable(d);
+                        }
+
+                        @Override
+                        public void onSuccess(List<SubCategory> subCategories) {
+
+                        }
+
+                        @Override
+                        public void onError(String message) {
+                        ToastUtil.showToast(context,message);
+                        }
+                    });
+        } catch (JSONException e) {
+            e.printStackTrace();
+            ToastUtil.showToast(context,e.getMessage());
+        }
     }
 }

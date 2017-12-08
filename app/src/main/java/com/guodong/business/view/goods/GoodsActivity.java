@@ -1,6 +1,7 @@
 package com.guodong.business.view.goods;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -9,8 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.guodong.R;
+import com.guodong.business.bean.Category;
 import com.guodong.business.bean.GameInfo;
-import com.guodong.business.bean.GoodsType;
+import com.guodong.business.bean.SubCategory;
 import com.guodong.business.contract.GoodsContract;
 import com.guodong.business.presenter.games.GoodsPresenter;
 import com.guodong.mvp.BaseTitleActivity;
@@ -39,10 +41,14 @@ public class GoodsActivity extends BaseTitleActivity<GoodsPresenter> implements 
     private List<View> popupViews = new ArrayList<>(); //下拉选项View
     private View contentView;  //内容显示区域
 
-    private List<GoodsType> mainTypes = new ArrayList<>();
-    private SparseArray<List<GoodsType>> smallTypes = new SparseArray<>();
     private List<String> flowList = new ArrayList<>();  //筛选标签
     private List<String> sortData = new ArrayList<>();
+
+    //
+    private List<Category> categories = new ArrayList<>();  //商品大类
+    private SparseArray<List<SubCategory>> sparseArray = new SparseArray<>();  //大类下的小类关联
+
+
 
     @Override
     protected int initTitle() {
@@ -62,20 +68,19 @@ public class GoodsActivity extends BaseTitleActivity<GoodsPresenter> implements 
     @Override
     protected void initData() {
         super.initData();
-        initTestData();
         Bundle bundle = getIntent().getExtras();
-        GameInfo gameInfo = (GameInfo) bundle.getSerializable("game");
-        getmTitle().setText(gameInfo.getName());
+        GameInfo gameInfo = (GameInfo) bundle.getParcelable("game");
+        getmTitle().setText(gameInfo.getGameName());
 
         String[] menus = mContext.getResources().getStringArray(R.array.goods_menu);
 
 
 //        类目View
-        final TypeListView typeView = new TypeListView(this, "金币", mainTypes, smallTypes, 0, 0);
+        final TypeListView typeView = new TypeListView(this, "金币", categories, sparseArray, 0, 0);
 
 
 //        游戏区服View
-        final GameAreaView areaView = new GameAreaView(this, "游戏区服", mainTypes, smallTypes, 0, 0);
+        final GameAreaView areaView = new GameAreaView(this, "游戏区服", categories, sparseArray, 0, 0);
 //        筛选View
         View filterView = LayoutInflater.from(this).inflate(R.layout.item_filter, null, false);
         final TagFlowLayout flowLayout = (TagFlowLayout) filterView.findViewById(R.id.flowLayout);
@@ -122,32 +127,15 @@ public class GoodsActivity extends BaseTitleActivity<GoodsPresenter> implements 
 
     }
 
-    private void initTestData() {
+    @Override
+    public void setCategory(@NonNull List<Category> categoryList) {
 
-        mainTypes.add(new GoodsType("金币"));
-        mainTypes.add(new GoodsType("衣服"));
-        mainTypes.add(new GoodsType("鞋子"));
-        mainTypes.add(new GoodsType("武器"));
-        for (int i = 0; i < mainTypes.size(); i++) {
-            List<GoodsType> infos = new ArrayList<>();
-            switch (i) {
-                case 0:
-                    infos.add(new GoodsType("银币"));
-                    infos.add(new GoodsType("金币"));
-                    break;
-                case 1:
-                    infos.add(new GoodsType("魔法衣"));
-                    infos.add(new GoodsType("裤子"));
-                    infos.add(new GoodsType("防弹衣"));
-                    break;
-                default:
-                    infos.add(new GoodsType("魔法衣"));
-                    infos.add(new GoodsType("魔法衣"));
-                    infos.add(new GoodsType("魔法衣"));
-                    infos.add(new GoodsType("魔法衣"));
-                    break;
-            }
-            smallTypes.put(i,infos);
-        }
     }
+
+    @Override
+    public void setSubCategory(@NonNull List<SubCategory> sbCategoryList) {
+
+    }
+
+
 }

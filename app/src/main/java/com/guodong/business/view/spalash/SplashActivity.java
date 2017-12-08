@@ -13,7 +13,9 @@ import com.guodong.business.bean.PictureInfo;
 import com.guodong.business.config.DataManager;
 import com.guodong.business.contract.SplashContract;
 import com.guodong.business.presenter.spalash.SplashPresenter;
+import com.guodong.business.view.MainActivity;
 import com.guodong.business.view.user.LoginActivity;
+import com.guodong.mvp.AppManager;
 import com.guodong.mvp.BaseActivity;
 import com.guodong.widget.MaterialIndicator;
 import com.orhanobut.logger.Logger;
@@ -39,11 +41,6 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
     ViewPager splashViewPager;
     @BindView(R.id.indicator)
     MaterialIndicator indicator;
-//    @BindView(R.id.pointGroupLayout)
-//    LinearLayout pointGroupLayout;     //引导圆点的父控件
-
-//    @BindView(R.id.pointView)
-//    View pointView;   //选中的圆点
     @BindView(R.id.startButton)
     Button startButton;   //开始体验按钮
     @BindView(R.id.skipButton)
@@ -51,7 +48,6 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
 
     // 引导页背景图片的id数组
     private List<PictureInfo> imageList;
-    private int mPointWidth = 0;// 圆点间的距离
     private ArrayList<View> mImageViewList;
     private CustomPagerAdapter adapter;
 
@@ -72,7 +68,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
                     splashImage.setVisibility(View.VISIBLE);
                     splashImage.setBackgroundResource(R.drawable.welcome);
                     welcomeLayout.setVisibility(View.GONE);
-                    intentToLoginActivity();
+                    intentToActivity();
                     e.onComplete();
                     Logger.e("不是第一次进入");
                 }
@@ -135,19 +131,21 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
         }
     }
 
-    private void intentToLoginActivity() {
+    private void intentToActivity() {
+
         splashImage.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(LoginActivity.class);
-                finish();
+                if(checkToken()) startActivity(MainActivity.class);
+                else startActivity(LoginActivity.class);
+                AppManager.getAppManager().finishActivity(SplashActivity.class);
             }
         },1000);
     }
 
     @OnClick({R.id.skipButton,R.id.startButton})
     void onUseViewClick(View view) {
-        intentToLoginActivity();
+        intentToActivity();
     }
 
 
@@ -155,4 +153,5 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
     protected void onDestroy() {
         super.onDestroy();
     }
+
 }

@@ -32,7 +32,7 @@ public class RegisterModel implements RegisterContract.IRegisterModel {
     public Observable<BaseEntity> getCode(@NonNull String phoneNumber) throws JSONException {
         JSONObject object = new JSONObject();
         object.put("mobileNumber", phoneNumber);
-        object.put("mobileValidType", 2);
+        object.put("mobileValidType", 1);
         return OkGo.<BaseEntity>post("http://userservice.api.guodong.com/Mobile/SendValidCodeAsync")
                 .upJson(object.toString())
                 .converter(new JsonConvert<BaseEntity>() {

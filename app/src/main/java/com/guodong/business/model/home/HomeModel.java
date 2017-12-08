@@ -46,47 +46,8 @@ public class HomeModel implements HomeContract.IHomeModel {
     public Observable<List<GameInfo>> getGameData() {
         List<GameInfo> mDatas = new ArrayList<>();
         GameInfo gameInfo1 = new GameInfo();
-        gameInfo1.setName("地下城勇士");
-        gameInfo1.setIconId(R.drawable.sp1);
+        gameInfo1.setGameName("地下城勇士");
         mDatas.add(gameInfo1);
-
-        GameInfo gameInfo2 = new GameInfo();
-        gameInfo2.setName("ddddddddd");
-        gameInfo2.setIconId(R.drawable.sp2);
-        mDatas.add(gameInfo2);
-
-        GameInfo gameInfo3 = new GameInfo();
-        gameInfo3.setName("mmmmmm");
-        gameInfo3.setIconId(R.drawable.spalash1);
-        mDatas.add(gameInfo3);
-
-        GameInfo gameInfo4 = new GameInfo();
-        gameInfo4.setName("地下城勇士");
-        gameInfo4.setIconId(R.drawable.sp1);
-        mDatas.add(gameInfo4);
-
-        GameInfo gameInfo5 = new GameInfo();
-        gameInfo5.setName("地下城勇士");
-        gameInfo5.setIconId(R.drawable.sp1);
-        mDatas.add(gameInfo5);
-
-        GameInfo gameInfo6 = new GameInfo();
-        gameInfo6.setName("地下城勇士");
-        gameInfo6.setIconId(R.drawable.sp1);
-        mDatas.add(gameInfo6);
-
-
-        GameInfo gameInfo7 = new GameInfo();
-        gameInfo7.setName("地下城勇士");
-        gameInfo7.setIconId(R.drawable.sp1);
-        mDatas.add(gameInfo7);
-
-
-        GameInfo gameInfo8 = new GameInfo();
-        gameInfo8.setName("地下城勇士");
-        gameInfo8.setIconId(R.drawable.sp1);
-        mDatas.add(gameInfo8);
-
 
         return Observable.just(mDatas)
                 .compose(RxSchedulers.<List<GameInfo>> io_main());

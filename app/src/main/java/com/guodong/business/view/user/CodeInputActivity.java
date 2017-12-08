@@ -13,7 +13,6 @@ import com.guodong.R;
 import com.guodong.business.contract.CodeInputContract;
 import com.guodong.business.presenter.user.CodeInputPresenter;
 import com.guodong.business.view.MainActivity;
-import com.guodong.mvp.AppManager;
 import com.guodong.mvp.BaseTitleActivity;
 import com.guodong.utils.LogUtils;
 import com.guodong.utils.StringUtils;
@@ -224,12 +223,11 @@ public class CodeInputActivity extends BaseTitleActivity<CodeInputPresenter> imp
 
     @Override
     public void intentToMain() {
+//        AppManager.getAppManager().finishActivity(LoginActivity.class);
+//        AppManager.getAppManager().finishActivity(RegisterActivity.class);
         startActivity(MainActivity.class);
-//        BaseApplication.getApplication().finishActivity(this);
-        AppManager.getAppManager().finishActivity(this);
-        AppManager.getAppManager().finishActivity(LoginActivity.class);
-        AppManager.getAppManager().finishActivity(RegisterActivity.class);
-        AppManager.getAppManager().finishActivity(CodeInputActivity.class);
+//        AppManager.getAppManager().finishActivity(CodeInputActivity.class);
+
     }
 
     /**

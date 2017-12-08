@@ -1,5 +1,7 @@
 package com.guodong.utils;
 
+import android.content.Context;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -25,6 +27,50 @@ import java.util.List;
 
 public class FileUtils {
     public final static int FILE_WRITE_CACLE_SIZE = 1024;  //读写文件缓存大小
+
+
+    /**
+     * 将assets文件夹下文件拷贝到/databases/下
+     * @param context
+     * @param db_name
+     */
+    public static void copyDbFile(Context context, String db_name) {
+        InputStream in = null;
+        FileOutputStream out = null;
+        String path = "/data/data/" + context.getPackageName() + "/databases/";
+        File file = new File(path + db_name);
+
+        //创建文件夹
+        File filePath = new File(path);
+        if (!filePath.exists())
+            filePath.mkdirs();
+
+        if (file.exists())
+            return;
+
+        try {
+            in = context.getAssets().open(db_name); // 从assets目录下复制
+            out = new FileOutputStream(file);
+            int length = -1;
+            byte[] buf = new byte[1024];
+            while ((length = in.read(buf)) != -1) {
+                out.write(buf, 0, length);
+            }
+            out.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (in != null) in.close();
+                if (out != null) out.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+
+
     private FileUtils() {
         throw new UnsupportedOperationException("u can't fuck me...");
     }

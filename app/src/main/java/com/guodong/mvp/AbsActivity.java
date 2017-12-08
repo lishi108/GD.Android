@@ -19,7 +19,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.guodong.BaseApplication;
+import com.guodong.business.bean.LoginInfo;
+import com.guodong.business.config.DataManager;
 import com.guodong.utils.KeyboardUtils;
+import com.guodong.utils.TimeUtils;
+import com.guodong.utils.ToastUtil;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
@@ -161,9 +165,7 @@ public abstract class AbsActivity extends AppCompatActivity {
             Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
             mExitTime = System.currentTimeMillis();
         } else {
-//            BaseApplication.getApplication().finishAll();
-            AppManager.getAppManager().finishAllActivity();
-            System.exit(0);
+            AppManager.getAppManager().AppExit(this);
         }
     }
 
@@ -298,6 +300,19 @@ public abstract class AbsActivity extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             imm.showSoftInputFromInputMethod(getCurrentFocus().getWindowToken(),0);
         }
+    }
+
+    public boolean checkToken(){
+        LoginInfo loginInfo = DataManager.getLoginInfo();
+        if(loginInfo!=null){
+            Long tokenTime = loginInfo.getExpires();
+            if(TimeUtils.getCurrentTimeInLong()<tokenTime) return true;
+            else {
+                ToastUtil.showToast(mContext,"Token已失效，请重新登录");
+                return false;
+            }
+        }
+        return false;
     }
 
     //布局中Fragment的ID

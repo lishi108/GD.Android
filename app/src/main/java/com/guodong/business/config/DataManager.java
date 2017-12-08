@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.guodong.business.bean.User;
+import com.guodong.business.bean.LoginInfo;
 import com.guodong.utils.SharedPreferencesUtils;
 
 /**
@@ -39,20 +39,20 @@ public class DataManager {
         }
         return dataManager;
     }
-    public static void saveLoginInfo(User user){
-        if(user!=null){
-            String userInfo = new Gson().toJson(user);
+    public static void saveLoginInfo(LoginInfo loginInfo){
+        if(loginInfo!=null){
+            String userInfo = new Gson().toJson(loginInfo);
             SharedPreferencesUtils.put(AppConfig.LOGINE_KEY,userInfo);
         }else {
             throw new NullPointerException("保存的用户信息为空，请检查");
         }
     }
-    public static User getLoginInfo(){
-        String userInfo = SharedPreferencesUtils.get(AppConfig.LOGINE_KEY,"");
-        if (TextUtils.isEmpty(userInfo)) {
+    public static LoginInfo getLoginInfo(){
+        String loginInfo = SharedPreferencesUtils.get(AppConfig.LOGINE_KEY,"");
+        if (TextUtils.isEmpty(loginInfo)) {
             return null;
         }
-        return new Gson().fromJson(userInfo,User.class);
+        return new Gson().fromJson(loginInfo,LoginInfo.class);
     }
     public static void saveIsFirst(boolean isFirst){
         SharedPreferencesUtils.put(AppConfig.LOGINE_FIRST_KEY,isFirst);

@@ -2,6 +2,7 @@ package com.guodong.business.view.goods;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +13,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.guodong.R;
-import com.guodong.business.bean.GoodsType;
+import com.guodong.business.bean.Category;
+import com.guodong.business.bean.SubCategory;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -43,17 +45,17 @@ public class GameAreaView extends LinearLayout {
     /**
      * 父列表的数据
      */
-    private List<GoodsType> superItemDatas = new ArrayList<>();
+    private List<Category> superItemDatas = new ArrayList<>();
     /**
      * 所有子列表数据
      */
-    private SparseArray<List<GoodsType>> allChildItemDatas = new SparseArray<>();
+    private SparseArray<List<SubCategory>> allChildItemDatas = new SparseArray<>();
     /**
      * 父列表对应的子列表的数据
      */
-    private List<GoodsType> childItemDatas = new ArrayList<>();
-    private CommonAdapter superListAdapter;
-    private CommonAdapter childListAdapter;
+    private List<SubCategory> childItemDatas = new ArrayList<>();
+    private CommonAdapter<Category> superListAdapter;
+    private CommonAdapter<SubCategory> childListAdapter;
     /**
      * 选择监听
      */
@@ -81,7 +83,7 @@ public class GameAreaView extends LinearLayout {
      * @param superItemDatas    一级列表数据
      * @param allChildItemDatas 二级列表数据
      */
-    public GameAreaView(Context context, String showStr, List<GoodsType> superItemDatas, SparseArray<List<GoodsType>> allChildItemDatas,
+    public GameAreaView(Context context, String showStr, List<Category> superItemDatas, SparseArray<List<SubCategory>> allChildItemDatas,
                         int defPos, int defPosChild) {
         super(context);
         this.superItemDatas = superItemDatas;
@@ -104,11 +106,11 @@ public class GameAreaView extends LinearLayout {
         view_listView_super.setLayoutManager(new LinearLayoutManager(context));
         view_listView_child.setLayoutManager(new GridLayoutManager(context, 2));
 
-        superListAdapter = new CommonAdapter<GoodsType>(context, R.layout.item_textview, superItemDatas) {
+        superListAdapter = new CommonAdapter<Category>(context, R.layout.item_textview, superItemDatas) {
 
             @Override
-            protected void convert(final ViewHolder holder, GoodsType type, int position) {
-                holder.setText(R.id.textView, type.getName());
+            protected void convert(final ViewHolder holder, Category category, int position) {
+                holder.setText(R.id.textView, category.getCategoryName());
                 Log.e("TAG", "superPosition  :" + superPosition);
                 if(superPosition==position){
                     holder.setBackgroundColor(R.id.textView, Color.WHITE);
@@ -130,7 +132,7 @@ public class GameAreaView extends LinearLayout {
                 superPosition = position;
                 childPosition = 0;
                 superListAdapter.notifyDataSetChanged();
-                showStr = superItemDatas.get(position).getName();
+                showStr = superItemDatas.get(position).getCategoryName();
                 childItemDatas.clear();
                 if (allChildItemDatas.get(position) != null) {
                     childItemDatas.addAll(allChildItemDatas.get(position));
@@ -150,11 +152,11 @@ public class GameAreaView extends LinearLayout {
             childItemDatas.addAll(allChildItemDatas.get(superPosition));
         }
 
-        childListAdapter = new CommonAdapter<GoodsType>(context, R.layout.item_textview_border, childItemDatas) {
+        childListAdapter = new CommonAdapter<SubCategory>(context, R.layout.item_textview_border, childItemDatas) {
 
             @Override
-            protected void convert(ViewHolder holder, GoodsType type, int position) {
-                holder.setText(R.id.borderTextView, type.getName());
+            protected void convert(ViewHolder holder, SubCategory subCategory, int position) {
+                holder.setText(R.id.borderTextView, subCategory.getCategoryName());
 //                if(childPosition==position){
 //                    holder.setBackgroundColor(R.id.borderTextView,context.getResources().getColor(R.color.colorf1f1f1));
 //                }else {
@@ -173,7 +175,7 @@ public class GameAreaView extends LinearLayout {
                 Log.e("TAG", "childList position:" + position + "; adapter position:" + holder.getAdapterPosition());
                 childPosition = position;
                 childListAdapter.notifyDataSetChanged();
-                showStr = childItemDatas.get(position).getName();
+                showStr = childItemDatas.get(position).getCategoryName();
 
                 Log.e("TAG","点击选中了："+superItemDatas.get(superPosition)+"-"+allChildItemDatas.get(superPosition).get(childPosition));
                 if (mOnSelectListener != null) {
@@ -188,7 +190,7 @@ public class GameAreaView extends LinearLayout {
 
         });
         if (childPosition < childItemDatas.size()) {
-            showStr = childItemDatas.get(childPosition).getName();
+            showStr = childItemDatas.get(childPosition).getCategoryName();
         }
         setDefSelected();
     }
@@ -230,6 +232,11 @@ public class GameAreaView extends LinearLayout {
          * @param superPosition 选择的位置所在的父类列表的位置
          * @param position      选择的位置
          */
-        public void getValue(String showText, int superPosition, int position);
+        void getValue(String showText, int superPosition, int position);
+    }
+    public void setChildItemDatas(@NonNull List<SubCategory> subCategories){
+        if(childItemDatas.size()>0) childItemDatas.clear();
+        childItemDatas.addAll(subCategories);
+        childListAdapter.notifyDataSetChanged();
     }
 }
