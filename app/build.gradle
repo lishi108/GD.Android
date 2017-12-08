@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 def keystoreFilepath = ''
 def keystorePSW = ''
@@ -48,11 +47,7 @@ android {
         // 默认是umeng的渠道
         manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
-    greendao {
-        schemaVersion 1
-        daoPackage 'com.guodong.business.bean.greendao'
-        targetGenDir 'src/main/java'
-    }
+
     signingConfigs {
         debug {
             storeFile keyfile
@@ -179,5 +174,4 @@ dependencies {
     compile files('libs/alipaySdk-20170922.jar')
 
     compile 'com.hyman:flowlayout-lib:1.1.2'
-    compile 'org.greenrobot:greendao:3.2.2' // add library
 }

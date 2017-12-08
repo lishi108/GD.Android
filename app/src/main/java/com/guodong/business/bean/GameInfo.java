@@ -3,17 +3,11 @@ package com.guodong.business.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Unique;
-import org.greenrobot.greendao.annotation.Generated;
-
-import java.io.Serializable;
-
 /**
  * Description:
  * Created by Administrator on 2017/11/24.
  */
-@Entity
+
 public class GameInfo implements Parcelable{
 
     /**
@@ -35,7 +29,6 @@ public class GameInfo implements Parcelable{
      * displayName : null
      */
 
-    @Unique
     private String id;  //游戏id
     private int type;  //类型 网游/页游
     private int platformType;   //平台类型（0：无 1：安卓 2：IOS 3：所有 备注：或运算结果） ,
@@ -53,32 +46,8 @@ public class GameInfo implements Parcelable{
     private String nextAction;  //下一步接口地址
     private String displayName; //在前端显示的名称
     private Long  updateTime;   //更新时间
-    @Generated(hash = 1519111471)
-    public GameInfo(String id, int type, int platformType, String gameName, String shortX, String pinYin, String py,
-            int state, String logoImg, String mainPicture, String synopsis, int sort, boolean isHot, int canPublish,
-            String nextAction, String displayName, Long updateTime) {
-        this.id = id;
-        this.type = type;
-        this.platformType = platformType;
-        this.gameName = gameName;
-        this.shortX = shortX;
-        this.pinYin = pinYin;
-        this.py = py;
-        this.state = state;
-        this.logoImg = logoImg;
-        this.mainPicture = mainPicture;
-        this.synopsis = synopsis;
-        this.sort = sort;
-        this.isHot = isHot;
-        this.canPublish = canPublish;
-        this.nextAction = nextAction;
-        this.displayName = displayName;
-        this.updateTime = updateTime;
-    }
-    @Generated(hash = 1257372648)
-    public GameInfo() {
-    }
 
+    public GameInfo(){}
     protected GameInfo(Parcel in) {
         id = in.readString();
         type = in.readInt();
@@ -96,126 +65,6 @@ public class GameInfo implements Parcelable{
         canPublish = in.readInt();
         nextAction = in.readString();
         displayName = in.readString();
-    }
-
-    public static final Creator<GameInfo> CREATOR = new Creator<GameInfo>() {
-        @Override
-        public GameInfo createFromParcel(Parcel in) {
-            return new GameInfo(in);
-        }
-
-        @Override
-        public GameInfo[] newArray(int size) {
-            return new GameInfo[size];
-        }
-    };
-
-    public String getId() {
-        return this.id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public int getType() {
-        return this.type;
-    }
-    public void setType(int type) {
-        this.type = type;
-    }
-    public int getPlatformType() {
-        return this.platformType;
-    }
-    public void setPlatformType(int platformType) {
-        this.platformType = platformType;
-    }
-    public String getGameName() {
-        return this.gameName;
-    }
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
-    }
-    public String getShortX() {
-        return this.shortX;
-    }
-    public void setShortX(String shortX) {
-        this.shortX = shortX;
-    }
-    public String getPinYin() {
-        return this.pinYin;
-    }
-    public void setPinYin(String pinYin) {
-        this.pinYin = pinYin;
-    }
-    public String getPy() {
-        return this.py;
-    }
-    public void setPy(String py) {
-        this.py = py;
-    }
-    public int getState() {
-        return this.state;
-    }
-    public void setState(int state) {
-        this.state = state;
-    }
-    public String getLogoImg() {
-        return this.logoImg;
-    }
-    public void setLogoImg(String logoImg) {
-        this.logoImg = logoImg;
-    }
-    public String getMainPicture() {
-        return this.mainPicture;
-    }
-    public void setMainPicture(String mainPicture) {
-        this.mainPicture = mainPicture;
-    }
-    public String getSynopsis() {
-        return this.synopsis;
-    }
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-    public int getSort() {
-        return this.sort;
-    }
-    public void setSort(int sort) {
-        this.sort = sort;
-    }
-    public boolean getIsHot() {
-        return this.isHot;
-    }
-    public void setIsHot(boolean isHot) {
-        this.isHot = isHot;
-    }
-    public int getCanPublish() {
-        return this.canPublish;
-    }
-    public void setCanPublish(int canPublish) {
-        this.canPublish = canPublish;
-    }
-    public String getNextAction() {
-        return this.nextAction;
-    }
-    public void setNextAction(String nextAction) {
-        this.nextAction = nextAction;
-    }
-    public String getDisplayName() {
-        return this.displayName;
-    }
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-    public Long getUpdateTime() {
-        return this.updateTime;
-    }
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
     }
 
     @Override
@@ -236,5 +85,158 @@ public class GameInfo implements Parcelable{
         dest.writeInt(canPublish);
         dest.writeString(nextAction);
         dest.writeString(displayName);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<GameInfo> CREATOR = new Creator<GameInfo>() {
+        @Override
+        public GameInfo createFromParcel(Parcel in) {
+            return new GameInfo(in);
+        }
+
+        @Override
+        public GameInfo[] newArray(int size) {
+            return new GameInfo[size];
+        }
+    };
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getPlatformType() {
+        return platformType;
+    }
+
+    public void setPlatformType(int platformType) {
+        this.platformType = platformType;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public String getShortX() {
+        return shortX;
+    }
+
+    public void setShortX(String shortX) {
+        this.shortX = shortX;
+    }
+
+    public String getPinYin() {
+        return pinYin;
+    }
+
+    public void setPinYin(String pinYin) {
+        this.pinYin = pinYin;
+    }
+
+    public String getPy() {
+        return py;
+    }
+
+    public void setPy(String py) {
+        this.py = py;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getLogoImg() {
+        return logoImg;
+    }
+
+    public void setLogoImg(String logoImg) {
+        this.logoImg = logoImg;
+    }
+
+    public String getMainPicture() {
+        return mainPicture;
+    }
+
+    public void setMainPicture(String mainPicture) {
+        this.mainPicture = mainPicture;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+
+    public boolean isHot() {
+        return isHot;
+    }
+
+    public void setHot(boolean hot) {
+        isHot = hot;
+    }
+
+    public int getCanPublish() {
+        return canPublish;
+    }
+
+    public void setCanPublish(int canPublish) {
+        this.canPublish = canPublish;
+    }
+
+    public String getNextAction() {
+        return nextAction;
+    }
+
+    public void setNextAction(String nextAction) {
+        this.nextAction = nextAction;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public Long getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
     }
 }
